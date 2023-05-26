@@ -3,6 +3,10 @@
 @import "syntax.scss";
 @import "animate.scss";
 
+////////////////////////////////////////
+// fundamentals
+////////////////////////////////////////
+
 html {
   background: $bth-warmer-black;
   font-size: 1.1em;
@@ -19,6 +23,10 @@ textarea {
   color: $text;
   font-family: $fonts;
 }
+
+////////////////////////////////////////
+// default tags everywhere
+////////////////////////////////////////
 
 h1 {
     font-size: 2em;
@@ -37,7 +45,7 @@ a {
   transition-timing-function: ease-out;
 
   &:hover {
-    color: #ddd;
+    color: $offwhite;
   }
 }
 
@@ -98,7 +106,7 @@ pre {
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
-  color: #eee;
+  color: $offwhite;
   background: $midnightblue;
   border-radius: 4px;
   // -webkit-overflow-scrolling: touch;
@@ -111,7 +119,7 @@ pre {
 }
 
 code {
-  color: #eee;
+  color: $offwhite;
   background: $highlight-grey;
   border-radius: 3px;
   padding: 0 3px;
@@ -119,6 +127,10 @@ code {
   word-wrap: break-word;
   letter-spacing: normal;
 }
+
+////////////////////////////////////////
+// main content classes
+////////////////////////////////////////
 
 .section-inner {
   margin: 0 auto;
@@ -146,39 +158,10 @@ code {
   display: none;
 }
 
-// Code copy buttons
-//
+////////////////////////////////////////
+// header & footer
+////////////////////////////////////////
 
-.highlight {
-    position: relative;
-}
-
-.highlight pre {
-    padding-right: 75px;
-}
-
-.highlight-copy-btn {
-    position: absolute;
-    bottom: 7px;
-    right: 7px;
-    border: 0;
-    border-radius: 4px;
-    padding: 1px;
-    font-size: 0.7em;
-    line-height: 1.8;
-    color: #fff;
-    background-color: #777;
-    opacity: 0.6;
-    min-width: 55px;
-    text-align: center;
-}
-
-.highlight-copy-btn:hover {
-    background-color: #666;
-}
-
-// Header & Footer
-//
 #site-header {
   position: fixed;
   z-index: 1;
@@ -272,8 +255,10 @@ code {
   }
 }
 
-// Spotlight
-//
+////////////////////////////////////////
+// spotlight : center aligned content
+////////////////////////////////////////
+
 #spotlight {
   display: flex;
   min-height: 100vh;
@@ -290,6 +275,49 @@ code {
   }
 }
 
+#home-center {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#home-title {
+  margin: 0;
+  text-align: center;
+}
+
+#home-subtitle {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  text-align: center;
+  line-height: normal;
+  font-size: .7em;
+  // font-style: italic;
+  color: $theme;
+  opacity: .9;
+}
+
+#home-nav {
+  opacity: .8;
+
+  a {
+    display: block;
+    text-align: center;
+    margin-top: .5em;
+  }
+}
+
+#home-footer {
+  text-align: center;
+  font-size: .6em;
+  line-height: normal;
+  @include dimmed;
+
+  p {
+    margin-top: 0;
+  }
+}
 p.img-404 {
   margin: 0;
 
@@ -337,62 +365,10 @@ p.img-404 {
   }
 }
 
-#home-center {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#home-title {
-  margin: 0;
-  text-align: center;
-}
-
-#home-subtitle {
-  margin-top: 0;
-  margin-bottom: 1.5em;
-  text-align: center;
-  line-height: normal;
-  font-size: .7em;
-  // font-style: italic;
-  color: $theme;
-  opacity: .9;
-}
-
-#home-social {
-  font-size: 1.4em;
-  text-align: center;
-  opacity: .8;
-
-  a {
-    margin: 0 .2em;
-  }
-}
-
-#home-nav {
-  opacity: .8;
-
-  a {
-    display: block;
-    text-align: center;
-    margin-top: .5em;
-  }
-}
-
-#home-footer {
-  text-align: center;
-  font-size: .6em;
-  line-height: normal;
-  @include dimmed;
-
-  p {
-    margin-top: 0;
-  }
-}
-
+////////////////////////////////////////
 // list.html
-//
+////////////////////////////////////////
+
 .posts-group {
   display: flex;
   margin-bottom: 1.9em;
@@ -435,8 +411,10 @@ p.img-404 {
   }
 }
 
+////////////////////////////////////////
 // single.html
-//
+////////////////////////////////////////
+
 .bg-img {
   width: 100vw;
   height: 100vh;
@@ -724,8 +702,42 @@ a.footnote-ref {
   }
 }
 
-// Accessibility
-//
+////////////////////////////////////////
+// code copy buttons
+////////////////////////////////////////
+
+.highlight {
+    position: relative;
+}
+
+.highlight pre {
+    padding-right: 75px;
+}
+
+.highlight-copy-btn {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    border: 0;
+    border-radius: 4px;
+    padding: 1px;
+    font-size: 0.7em;
+    line-height: 1.8;
+    color: #fff;
+    background-color: #777;
+    opacity: 0.6;
+    min-width: 55px;
+    text-align: center;
+}
+
+.highlight-copy-btn:hover {
+    background-color: #666;
+}
+
+////////////////////////////////////////
+// accessibility
+////////////////////////////////////////
+
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -761,7 +773,10 @@ a.footnote-ref {
 }
 
 
-/* Webkit Scrollbar Customize */
+////////////////////////////////////////
+// webkit scrollbar
+////////////////////////////////////////
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -776,8 +791,10 @@ a.footnote-ref {
   }
 }
 
-// Media Queries
-//
+////////////////////////////////////////
+// media queries
+////////////////////////////////////////
+
 @media (min-width: 800px) {
   .site-main {
     margin-top: 4em;
