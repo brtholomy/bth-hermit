@@ -255,6 +255,14 @@ code {
   }
 }
 
+#footer-logo-wrapper {
+    margin-top: 1em;
+}
+
+img#footer-logo {
+    width: 15%;
+}
+
 ////////////////////////////////////////
 // spotlight : center aligned content
 ////////////////////////////////////////
@@ -274,6 +282,10 @@ code {
     line-height: normal;
   }
 }
+
+////////////////////////////////////////
+// home page
+////////////////////////////////////////
 
 #home-center {
   display: flex;
@@ -318,6 +330,7 @@ code {
     margin-top: 0;
   }
 }
+
 p.img-404 {
   margin: 0;
 
