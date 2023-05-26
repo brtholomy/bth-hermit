@@ -3,25 +3,11 @@
 @import "syntax.scss";
 @import "animate.scss";
 
-/* Webkit Scrollbar Customize */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: $midnightblue;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-
-  &:hover {
-    background: $text;
-  }
-}
-
 html {
-  background: $light-grey;
+  background: $bth-warmer-black;
+  font-size: 1.1em;
+  // letter-spacing: .06em;
   line-height: 1.6;
-  letter-spacing: .06em;
   scroll-behavior: smooth;
 }
 
@@ -32,6 +18,71 @@ select,
 textarea {
   color: $text;
   font-family: $fonts;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2.subtitle {
+  color: $theme;
+}
+
+a {
+  color: $text;
+  text-decoration: none;
+  border: none;
+  transition-property: color;
+  transition-duration: .4s;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    color: #ddd;
+  }
+}
+
+hr {
+  opacity: .2;
+  border-width: 0 0 5px 0;
+  border-style: dashed;
+  background: transparent;
+  width: 50%;
+  margin: 1.8em auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  width: 100%;
+  max-width: 100%;
+
+  th,
+  td {
+    padding: 1.5%;
+    border: 1px solid;
+  }
+
+  th {
+    font-weight: 700;
+    vertical-align: bottom;
+  }
+}
+
+blockquote {
+  border-left: .25em solid;
+  margin: 1em;
+  padding: 0 1em;
+  font-style: italic;
+
+  cite {
+    font-weight: bold;
+    font-style: normal;
+
+    &::before {
+      content: "—— ";
+    }
+  }
 }
 
 pre,
@@ -69,64 +120,6 @@ code {
   letter-spacing: normal;
 }
 
-blockquote {
-  border-left: .25em solid;
-  margin: 1em;
-  padding: 0 1em;
-  font-style: italic;
-
-  cite {
-    font-weight: bold;
-    font-style: normal;
-
-    &::before {
-      content: "—— ";
-    }
-  }
-}
-
-a {
-  color: $text;
-  text-decoration: none;
-  border: none;
-  transition-property: color;
-  transition-duration: .4s;
-  transition-timing-function: ease-out;
-
-  &:hover {
-    color: #fff;
-    text-shadow: 0 0 1px #fff;
-  }
-}
-
-hr {
-  opacity: .2;
-  border-width: 0 0 5px 0;
-  border-style: dashed;
-  background: transparent;
-  width: 50%;
-  margin: 1.8em auto;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  empty-cells: show;
-  width: 100%;
-  max-width: 100%;
-
-  th,
-  td {
-    padding: 1.5%;
-    border: 1px solid;
-  }
-
-  th {
-    font-weight: 700;
-    vertical-align: bottom;
-  }
-}
-
 .section-inner {
   margin: 0 auto;
   max-width: 1200px;
@@ -135,7 +128,7 @@ table {
 
 .thin {
   max-width: 720px;
-  margin: auto;
+  margin: 8em auto;
 }
 
 .feather {
@@ -184,48 +177,12 @@ table {
     background-color: #666;
 }
 
-// Accessibility
-//
-.screen-reader-text {
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important;
-}
-
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	clip-path: none;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000;
-}
-
 // Header & Footer
 //
 #site-header {
   position: fixed;
   z-index: 1;
-  bottom: 0;
+  top: 0;
   width: 100%;
   box-sizing: border-box;
   box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.45);
@@ -270,15 +227,6 @@ table {
   font-size: 1.2em;
 }
 
-.hdr-social {
-  display: inline-block;
-  margin-left: .6em;
-
-  &>a {
-    margin-left: .4em;
-  }
-}
-
 .hdr-btn {
   border: none;
   background: none;
@@ -295,7 +243,7 @@ table {
 
 #mobile-menu {
   position: fixed;
-  bottom: 4.8em;
+  top: 4.8em;
   right: 1.5em;
   display: none;
   padding: .6em 1.8em;
@@ -407,7 +355,8 @@ p.img-404 {
   text-align: center;
   line-height: normal;
   font-size: .7em;
-  font-style: italic;
+  // font-style: italic;
+  color: $theme;
   opacity: .9;
 }
 
@@ -525,7 +474,7 @@ p.img-404 {
 
 hr.post-end {
   width: 50%;
-  margin-top: 1.6em;
+  margin-top: 1em;
   margin-bottom: .8em;
   margin-left: 0;
   border-style: solid;
@@ -538,7 +487,12 @@ hr.post-end {
   text-justify: inter-ideograph; //For IE/Edge
   {{- end }}
 
-  @include aTag;
+  @include animated-a-tag;
+
+  em {
+      font-weight: bold;
+      font-style: normal;
+  }
 
   figure {
     max-width: 100%;
@@ -614,6 +568,20 @@ hr.post-end {
   h5:hover a.anchor svg,
   h6:hover a.anchor svg {
     visibility: visible;
+  }
+}
+
+.signature a {
+  color: $theme;
+  text-decoration: none;
+  border: none;
+  transition-property: color;
+  transition-duration: .4s;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 1px #fff;
   }
 }
 
@@ -741,8 +709,8 @@ a.footnote-ref {
 .related-posts {
   padding: .8em;
   margin-top: 1.5em;
-  font-size: .8rem;
-  border: 3px dashed rgba(255, 255, 255, .2);
+  font-size: 1rem;
+  // border: 3px dashed rgba(255, 255, 255, .2);
   border-radius: 5px;
 
   h2{
@@ -756,12 +724,63 @@ a.footnote-ref {
   }
 }
 
+// Accessibility
+//
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+
+/* Webkit Scrollbar Customize */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: $midnightblue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+
+  &:hover {
+    background: $text;
+  }
+}
 
 // Media Queries
 //
 @media (min-width: 800px) {
   .site-main {
-    margin-top: 3em;
+    margin-top: 4em;
   }
 
   hr.post-end {

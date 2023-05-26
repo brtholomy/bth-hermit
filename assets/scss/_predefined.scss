@@ -1,16 +1,16 @@
 // Colors
 //
-$theme: #018574;
-$text: #e8eef2;
-$light-grey: #494f5c;
-$dark-grey: #3B3E48;
+$theme: #c65108;
+$text: #c09030;
+$bth-warmer-black: #242424;
+$dark-grey: #4c3f34;
 $highlight-grey: #7d828a;
 $midnightblue: #2c3e50;
 
 // Fonts
 //
-$fonts: "Trebuchet MS", Verdana, "Verdana Ref", "Segoe UI", Candara, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-$code-fonts: Consolas, "Andale Mono WT", "Andale Mono", Menlo, Monaco, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, "YaHei Consolas Hybrid", monospace, "Segoe UI Emoji", "PingFang SC", "Microsoft YaHei";
+$fonts: "Courier New", Courier, monospace;
+$code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
 // Mixins
 //
@@ -18,7 +18,7 @@ $code-fonts: Consolas, "Andale Mono WT", "Andale Mono", Menlo, Monaco, "Lucida C
   opacity: .6;
 }
 
-@mixin aTag {
+@mixin animated-a-tag {
   a {
     word-wrap: break-word;
     border: none;
@@ -28,6 +28,7 @@ $code-fonts: Consolas, "Andale Mono WT", "Andale Mono", Menlo, Monaco, "Lucida C
 
     &:hover {
       box-shadow: inset 0 -1em 0 $theme;
+      color: $bth-warmer-black;
     }
   }
 }

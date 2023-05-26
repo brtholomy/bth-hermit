@@ -36,11 +36,11 @@ let lastScrollPosition = window.pageYOffset;
 const autoHideHeader = () => {
   let currentScrollPosition = Math.max(window.pageYOffset, 0);
   if (currentScrollPosition > lastScrollPosition) {
-    header.classList.remove('slideInUp');
-    header.classList.add('slideOutDown');
+    header.classList.remove('slideInDown');
+    header.classList.add('slideOutUp');
   } else {
-    header.classList.remove('slideOutDown');
-    header.classList.add('slideInUp');
+    header.classList.remove('slideOutUp');
+    header.classList.add('slideInDown');
   }
   lastScrollPosition = currentScrollPosition;
 }
@@ -52,13 +52,13 @@ let mobileMenuVisible = false;
 const toggleMobileMenu = () => {
   let mobileMenu = document.getElementById('mobile-menu');
   if (mobileMenuVisible == false) {
-    mobileMenu.style.animationName = 'bounceInRight';
-    mobileMenu.style.webkitAnimationName = 'bounceInRight';
+    mobileMenu.style.animationName = 'slideInRight';
+    mobileMenu.style.webkitAnimationName = 'slideInRight';
     mobileMenu.style.display = 'block';
     mobileMenuVisible = true;
   } else {
-    mobileMenu.style.animationName = 'bounceOutRight';
-    mobileMenu.style.webkitAnimationName = 'bounceOutRight'
+    mobileMenu.style.animationName = 'slideOutRight';
+    mobileMenu.style.webkitAnimationName = 'slideOutRight'
     mobileMenuVisible = false;
   }
 }

@@ -23,11 +23,11 @@ other = "{{ .WordCount }} Words"
 [tableOfContents]
 other = "Table of Contents"
 
-[newer]
-other = "Newer"
+[next]
+other = "Next"
 
-[older]
-other = "Older"
+[previous]
+other = "Previous"
 
 # partials/header.html
 #
