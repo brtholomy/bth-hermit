@@ -17,42 +17,7 @@
 		</div>
 		{{- end }}
 
-		{{- range .Data.Pages }}
-		<ul class="posts-list">
-		  <li class="post-item">
-
-                    <!-- justify-content: space-between -->
-                    <!-- just two items -->
-		    <a class="post-link-wrapper" href="{{.Permalink}}">
-
-                      <!-- 1. item space-between -->
-                      <!-- flex-direction: left -->
-                      <!-- thumbnail and titles packed left -->
-                      <div class="post-thumbail-and-titles">
-
-			{{- with .Params.thumbnail }}
-			<img class="post-thumbnail" src="{{ . | relURL}}"/>
-			{{- end }}
-
-                        <!-- flex-direction: column -->
-                        <!-- titles stacked -->
-                        <div class="post-titles">
-			  <span class="post-title">{{.Title}}</span>
-
-			  {{- with .Params.subTitle }}
-                          <span class="post-subtitle">{{ . }}</span>
-			  {{- end }}
-
-                        </div>
-                      </div>
-
-                      <!-- 2. item space-between -->
-                      <!-- NOTE: hidden in mobile -->
-		      <div class="post-date hide-in-mobile">{{ .Date.Format .Site.Params.dateformNum }}</div>
-		    </a>
-		  </li>
-		</ul>
-		{{- end }}
+                {{ partial "post-list.html" (dict "range" .Data.Pages "context" . ) }}
 
 	</main>
 {{ end }}
