@@ -16,13 +16,20 @@
 	{{- if (or .Params.images .Params.featuredImg) }}
 	<div class="bg-img"></div>
 	{{- end }}
+
 	<main class="site-main section-inner animated fadeIn faster">
 		<article class="thin">
 		  <header class="post-header">
 
 		    <h1>{{ .Title }}</h1>
-		    <h2 class="subtitle">{{ .Params.subTitle }}</h2>
-		    <img class="post-image" src="{{.Params.image | relURL}}"/>
+
+		    {{- with .Params.subTitle -}}
+		    <h2 class="subtitle">{{ . }}</h2>
+		    {{- end }}
+
+		    {{- with .Params.image -}}
+		    <img class="post-image" src="{{ . | relURL}}"/>
+		    {{- end }}
 
 		  </header>
 

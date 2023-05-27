@@ -32,10 +32,6 @@ h1 {
     font-size: 2em;
 }
 
-h2.subtitle {
-  color: $theme;
-}
-
 a {
   color: $text;
   text-decoration: none;
@@ -140,7 +136,10 @@ code {
 
 .thin {
   max-width: 720px;
-  margin: 8em auto;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0em;
 }
 
 .feather {
@@ -255,6 +254,7 @@ code {
   margin-top: 64px;
 
   p {
+    @include dimmed;
     margin: 0;
   }
 }
@@ -410,12 +410,10 @@ li.post-item {
 
             img.post-thumbnail {
                 width: 4em;
-                // FIXME: should this get applied to parent?
-                // flex-shrink: 0;
+                // NOTE: this will crop the image if the screen is very small
                 object-fit: cover;
                 padding: 0em;
-                margin: 0em 0.5em 0em 0em;
-                @include dimmed;
+                margin: 0em 1em 0em 0em;
             }
 
             .post-titles {
@@ -474,14 +472,19 @@ li.post-item {
   margin-top: 1.2em;
   line-height: normal;
 
-  .post-meta {
-    font-size: .9em;
-    letter-spacing: normal;
-    @include dimmed;
-  }
-
   h1 {
     margin-top: .1em;
+  }
+
+  h2 {
+      margin-top: -.5em;
+      font-weight: normal;
+      // color: $offwhite;
+  }
+
+  img.post-image {
+      margin-top: 1em;
+      width: 100%;
   }
 }
 
@@ -832,7 +835,7 @@ a.footnote-ref {
 
 @media (min-width: 800px) {
   .site-main {
-    margin-top: 4em;
+    margin-top: 6em;
   }
 
   hr.post-end {
@@ -842,13 +845,13 @@ a.footnote-ref {
 
 @media (min-width: 960px) {
   .site-main {
-    margin-top: 6em;
+    margin-top: 8em;
   }
 }
 
 @media (min-width: 1300px) {
   .site-main {
-    margin-top: 8em;
+    margin-top: 10em;
   }
 
   .desktop-only,
@@ -892,7 +895,7 @@ a.footnote-ref {
 
 @media (min-width: 1800px) {
   .site-main {
-    margin-top: 10em;
+    margin-top: 12em;
   }
 
   .section-inner {
