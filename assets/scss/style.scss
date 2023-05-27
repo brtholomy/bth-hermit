@@ -387,47 +387,64 @@ p.img-404 {
 // list.html
 ////////////////////////////////////////
 
-.posts-group {
-  display: flex;
-  margin-bottom: 1.9em;
-  line-height: normal;
-
-  .post-year {
-    padding-top: 6px;
-    margin-right: 1.8em;
-    font-size: 1.6em;
-    @include dimmed;
-
-    &:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-
-  .posts-list {
-    flex-grow: 1;
+ul.posts-list {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-
-  .post-item {
-    border-bottom: 1px $highlight-grey dashed;
-
-    a {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 12px 0;
-    }
-  }
-
-  .post-day {
-    flex-shrink: 0;
-    margin-left: 1em;
-    @include dimmed;
-  }
 }
+
+li.post-item {
+    border-bottom: 1px $highlight-grey dashed;
+    padding: 0.1em 0em;
+
+    a.post-link-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 12px 0;
+
+        .post-thumbail-and-titles {
+            display: flex;
+            flex-direction: left;
+            flex-direction: row;
+
+            img.post-thumbnail {
+                width: 4em;
+                // FIXME: should this get applied to parent?
+                // flex-shrink: 0;
+                object-fit: cover;
+                padding: 0em;
+                margin: 0em 0.5em 0em 0em;
+                @include dimmed;
+            }
+
+            .post-titles {
+                display: flex;
+                flex-direction: column;
+                // this affects its alignment relative to the parent
+                // which is "row"
+                align-self: flex-end;
+
+                .post-title {
+                    font-weight: bold;
+                }
+                .post-subtitle {
+                    font-size: 0.9em;
+                    @include dimmed;
+                }
+            }
+        }
+
+        .post-date {
+            flex-shrink: 0;
+            margin-left: 1em;
+            font-size: 0.9em;
+            @include dimmed;
+        }
+    }
+}
+
+
 
 ////////////////////////////////////////
 // single.html

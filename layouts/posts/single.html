@@ -22,6 +22,7 @@
 
 		    <h1>{{ .Title }}</h1>
 		    <h2 class="subtitle">{{ .Params.subTitle }}</h2>
+		    <img class="post-image" src="{{.Params.image | relURL}}"/>
 
 		  </header>
 
@@ -55,8 +56,8 @@
                                 </p>
 				{{- end }}
 
-                          <!-- series tags -->
-				{{- with .Params.series }}
+                          <!-- tags -->
+				{{- with .Params.tags }}
 				<p>
                                   {{ partial "svg.html" (dict "type" "tag") }}
 					{{- range . -}}

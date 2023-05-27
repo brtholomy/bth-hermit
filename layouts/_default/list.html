@@ -10,21 +10,37 @@
 			{{ .Content }}
 		</div>
 		{{- end }}
-		{{- range .Data.Pages.GroupByDate "2006" }}
-		<div class="posts-group">
-			<div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
-			<ul class="posts-list">
-				{{- range .Pages }}
-				<li class="post-item">
-					<a href="{{.Permalink}}">
-						<span class="post-title">{{.Title}}</span>
-						<span class="post-day">{{ .Date.Format .Site.Params.dateformShort }}</span>
-					</a>
-				</li>
-				{{- end }}
-			</ul>
-		</div>
+
+		{{- range .Data.Pages }}
+		<ul class="posts-list">
+		  <li class="post-item">
+
+                    <!-- justify-content: space-between -->
+                    <!-- just two items -->
+		    <a class="post-link-wrapper" href="{{.Permalink}}">
+
+                      <!-- 1. item space-between -->
+                      <!-- flex-direction: left -->
+                      <!-- thumbnail and titles packed left -->
+                      <div class="post-thumbail-and-titles">
+			<img class="post-thumbnail" src="{{.Params.thumbnail | relURL}}"/>
+
+                        <!-- flex-direction: column -->
+                        <!-- titles stacked -->
+                        <div class="post-titles">
+			  <span class="post-title">{{.Title}}</span>
+                          <span class="post-subtitle">{{ .Params.subTitle }}</span>
+                        </div>
+                      </div>
+
+                      <!-- 2. item space-between -->
+                      <!-- NOTE: hidden in mobile -->
+		      <div class="post-date hide-in-mobile">{{ .Date.Format .Site.Params.dateformNum }}</div>
+		    </a>
+		  </li>
+		</ul>
 		{{- end }}
+
 	</main>
 {{ end }}
 
