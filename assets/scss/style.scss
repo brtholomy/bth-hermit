@@ -8,7 +8,7 @@
 ////////////////////////////////////////
 
 html {
-  background: $bth-warmer-black;
+  background: $background;
   font-size: 1.1em;
   // letter-spacing: .06em;
   line-height: 1.6;
@@ -169,7 +169,7 @@ code {
   width: 100%;
   box-sizing: border-box;
   box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.45);
-  background-color: $dark-grey;
+  background-color: $menu-background;
   animation-duration: .3s;
 }
 
@@ -184,6 +184,10 @@ code {
     display: inline-block;
     margin-right: .8em;
     font-size: 1.2em;
+  }
+
+  .site-branding a {
+    @include glow;
   }
 
   .site-nav {
@@ -233,7 +237,7 @@ code {
   z-index: 1;
   box-sizing: border-box;
   box-shadow: -1px -2px 3px 0px rgba(0, 0, 0, 0.45);
-  background-color: $dark-grey;
+  background-color: $menu-background;
 
   ul {
     list-style: none;
@@ -297,6 +301,7 @@ img#footer-logo {
 #home-title {
   margin: 0;
   text-align: center;
+  @include glow;
 }
 
 #home-subtitle {

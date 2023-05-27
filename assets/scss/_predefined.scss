@@ -2,8 +2,8 @@
 //
 $theme: #c65108;
 $text: #c09030;
-$bth-warmer-black: #242424;
-$dark-grey: #4c3f34;
+$background: #180904;
+$menu-background: #111;
 $highlight-grey: #7d828a;
 $offwhite: #ddd;
 $midnightblue: #2c3e50;
@@ -13,8 +13,25 @@ $midnightblue: #2c3e50;
 $fonts: "Courier New", Courier, monospace;
 $code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
+@keyframes color-glow {
+	0% {
+		color: $text;
+	}
+	100% {
+		color: $theme;
+	}
+}
+
 // Mixins
 //
+@mixin glow {
+  animation-name: color-glow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+}
+
 @mixin dimmed {
   opacity: .6;
 }
@@ -29,7 +46,7 @@ $code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
     &:hover {
       box-shadow: inset 0 -1em 0 $theme;
-      color: $bth-warmer-black;
+      color: $background;
     }
   }
 }
