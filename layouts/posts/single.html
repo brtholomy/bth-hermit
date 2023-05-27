@@ -68,7 +68,7 @@
 				<p>
                                   {{ partial "svg.html" (dict "type" "tag") }}
 					{{- range . -}}
-					<span class="tag"><a href="{{ "series/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
+					<span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
 					{{- end }}
 				</p>
 				{{- end }}
