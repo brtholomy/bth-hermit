@@ -1,17 +1,19 @@
 
-		<ul class="posts-list">
+              <ul class="posts-list">
 
-                  {{ $checkFeatured := .checkFeatured }}
-                  <!-- we pass the iterable in a dict as "range" -->
-		  {{- range .range }}
+                {{ $checkFeatured := .checkFeatured }}
+                <!-- we pass the iterable in a dict as "range" -->
+                {{- range .range }}
+
+                  {{ $inputpage := . }}
 
                   <!-- check for identity of featuredPost and this page -->
-                  {{ $inputpage := . }}
-                  {{- with .Site.GetPage .Site.Params.featuredPost }}
+                  <!-- FIXME: this will fail when featuredPost is not set! -->
+                  {{- $featuredPage := .Site.GetPage .Site.Params.featuredPost }}
 
-                    {{ if (and (eq $inputpage . ) $checkFeatured) }}
+                  {{ if (and $checkFeatured $featuredPage (eq $inputpage $featuredPage ) ) }}
                     <!-- do nothing -->
-                    {{- else }}
+                  {{- else }}
 
                     <li>
 
@@ -19,7 +21,6 @@
 
                     </li>
 
-                    {{- end }}
                   {{- end }}
 
 		{{- end }}
