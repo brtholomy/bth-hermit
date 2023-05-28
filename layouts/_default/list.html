@@ -4,20 +4,43 @@
 
 {{ define "main" }}
 	<main class="site-main section-inner thin animated fadeIn faster">
-		<h1>
-                  <!-- hash in front of tag listings: -->
-                  {{- if (eq .Page.Kind "term") -}}
-                  #
-                  {{- end -}}
-                  {{- .Title -}}
-                </h1>
-		{{- if .Content }}
-		<div class="content">
-			{{ .Content }}
-		</div>
-		{{- end }}
 
-                {{ partial "post-list.html" (dict "range" .Data.Pages "context" . ) }}
+          {{- if (eq .Page.Kind "section") -}}
+            {{- with .Site.GetPage .Site.Params.featuredPost }}
+
+              <h2>
+                featured
+              </h2>
+              {{ partial "post-item.html" . }}
+
+            {{- end -}}
+          {{- end -}}
+
+	  <h2>
+            <!-- hash in front of tag listings: -->
+            {{- if (eq .Page.Kind "term") -}}
+                  #
+            {{- end -}}
+
+            {{- if (eq .Page.Type "posts") -}}
+            archive
+            {{- else -}}
+            {{- .Title -}}
+            {{- end -}}
+
+          </h2>
+
+	  {{- if .Content }}
+	  <div class="content">
+	    {{ .Content }}
+	  </div>
+	  {{- end }}
+
+          {{- if (eq .Page.Kind "term") -}}
+          {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "ignoreFeatured" false ) }}
+          {{- else }}
+          {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "ignoreFeatured" true ) }}
+          {{- end -}}
 
 	</main>
 {{ end }}

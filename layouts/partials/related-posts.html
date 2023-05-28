@@ -1,9 +1,10 @@
+{{- $context := . }}
 {{- $related := .Site.RegularPages.Related . | first 3 }}
 {{ with $related }}
 <div class="related-posts thin">
   <h2>Keep falling:</h2>
 
-  {{ partial "post-list.html" (dict "range" . "context" . ) }}
+  {{ partial "post-list.html" (dict "range" . "context" $context "ignoreFeatured" false) }}
 
 </div>
 {{ end -}}

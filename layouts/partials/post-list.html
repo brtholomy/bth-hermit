@@ -1,41 +1,27 @@
 
 		<ul class="posts-list">
 
+                  {{ $ignoreFeatured := .ignoreFeatured }}
                   <!-- we pass the iterable in a dict as "range" -->
 		  {{- range .range }}
 
-		  <li class="post-item">
+                  <!-- check for identity of featuredPost and this page -->
+                  {{ $inputpage := . }}
+                  {{- with .Site.GetPage .Site.Params.featuredPost }}
 
-                    <!-- justify-content: space-between -->
-                    <!-- just two items -->
-		    <a class="post-link-wrapper" href="{{ .Permalink}}">
+                    {{ if (and (eq $inputpage . ) $ignoreFeatured) }}
 
-                      <!-- 1. item space-between -->
-                      <!-- flex-direction: left -->
-                      <!-- thumbnail and titles packed left -->
-                      <div class="post-thumbail-and-titles">
+                    {{- else }}
 
-			{{- with .Params.thumbnail }}
-			<img class="post-thumbnail" src="{{ . | relURL}}"/>
-			{{- end }}
+                    <li>
 
-                        <!-- flex-direction: column -->
-                        <!-- titles stacked -->
-                        <div class="post-titles">
-			  <span class="post-title">{{.Title}}</span>
+                      {{ partial "post-item.html" $inputpage }}
 
-			  {{- with .Params.subTitle }}
-                          <span class="post-subtitle">{{ . }}</span>
-			  {{- end }}
+                    </li>
 
-                        </div>
-                      </div>
+                    {{- end }}
+                  {{- end }}
 
-                      <!-- 2. item space-between -->
-                      <!-- NOTE: hidden in mobile -->
-		      <div class="post-date hide-in-mobile">{{ .Date.Format .Site.Params.dateformNum }}</div>
-		    </a>
-		  </li>
 		{{- end }}
 
 		</ul>
