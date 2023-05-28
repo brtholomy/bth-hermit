@@ -5,7 +5,8 @@
 {{ define "main" }}
 	<main class="site-main section-inner thin animated fadeIn faster">
 
-          {{- if (eq .Page.Kind "section") -}}
+          <!-- featuredPost on posts/ only -->
+          {{- if (eq .Page.Type "posts") -}}
             {{- with .Site.GetPage .Site.Params.featuredPost }}
 
               <h2>
@@ -22,6 +23,7 @@
                   #
             {{- end -}}
 
+            <!-- change name of rest of posts/ -->
             {{- if (eq .Page.Type "posts") -}}
             archive
             {{- else -}}
@@ -36,10 +38,11 @@
 	  </div>
 	  {{- end }}
 
-          {{- if (eq .Page.Kind "term") -}}
-          {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "ignoreFeatured" false ) }}
+          <!-- checkFeatured for posts/ only -->
+          {{- if (eq .Page.Type "posts") -}}
+          {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "checkFeatured" true ) }}
           {{- else }}
-          {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "ignoreFeatured" true ) }}
+          {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "checkFeatured" false ) }}
           {{- end -}}
 
 	</main>

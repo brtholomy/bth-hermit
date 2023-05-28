@@ -1,7 +1,7 @@
 
 		<ul class="posts-list">
 
-                  {{ $ignoreFeatured := .ignoreFeatured }}
+                  {{ $checkFeatured := .checkFeatured }}
                   <!-- we pass the iterable in a dict as "range" -->
 		  {{- range .range }}
 
@@ -9,8 +9,8 @@
                   {{ $inputpage := . }}
                   {{- with .Site.GetPage .Site.Params.featuredPost }}
 
-                    {{ if (and (eq $inputpage . ) $ignoreFeatured) }}
-
+                    {{ if (and (eq $inputpage . ) $checkFeatured) }}
+                    <!-- do nothing -->
                     {{- else }}
 
                     <li>
