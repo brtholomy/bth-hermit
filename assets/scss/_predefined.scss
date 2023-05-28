@@ -1,11 +1,16 @@
 // Colors
 //
 $theme: #c65108;
-$text: #c09030;
 $background: #180904;
-$menu-background: #111;
+$text: #c09030;
+$text-dim: #c07010;
+$cream: #d6c59f;
+// $coffee: #704b2b;
+$coffee: #6e4522;
+$offwhite: #edd;
+$menu-background: $coffee;
+
 $highlight-grey: #7d828a;
-$offwhite: #ddd;
 $midnightblue: #2c3e50;
 
 // Fonts
@@ -13,7 +18,7 @@ $midnightblue: #2c3e50;
 $fonts: "Courier New", Courier, monospace;
 $code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
-@keyframes color-glow {
+@keyframes color-theme-glow {
 	0% {
 		color: $text;
 	}
@@ -24,12 +29,12 @@ $code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
 // Mixins
 //
-@mixin glow {
-  animation-name: color-glow;
+@mixin theme-glow {
+  animation-name: color-theme-glow;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 @mixin dimmed {

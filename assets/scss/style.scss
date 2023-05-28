@@ -41,7 +41,7 @@ a {
   transition-timing-function: ease-out;
 
   &:hover {
-    color: $offwhite;
+    color: $cream;
   }
 }
 
@@ -182,17 +182,31 @@ code {
   .site-branding {
     display: inline-block;
     margin-right: .8em;
-    font-size: 1.2em;
   }
 
   .site-branding a {
-    @include glow;
+    color: $background;
+    font-size: 1.4em;
+
+    text-decoration: none;
+    border: none;
+    transition-property: color;
+    transition-duration: .4s;
+    transition-timing-function: ease-out;
+
+    &:hover {
+        color: $cream;
+    }
   }
 
   .site-nav {
     display: inline-block;
     font-size: 1.1em;
-    opacity: .8;
+    // opacity: .8;
+
+    a {
+      margin-left: .8em;
+    }
 
     .has-children {
       padding-right: .5em;
@@ -201,10 +215,6 @@ code {
 
     .sub-menu > a{
       margin-left: .3em;
-    }
-
-    a {
-      margin-left: .8em;
     }
   }
 }
@@ -301,7 +311,7 @@ img#footer-logo {
 #home-title {
   margin: 0;
   text-align: center;
-  @include glow;
+  @include theme-glow;
 }
 
 #home-subtitle {
@@ -393,8 +403,8 @@ ul.posts-list {
     list-style: none;
 }
 
-li.post-item {
-    border-bottom: 1px $text dashed;
+.post-item {
+    border-bottom: 1px $text-dim dashed;
     padding: 0.1em 0em;
 
     a.post-link-wrapper {
@@ -498,6 +508,8 @@ hr.post-end {
 }
 
 .content {
+  line-height: 2.2em;
+
   {{- with .Site.Params.justifyContent }}
   text-align: justify;
   text-justify: inter-ideograph; //For IE/Edge
@@ -724,7 +736,7 @@ a.footnote-ref {
 
 .related-posts {
   // padding: .8em;
-  margin-top: 1.5em;
+  margin-top: 5em;
   font-size: 1rem;
   // border: 3px solid $theme;
   // border-radius: 5px;
