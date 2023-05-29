@@ -14,6 +14,10 @@
 					{{ partialCached "menu.html" . }}
 				</nav>
 
+                          <!-- subscribe button -->
+				<a id="subscribe-btn" href="https://www.tinyletter.com/site/about/">
+                                  subscribe</a>
+
                           <!-- img button -->
 				{{ if (or .Params.images .Params.featuredImg) -}}
 				<button id="img-btn" class="hdr-btn" title="{{i18n "featuredImage"}}">

@@ -171,17 +171,17 @@ code {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 10px 10px $background;
   background-color: $menu-background;
   animation-duration: .3s;
 }
 
 .hdr-wrapper {
+  font-size: $menu-initial-size;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: .5em 0;
-  font-size: 1.2rem;
 
   .site-branding {
     display: inline-block;
@@ -190,7 +190,7 @@ code {
 
   .site-branding a {
     color: $background;
-    font-size: 1.4em;
+    font-weight: bold;
 
     text-decoration: none;
     border: none;
@@ -203,10 +203,16 @@ code {
     }
   }
 
+  #subscribe-btn {
+      margin-left: 1em;
+      padding: 0.2em;
+      text-decoration: underline;
+      // background: $background;
+      cursor: pointer;
+  }
+
   .site-nav {
     display: inline-block;
-    font-size: 1.1em;
-    // opacity: .8;
 
     a {
       margin-left: .8em;
@@ -221,10 +227,6 @@ code {
       margin-left: .3em;
     }
   }
-}
-
-.hdr-icons {
-  font-size: 1.2em;
 }
 
 .hdr-btn {
@@ -242,6 +244,7 @@ code {
 }
 
 #mobile-menu {
+  font-size: $menu-initial-size;
   position: fixed;
   top: 4.8em;
   right: 1.5em;
@@ -257,7 +260,6 @@ code {
     margin: 0;
     padding: 0;
     line-height: 2;
-    font-size: 1.5em;
   }
 }
 
@@ -895,11 +897,20 @@ a.footnote-ref {
   .site-main {
     margin-top: 8em;
   }
+
+  .hdr-wrapper {
+    font-size: 1.3em;
+  }
+
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1280px) {
   .site-main {
     margin-top: 10em;
+  }
+
+  .hdr-wrapper {
+    font-size: 1.4em;
   }
 
   .desktop-only,

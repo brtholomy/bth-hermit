@@ -18,6 +18,10 @@ $midnightblue: #2c3e50;
 $fonts: "Courier New", Courier, monospace;
 $code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
+$menu-initial-size: 1.3em;
+
+// Mixins
+//
 @keyframes color-theme-glow {
 	0% {
 		color: $text;
@@ -27,8 +31,6 @@ $code-fonts: "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 	}
 }
 
-// Mixins
-//
 @mixin theme-glow {
   animation-name: color-theme-glow;
   animation-duration: 3s;
