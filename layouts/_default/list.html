@@ -11,12 +11,12 @@
 
               {{ partial "featured-post.html" . }}
 
+              <hr/>
+
             {{- end -}}
           {{- end -}}
 
-          <hr/>
-
-	  <h2>
+	  <h2 class="list-heading">
             <!-- hash in front of tag listings: -->
             {{- if (eq .Page.Kind "term") -}}
                   #

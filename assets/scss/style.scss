@@ -48,7 +48,7 @@ a {
 hr {
   opacity: .2;
   border-width: 0 0 2px 0;
-  border-style: dashed;
+  border-style: solid;
   background: transparent;
   width: 50%;
   margin: 1.8em auto;
@@ -396,6 +396,11 @@ p.img-404 {
 ////////////////////////////////////////
 // list.html
 ////////////////////////////////////////
+
+.list-heading {
+    @include dimmed;
+    font-weight: normal;
+}
 
 ul.posts-list {
     margin: 0;
