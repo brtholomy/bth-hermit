@@ -1,10 +1,8 @@
                   <div class="post-item">
-                    <!-- justify-content: space-between -->
-                    <!-- just two items -->
-                    <a class="post-link-wrapper" href="{{ .Permalink}}">
 
-                      <!-- 1. item space-between -->
-                      <!-- flex-direction: left -->
+                    <a href="{{ .Permalink}}">
+
+                      <!-- flex-direction: row -->
                       <!-- thumbnail and titles packed left -->
                       <div class="post-thumbail-and-titles">
 
@@ -24,8 +22,5 @@
                         </div>
                       </div>
 
-                      <!-- 2. item space-between -->
-                      <!-- NOTE: hidden in mobile -->
-                      <div class="post-date hide-in-mobile">{{ .Date.Format .Site.Params.dateformNum }}</div>
                     </a>
                   </div>

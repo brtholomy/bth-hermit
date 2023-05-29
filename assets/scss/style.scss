@@ -409,48 +409,33 @@ ul.posts-list {
 }
 
 .post-item {
-    // border-bottom: 1px #242424 dashed;
-    padding: 0.1em 0em;
+    padding: 1em 0em;
 
-    a.post-link-wrapper {
+    .post-thumbail-and-titles {
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding: 12px 0;
+        flex-direction: row;
 
-        .post-thumbail-and-titles {
-            display: flex;
-            flex-direction: row;
-
-            img.post-thumbnail {
-                width: 4em;
-                align-self: center;
-                padding: 0em;
-                margin: 0em 1em 0em 0em;
-            }
-
-            .post-titles {
-                display: flex;
-                flex-direction: column;
-                // this affects its alignment relative to the parent
-                // which is "row"
-                align-self: flex-end;
-
-                .post-title {
-                    font-weight: bold;
-                }
-                .post-subtitle {
-                    font-size: 0.9em;
-                    @include dimmed;
-                }
-            }
+        img.post-thumbnail {
+            width: 4em;
+            align-self: center;
+            padding: 0em;
+            margin: 0em 1em 0em 0em;
         }
 
-        .post-date {
-            flex-shrink: 0;
-            margin-left: 1em;
-            font-size: 0.9em;
-            @include dimmed;
+        .post-titles {
+            display: flex;
+            flex-direction: column;
+            // this affects its alignment relative to the parent
+            // which is "row"
+            align-self: flex-end;
+
+            .post-title {
+                font-weight: bold;
+            }
+            .post-subtitle {
+                font-size: 0.9em;
+                @include dimmed;
+            }
         }
     }
 }
