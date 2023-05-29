@@ -433,7 +433,7 @@ ul.posts-list {
             flex-direction: column;
             // this affects its alignment relative to the parent
             // which is "row"
-            align-self: flex-end;
+            align-self: center;
 
             .post-title {
                 font-weight: bold;

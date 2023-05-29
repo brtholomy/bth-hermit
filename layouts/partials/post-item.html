@@ -13,7 +13,12 @@
                         <!-- flex-direction: column -->
                         <!-- titles stacked -->
                         <div class="post-titles">
-                          <span class="post-title">{{.Title}}</span>
+                          <span class="post-title">
+                          {{- if (eq .Page.Kind "term") -}}
+                          #
+                          {{- end -}}
+                          {{- .Title -}}
+                          </span>
 
                           {{- with .Params.subTitle }}
                           <span class="post-subtitle">{{ . }}</span>
