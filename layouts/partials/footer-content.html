@@ -1,5 +1,5 @@
 <p>
-&copy; {{ now.Format "2006" }} <a href="{{ .Site.Author.url | relURL }}">{{ .Site.Author.name }}</a>
+&copy; {{ now.Format "2006" }} <a href="{{ .Site.Author.url | relURL }}">{{ .Site.Params.footerCopyright }}</a>
 
 {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
 
