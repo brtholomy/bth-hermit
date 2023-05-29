@@ -27,8 +27,15 @@
 		    <h2 class="subtitle">{{ . }}</h2>
 		    {{- end }}
 
-		    {{- with .Params.image -}}
+                    <!-- use images parameter because _internal/opengraph.html picks it up -->
+                    <!-- otherwise I could manually create the meta tag here -->
+                    <!-- <meta property="og:image" content=" URL " /> -->
+                    <!-- but it wouldn't be in the head -->
+                    <!-- https://gohugo.io/templates/internal/#open-graph -->
+		    {{- with .Params.images -}}
+                    {{- range first 1 . -}}
 		    <img class="post-image" src="{{ . | relURL}}"/>
+		    {{- end }}
 		    {{- end }}
 
 		  </header>
