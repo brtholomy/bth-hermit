@@ -9,9 +9,9 @@
 
 html {
   background: $background;
-  font-size: 1em;
+  font-size: 1.1em;
   // letter-spacing: .06em;
-  line-height: 1.2;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
@@ -526,6 +526,8 @@ hr.post-end {
 }
 
 .content {
+  // small size for mobile screens, turned up with media queries
+  font-size: 0.95em;
   line-height: 2.2em;
 
   {{- with .Site.Params.justifyContent }}
@@ -864,11 +866,19 @@ a.footnote-ref {
 // media queries
 ////////////////////////////////////////
 
+// min-width queries
+
+@media (min-width: 520px) {
+
+  .content {
+      font-size: 1em;
+  }
+}
+
 @media (min-width: 800px) {
 
-  html {
+  .content {
       font-size: 1.1em;
-      line-height: 1.3;
   }
 
   .site-main {
@@ -881,11 +891,6 @@ a.footnote-ref {
 }
 
 @media (min-width: 960px) {
-
-  html {
-      font-size: 1.1em;
-      line-height: 1.6;
-  }
 
   .site-main {
     margin-top: 8em;
@@ -975,6 +980,8 @@ a.footnote-ref {
   }
 }
 
+// max-width queries
+
 @media (max-width: 760px) {
 
   .hide-in-mobile,
@@ -984,14 +991,6 @@ a.footnote-ref {
 
   #menu-btn {
     display: inline-block;
-  }
-
-  .posts-group {
-    display: block;
-
-    .post-year {
-      margin: -6px 0 4px;
-    }
   }
 
   #spotlight.error-404 {
