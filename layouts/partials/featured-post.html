@@ -1,0 +1,25 @@
+                  <div class="featured-post-item">
+
+                    <a href="{{ .Permalink}}">
+
+                      <!-- flex-direction: column -->
+                      <div class="featured-post-image-and-titles">
+
+                        {{- with .Params.image }}
+                        <img class="featured-image" src="{{ . | relURL}}"/>
+                        {{- end }}
+
+                        <!-- flex-direction: column -->
+                        <!-- titles stacked -->
+                        <div class="featured-post-titles">
+                          <span class="featured-post-title">{{.Title}}</span>
+
+                          {{- with .Params.subTitle }}
+                          <span class="featured-post-subtitle">{{ . }}</span>
+                          {{- end }}
+
+                        </div>
+                      </div>
+
+                    </a>
+                  </div>

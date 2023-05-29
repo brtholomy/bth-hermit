@@ -47,7 +47,7 @@ a {
 
 hr {
   opacity: .2;
-  border-width: 0 0 5px 0;
+  border-width: 0 0 2px 0;
   border-style: dashed;
   background: transparent;
   width: 50%;
@@ -415,12 +415,10 @@ ul.posts-list {
 
         .post-thumbail-and-titles {
             display: flex;
-            flex-direction: left;
             flex-direction: row;
 
             img.post-thumbnail {
                 width: 4em;
-                // NOTE: this will crop the image if the screen is very small
                 align-self: center;
                 padding: 0em;
                 margin: 0em 1em 0em 0em;
@@ -452,7 +450,33 @@ ul.posts-list {
     }
 }
 
+.featured-post-item {
 
+    .featured-post-image-and-titles {
+        display: flex;
+        flex-direction: column;
+
+        .featured-image {
+            width: 70%;
+            align-self: center;
+        }
+
+        .featured-post-titles {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            .featured-post-title {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            .featured-post-subtitle {
+                font-size: 1em;
+                @include dimmed;
+            }
+        }
+    }
+}
 
 ////////////////////////////////////////
 // single.html

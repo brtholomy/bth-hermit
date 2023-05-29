@@ -9,13 +9,12 @@
           {{- if (eq .Page.Type "posts") -}}
             {{- with .Site.GetPage .Site.Params.featuredPost }}
 
-              <h2>
-                featured
-              </h2>
-              {{ partial "post-item.html" . }}
+              {{ partial "featured-post.html" . }}
 
             {{- end -}}
           {{- end -}}
+
+          <hr/>
 
 	  <h2>
             <!-- hash in front of tag listings: -->
