@@ -52,13 +52,13 @@ let mobileMenuVisible = false;
 const toggleMobileMenu = () => {
   let mobileMenu = document.getElementById('mobile-menu');
   if (mobileMenuVisible == false) {
-    mobileMenu.style.animationName = 'slideInRight';
-    mobileMenu.style.webkitAnimationName = 'slideInRight';
+    mobileMenu.style.animationName = 'fadeIn';
+    mobileMenu.style.webkitAnimationName = 'fadeIn';
     mobileMenu.style.display = 'block';
     mobileMenuVisible = true;
   } else {
-    mobileMenu.style.animationName = 'slideOutRight';
-    mobileMenu.style.webkitAnimationName = 'slideOutRight'
+    mobileMenu.style.animationName = 'fadeOut';
+    mobileMenu.style.webkitAnimationName = 'fadeOut'
     mobileMenuVisible = false;
   }
 }

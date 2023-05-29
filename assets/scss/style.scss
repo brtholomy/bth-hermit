@@ -253,7 +253,7 @@ code {
     margin: 0;
     padding: 0;
     line-height: 2;
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 }
 
@@ -404,7 +404,7 @@ ul.posts-list {
 }
 
 .post-item {
-    border-bottom: 1px $text-dim dashed;
+    // border-bottom: 1px #242424 dashed;
     padding: 0.1em 0em;
 
     a.post-link-wrapper {
@@ -421,7 +421,7 @@ ul.posts-list {
             img.post-thumbnail {
                 width: 4em;
                 // NOTE: this will crop the image if the screen is very small
-                object-fit: cover;
+                align-self: center;
                 padding: 0em;
                 margin: 0em 1em 0em 0em;
             }
@@ -606,6 +606,7 @@ hr.post-end {
   transition-property: color;
   transition-duration: .4s;
   transition-timing-function: ease-out;
+  @include theme-glow;
 
   &:hover {
     color: #fff;
