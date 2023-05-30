@@ -162,6 +162,24 @@ code {
 }
 
 ////////////////////////////////////////
+// markdown rendering hooks
+
+/* https://discourse.gohugo.io/t/adding-anchor-next-to-headers/1726/24 */
+.heading-anchor {
+    color: #999;
+    text-decoration: none;
+    display: none;
+    box-shadow: none;
+    transition-property: none;
+}
+
+.heading-wrapper:hover a.heading-anchor{
+    display: inline;
+    color: $theme;
+    box-shadow: none;
+}
+
+////////////////////////////////////////
 // header & footer
 ////////////////////////////////////////
 
