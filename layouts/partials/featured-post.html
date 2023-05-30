@@ -5,8 +5,10 @@
                       <!-- flex-direction: column -->
                       <div class="featured-post-image-and-titles">
 
-                        {{- with .Params.image }}
+                        {{- with .Params.images -}}
+                        {{- range first 1 . -}}
                         <img class="featured-image" src="{{ . | relURL}}"/>
+                        {{- end }}
                         {{- end }}
 
                         <!-- flex-direction: column -->
