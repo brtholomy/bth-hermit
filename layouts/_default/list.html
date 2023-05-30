@@ -18,12 +18,14 @@
 
 	  <h2 class="list-heading">
             <!-- hash in front of tag listings: -->
+
+            <!-- below condition will change name of rest of posts/ to "archive" -->
+            <!-- can't put this comment there because HTML will render a space between the hash -->
+            <!-- NOTE: server will still fail to build later if featuredPost is not set, in post-list.html -->
             {{- if (eq .Page.Kind "term") -}}
                   #
             {{- end -}}
 
-            <!-- change name of rest of posts/ -->
-            <!-- NOTE: server will still fail to build later if featuredPost is not set, in post-list.html -->
             {{- if (and .Site.Params.featuredPost (eq .Page.Type "posts")) -}}
             archive
             {{- else -}}
