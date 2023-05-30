@@ -18,13 +18,6 @@
 				<a id="subscribe-btn" href="{{ .Site.Params.subscribeURL }}" target="_blank">
                                   subscribe</a>
 
-                          <!-- img button -->
-				{{ if (or .Params.images .Params.featuredImg) -}}
-				<button id="img-btn" class="hdr-btn" title="{{i18n "featuredImage"}}">
-                                  {{ partial "svg.html" (dict "type" "image") }}
-                                </button>
-				{{- end }}
-
                           <!-- toc -->
 				{{- with .Params.toc -}}
 				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="{{i18n "tableOfContents"}}">

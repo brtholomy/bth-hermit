@@ -1,10 +1,6 @@
 {{ define "head" }}
-	{{ if .Params.featuredImg -}}
-	<style>.bg-img {background-image: url('{{.Params.featuredImg}}');}</style>
-	{{- else if .Params.images -}}
-		{{- range first 1 .Params.images -}}
-		<style>.bg-img {background-image: url('{{. | absURL}}');}</style>
-		{{- end -}}
+	{{ if .Params.bgImg -}}
+	<style>.bg-img {background-image: url('{{.Params.bgImg}}');}</style>
 	{{- end -}}
 {{ end }}
 
@@ -13,7 +9,7 @@
 {{ end }}
 
 {{ define "main" }}
-	{{- if (or .Params.images .Params.featuredImg) }}
+	{{ if .Params.bgImg -}}
 	<div class="bg-img"></div>
 	{{- end }}
 
@@ -28,9 +24,8 @@
 		    {{- end }}
 
                     <!-- use images parameter because _internal/opengraph.html picks it up -->
-                    <!-- otherwise I could manually create the meta tag here -->
+                    <!-- otherwise I could manually create the meta tag up in the head -->
                     <!-- <meta property="og:image" content=" URL " /> -->
-                    <!-- but it wouldn't be in the head -->
                     <!-- https://gohugo.io/templates/internal/#open-graph -->
 		    {{- with .Params.images -}}
                     {{- range first 1 . -}}
