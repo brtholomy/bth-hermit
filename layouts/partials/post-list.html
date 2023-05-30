@@ -9,6 +9,7 @@
 
                   <!-- check for identity of featuredPost and this page -->
                   <!-- FIXME: this will fail when featuredPost is not set! -->
+                  <!-- however, this is preferable for now, rather than let it fail silently -->
                   {{- $featuredPage := .Site.GetPage .Site.Params.featuredPost }}
 
                   {{ if (and $checkFeatured $featuredPage (eq $inputpage $featuredPage ) ) }}

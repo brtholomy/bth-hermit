@@ -23,7 +23,8 @@
             {{- end -}}
 
             <!-- change name of rest of posts/ -->
-            {{- if (eq .Page.Type "posts") -}}
+            <!-- NOTE: server will still fail to build later if featuredPost is not set, in post-list.html -->
+            {{- if (and .Site.Params.featuredPost (eq .Page.Type "posts")) -}}
             archive
             {{- else -}}
             {{- .Title | lower -}}
