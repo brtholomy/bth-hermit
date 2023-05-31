@@ -1,8 +1,8 @@
 <div class='heading-wrapper'>
 <h{{ .Level }} id="{{ .Anchor | safeURL }}">
-    {{ .Text | safeHTML }}
+    {{- .Text | safeHTML }}
     <a class="heading-anchor" href="#{{ .Anchor | safeURL }}">
-        {{ "#" }}
+        {{ partial "svg.html" (dict "type" "header-anchor") -}}
     </a>
 </h{{ .Level }}>
 </div>

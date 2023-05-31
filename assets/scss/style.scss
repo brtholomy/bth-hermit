@@ -170,6 +170,10 @@ code {
     display: none;
     box-shadow: none;
     transition-property: none;
+
+    svg {
+        width: 1em;
+    }
 }
 
 .heading-wrapper:hover a.heading-anchor{
