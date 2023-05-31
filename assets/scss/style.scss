@@ -41,7 +41,7 @@ a {
   transition-timing-function: ease-out;
   // https://stackoverflow.com/a/36551118/8813860
   // HACK: to stop the flickering when CSS loads
-  filter: grayscale(0%);
+  filter: grayscale(1%);
 
   &:hover {
     color: $cream;
