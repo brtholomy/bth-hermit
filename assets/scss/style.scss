@@ -218,6 +218,8 @@ code {
     transition-property: color;
     transition-duration: .4s;
     transition-timing-function: ease-out;
+    // https://stackoverflow.com/a/36551118/8813860
+    filter: grayscale(1%);
 
     &:hover {
         color: $cream;
