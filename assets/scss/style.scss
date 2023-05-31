@@ -42,6 +42,7 @@ a {
   // https://stackoverflow.com/a/36551118/8813860
   // HACK: to stop the flickering when CSS loads
   filter: grayscale(1%);
+  backface-visibility: hidden;
 
   &:hover {
     color: $cream;
