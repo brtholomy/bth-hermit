@@ -203,7 +203,7 @@ code {
 
   .site-branding {
     display: inline-block;
-    margin-right: .8em;
+    margin-right: 0.1em;
   }
 
   .site-branding a {
@@ -222,10 +222,8 @@ code {
   }
 
   #subscribe-btn {
-      margin-left: 1em;
-      padding: 0.2em;
+      margin-left: $menu-initial-spacing;
       text-decoration: underline;
-      // background: $background;
       cursor: pointer;
   }
 
@@ -233,7 +231,7 @@ code {
     display: inline-block;
 
     a {
-      margin-left: .8em;
+      margin-left: $menu-initial-spacing;
     }
 
     .has-children {
@@ -247,17 +245,12 @@ code {
   }
 }
 
-.hdr-btn {
+#menu-btn {
   border: none;
   background: none;
   padding: 0;
-  margin-left: .4em;
-  cursor: pointer;
-}
-
-#menu-btn {
   display: none;
-  margin-left: .6em;
+  margin-left: .1em;
   cursor: pointer;
 }
 
@@ -882,11 +875,32 @@ a.footnote-ref {
 
 // min-width queries
 
-@media (min-width: 520px) {
+@media (min-width: 360px) {
+
+  .hdr-wrapper {
+    font-size: 1.2em;
+  }
+
+  #menu-btn {
+      margin-left: .2em;
+  }
+
+}
+
+@media (min-width: 410px) {
 
   .content {
       font-size: 1em;
   }
+
+  .hdr-wrapper {
+    font-size: 1.3em;
+  }
+
+  #menu-btn {
+      margin-left: .3em;
+  }
+
 }
 
 @media (min-width: 800px) {
@@ -908,10 +922,6 @@ a.footnote-ref {
 
   .site-main {
     margin-top: 8em;
-  }
-
-  .hdr-wrapper {
-    font-size: 1.3em;
   }
 
 }
