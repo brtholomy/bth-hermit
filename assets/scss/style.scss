@@ -548,8 +548,8 @@ hr.post-end {
   @include animated-a-tag;
 
   em {
-      // font-weight: bold;
       font-style: italic;
+      color: $text-light;
   }
 
   figure {
