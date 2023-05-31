@@ -4,35 +4,35 @@
 # 404.html
 #
 [notFound]
-other = "Oops, page not found…"
+other = "You are lost."
 
 [home]
-other = "Home"
+other = "home"
 
 [archives]
-other = "Archives"
+other = "archives"
 
 # posts/single.html
 #
 [seeAlso]
-other = "See Also"
+other = "see also"
 
 [wordCount]
-other = "{{ .WordCount }} Words"
+other = "{{ .WordCount }} words"
 
 [tableOfContents]
-other = "Table of Contents"
+other = "table of contents"
 
 [next]
-other = "Next"
+other = "next"
 
 [previous]
-other = "Previous"
+other = "previous"
 
 # partials/header.html
 #
 [menu]
-other = "Menu"
+other = "menu"
 
 [featuredImage]
-other = "Featured Image"
+other = "featured image"
