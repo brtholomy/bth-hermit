@@ -39,8 +39,9 @@ a {
   transition-property: color;
   transition-duration: .4s;
   transition-timing-function: ease-out;
+  // https://stackoverflow.com/a/36551118/8813860
   filter: grayscale(1%);
-  backface-visibility: hidden;
+  // backface-visibility: hidden;
 
   &:hover {
     color: $cream;
@@ -221,7 +222,7 @@ code {
     transition-duration: .4s;
     transition-timing-function: ease-out;
     // https://stackoverflow.com/a/36551118/8813860
-    filter: grayscale(1%);
+    // filter: grayscale(1%);
     backface-visibility: hidden;
 
     &:hover {
