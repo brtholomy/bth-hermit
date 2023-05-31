@@ -74,10 +74,9 @@ table {
 }
 
 blockquote {
-  border-left: .25em solid;
-  margin: 1em;
-  padding: 0 1em;
-  font-style: italic;
+  border-left: .25em $theme solid;
+  margin: 1em 0em;
+  padding-left: 1em;
 
   cite {
     font-weight: bold;
@@ -545,8 +544,8 @@ hr.post-end {
   @include animated-a-tag;
 
   em {
-      font-weight: bold;
-      font-style: normal;
+      // font-weight: bold;
+      font-style: italic;
   }
 
   figure {
