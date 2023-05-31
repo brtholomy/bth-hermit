@@ -40,8 +40,8 @@ a {
   transition-duration: .4s;
   transition-timing-function: ease-out;
   // https://stackoverflow.com/a/36551118/8813860
-  filter: grayscale(1%);
-  // backface-visibility: hidden;
+  // HACK: to stop the flickering when CSS loads
+  filter: grayscale(0%);
 
   &:hover {
     color: $cream;
@@ -221,9 +221,6 @@ code {
     transition-property: color;
     transition-duration: .4s;
     transition-timing-function: ease-out;
-    // https://stackoverflow.com/a/36551118/8813860
-    // filter: grayscale(1%);
-    backface-visibility: hidden;
 
     &:hover {
         color: $cream;
