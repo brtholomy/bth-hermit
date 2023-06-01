@@ -1,14 +1,20 @@
 
-<form class="email-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<form
+  class="subscription-form"
+  name="subscription-form"
+  method="POST"
+  action="/subscribed/"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
   <div hidden aria-hidden="true">
     <label>
       Don’t fill this out if you're human:
       <input name="bot-field" />
     </label>
   </div>
+
   <!-- <label for="email">email:</label> -->
-  <div>
-    <input type="email" name="email" placeholder="you@foo.com"  id="email" required />
-    <button type="submit">subscribe</button>
-  </div>
+  <input type="email" name="email" placeholder="you@foo.com"  id="email" required />
+  <button type="submit">subscribe</button>
 </form>
