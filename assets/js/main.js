@@ -35,10 +35,10 @@ let lastScrollPosition = window.pageYOffset;
 
 const autoHideHeader = () => {
   let currentScrollPosition = Math.max(window.pageYOffset, 0);
-  if (currentScrollPosition > lastScrollPosition) {
+  if (currentScrollPosition > lastScrollPosition + 150) {
     header.classList.remove('slideInDown');
     header.classList.add('slideOutUp');
-  } else {
+  } else if (currentScrollPosition < lastScrollPosition - 150) {
     header.classList.remove('slideOutUp');
     header.classList.add('slideInDown');
   }
