@@ -788,6 +788,36 @@ a.footnote-ref {
 }
 
 ////////////////////////////////////////
+// subscribe-form.html
+////////////////////////////////////////
+
+form.email-form {
+
+    input {
+        background-color: $background;
+        width: 50%;
+        padding: 0.5em 0.5em;
+        margin: 1em 0;
+        border: 2px solid $text;
+        border-radius: 4px;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: $theme;
+    }
+
+    button {
+        color: $background;
+        background-color: $theme;
+        padding: 0.5em 0.5em;
+        border: 2px solid $theme;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+////////////////////////////////////////
 // code copy buttons
 ////////////////////////////////////////
 
