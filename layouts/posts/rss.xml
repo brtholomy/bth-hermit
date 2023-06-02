@@ -20,6 +20,14 @@
 			{{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
 			<guid>{{ .Permalink }}</guid>
 			<description>{{ .Summary | html }}</description>
+                        {{- with .Params.images }}
+                            {{- range first 1 . }}
+                                {{ $image_location := printf "static/%s" .}}
+                                {{$image := readFile $image_location }}
+                                {{$len := len $image}}
+                                <enclosure url="{{ . | absURL }}" length="{{$len}}" type="image/png" />
+                            {{ end }}
+                        {{ end -}}
 			<content type="html">{{ printf `<![CDATA[%s]]>` .Content | safeHTML }}</content>
 		</item>
 		{{ end }}
