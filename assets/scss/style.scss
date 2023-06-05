@@ -865,6 +865,22 @@ ul.oeuvre-list {
 }
 
 ////////////////////////////////////////
+// support
+////////////////////////////////////////
+
+div.action_button {
+    background: $theme;
+    max-width: 15em;
+    padding: 0.1rem 0.1rem;
+    border-radius: 0.5rem;
+}
+
+div.action_button p {
+    text-align: center;
+    color: $offwhite;
+}
+
+////////////////////////////////////////
 // code copy buttons
 ////////////////////////////////////////
 
