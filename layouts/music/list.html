@@ -8,32 +8,32 @@
 
               <ul class="album-list">
 
-                {{- range .Params.albums }}
+                {{- range .Data.Pages }}
 
                     <li class="album-item">
 
 		      <div class="album-cover">
-                        <a href="https://distrokid.com/hyperfollow/bartholomy/{{ .hyperfollowSlug }}" target="_blank">
-                          <img class="album" src="{{ .cover }}" />
+                        <a href="https://distrokid.com/hyperfollow/bartholomy/{{ .Params.hyperfollowSlug }}" target="_blank">
+                          <img class="album" src="{{ .Params.cover }}" />
                         </a>
 		      </div>
 
 		      <div class="album-title-year">
 
                         <h3 class="album-title">
-                          <a href="https://distrokid.com/hyperfollow/bartholomy/{{ .hyperfollowSlug }}" target="_blank">
-                          {{ .title }}
+                          <a href="https://distrokid.com/hyperfollow/bartholomy/{{ .Params.hyperfollowSlug }}" target="_blank">
+                          {{ .Params.title }}
                           </a>
                         </h3>
 
 		        <p class="album-year">
-                          {{ .year }}
+                          {{ .Params.year }}
 		        </p>
 
 		      </div>
 
 		      <div class="album-description">
-                        {{ .description }}
+                        {{ .Content }}
 		      </div>
 
                     </li>
