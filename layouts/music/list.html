@@ -1,0 +1,54 @@
+{{ define "header" }}
+{{ partial "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+
+              <ul class="album-list">
+
+                {{- range .Params.albums }}
+
+                    <li class="album-item">
+
+		      <div class="album-cover">
+                        <a href="https://distrokid.com/hyperfollow/bartholomy/{{ .hyperfollowSlug }}" target="_blank">
+                          <img class="album" src="{{ .cover }}" />
+                        </a>
+		      </div>
+
+		      <div class="album-title-year">
+
+                        <h3 class="album-title">
+                          <a href="https://distrokid.com/hyperfollow/bartholomy/{{ .hyperfollowSlug }}" target="_blank">
+                          {{ .title }}
+                          </a>
+                        </h3>
+
+		        <p class="album-year">
+                          {{ .year }}
+		        </p>
+
+		      </div>
+
+		      <div class="album-description">
+                        {{ .description }}
+		      </div>
+
+                    </li>
+
+		{{- end }}
+
+		</ul>
+
+		<div class="content">
+		    {{ .Content | safeHTML }}
+		</div>
+
+	</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}
