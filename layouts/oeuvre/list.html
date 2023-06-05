@@ -1,0 +1,66 @@
+{{ define "header" }}
+{{ partial "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+
+              <ul class="oeuvre-list">
+
+                {{- range .Data.Pages }}
+
+                    <li class="oeuvre-item">
+
+                      {{ if .Params.cover }}
+		      <div class="oeuvre-cover">
+                        <a href="{{ .Params.link }}" target="_blank">
+                          <img src="{{ .Params.cover }}" />
+                        </a>
+		      </div>
+                      {{ end }}
+
+		      <div class="oeuvre-title-year">
+
+                      {{ if .Params.title }}
+                        <h3 class="oeuvre-title">
+
+                          {{- if .Params.link }}
+                          <a href="{{ .Params.link }}" target="_blank">
+                            {{ .Params.title }}
+                          </a>
+                          {{ else }}
+                            {{ .Params.title }}
+                          {{ end -}}
+
+                        </h3>
+                      {{ end }}
+
+                      {{ if .Params.year }}
+		        <p class="oeuvre-year">
+                          {{ .Params.year }}
+		        </p>
+                      {{ end }}
+
+		      </div>
+
+		      <div class="oeuvre-description">
+                        {{ .Content }}
+		      </div>
+
+                    </li>
+
+		{{- end }}
+
+		</ul>
+
+		<div class="content">
+		    {{ .Content | safeHTML }}
+		</div>
+
+	</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}

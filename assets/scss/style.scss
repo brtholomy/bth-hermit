@@ -818,53 +818,46 @@ form.subscription-form {
 }
 
 ////////////////////////////////////////
-// books/
+// music/ and books/
 ////////////////////////////////////////
 
-img.book {
-    max-width: 300px;
-}
-
-////////////////////////////////////////
-// music/
-////////////////////////////////////////
-
-ul.album-list {
+ul.oeuvre-list {
     margin: 0;
     padding: 0;
     list-style: none;
 
-    .album-item {
+    .oeuvre-item {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         margin-bottom: 4em;
 
-        .album-cover {
+        .oeuvre-cover {
             margin: 0em 1em 1em 0em;
             padding: 0em;
+
             img {
                 max-width: 300px;
                 align-self: center;
             }
         }
 
-        .album-title-year {
+        .oeuvre-title-year {
             margin: 0em 1em 0em 0em;
 
-            .album-title {
+            .oeuvre-title {
                 margin: 0;
                 padding: 0;
                 font-weight: bold;
                 @include animated-a-tag;
             }
 
-            .album-year {
+            .oeuvre-year {
                 @include dimmed;
             }
         }
 
-        .album-description {
+        .oeuvre-description {
             margin: 0em 1em 0em 0em;
         }
 
