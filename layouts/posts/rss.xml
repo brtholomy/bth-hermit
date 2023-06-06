@@ -49,7 +49,7 @@
                                 />
                         {{ end }}
                         {{ end -}}
-			<content:encoded type="html">{{ printf `<![CDATA[%s]]>` .Content | safeHTML }}</content:encoded>
+			<content:encoded>{{ printf `<![CDATA[%s]]>` .Content | safeHTML }}</content:encoded>
 		</item>
 		{{ end }}
 	</channel>
