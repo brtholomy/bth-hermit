@@ -25,7 +25,6 @@
                         {{- with .Params.images }}
                         {{- range first 1 . }}
                             {{ $image := resources.Get . }}
-                            "{{ $image.Permalink }}"
                             <enclosure
                                 url="{{ $image.Permalink }}"
                                 length="{{len $image.Content}}"
