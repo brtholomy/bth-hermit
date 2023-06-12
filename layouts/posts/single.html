@@ -19,8 +19,8 @@
 
 		    <h1>{{ .Title }}</h1>
 
-		    {{- with .Params.subTitle -}}
-		    <h2 class="subtitle">{{ . }}</h2>
+		    {{- with .Params.Summary -}}
+		    <h2 class="subtitle">{{ . | html }}</h2>
 		    {{- end }}
 
                     <!-- use images parameter because _internal/opengraph.html picks it up -->

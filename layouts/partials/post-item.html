@@ -20,8 +20,8 @@
                           {{- .Title -}}
                           </span>
 
-                          {{- with .Params.subTitle }}
-                          <span class="post-subtitle">{{ . }}</span>
+                          {{- with .Params.Summary }}
+                          <span class="post-subtitle">{{ . | html }}</span>
                           {{- end }}
 
                         </div>

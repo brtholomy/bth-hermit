@@ -16,8 +16,8 @@
                         <div class="featured-post-titles">
                           <span class="featured-post-title">{{.Title}}</span>
 
-                          {{- with .Params.subTitle }}
-                          <span class="featured-post-subtitle">{{ . }}</span>
+                          {{- with .Params.Summary }}
+                          <span class="featured-post-subtitle">{{ . | html }}</span>
                           {{- end }}
 
                         </div>

@@ -33,11 +33,7 @@
                         {{ end -}}
 			<guid>{{ .Permalink }}</guid>
 			<description>
-                          {{- if .Params.subTitle }}
-                            {{- .Params.subTitle -}}
-                          {{ else -}}
                             {{- .Summary | html -}}
-                          {{ end -}}
                         </description>
                         {{- with .Params.images }}
                         {{- range first 1 . }}
