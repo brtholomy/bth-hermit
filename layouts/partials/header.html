@@ -11,12 +11,12 @@
                           <!-- desktop menu -->
                           <!-- NOTE: moved to right align -->
 				<nav class="site-nav hide-in-mobile">
-					{{ partialCached "menu.html" . }}
-				</nav>
-
-                          <!-- subscribe button -->
-				<a id="subscribe-btn" href="{{ .Site.Params.subscribeURL }}">
-                                  subscribe</a>
+					{{- partialCached "menu.html" . -}}
+				</nav><a id="subscribe-btn" href="{{ .Site.Params.subscribeURL }}">subscribe</a>
+                          <!-- subscribe button above -->
+                          <!-- NOTE: whitespace will get stripped out in prod with --minify turned on -->
+                          <!-- be sure to run hugo server --minify to see this -->
+                          <!-- I'm removing it here just to be sure. -->
 
                           <!-- toc -->
 				{{- with .Params.toc -}}

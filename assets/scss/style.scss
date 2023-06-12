@@ -235,6 +235,11 @@ code {
   }
 
   .site-nav {
+    // NOTE: the author probably set this to inline-block because it's vertical
+    // in the mobile version. Otherwise I'd set it to inline. Note that
+    // it causes the stray whitespace issue between inline elements separated by
+    // a newline in source. Minifying the HTML removes it, but it's finicky and
+    // I don't like it.
     display: inline-block;
 
     a {
