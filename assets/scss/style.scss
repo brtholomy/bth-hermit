@@ -1,6 +1,5 @@
 @import "predefined.scss";
 @import "normalize.scss";
-@import "syntax.scss";
 @import "animate.scss";
 
 ////////////////////////////////////////
@@ -105,21 +104,20 @@ pre {
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
-  color: $offwhite;
-  background: $midnightblue;
+  color: $cream;
+  background: $coffee;
   border-radius: 4px;
   // -webkit-overflow-scrolling: touch;
 
   code {
     padding: 0;
     margin: 0;
-    background: $midnightblue;
   }
 }
 
 code {
-  color: $offwhite;
-  background: $highlight-grey;
+  color: $cream;
+  background: $coffee;
   border-radius: 3px;
   padding: 0 3px;
   margin: 0 4px;
