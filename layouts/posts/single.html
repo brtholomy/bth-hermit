@@ -52,12 +52,17 @@
 				<p>{{ dateFormat .Site.Params.dateformNum .Date }}</p>
 
                           <!-- place param -->
+				{{- $place := "" }}
 				{{- with $.Param "place" }}
+				{{- $place = . }}
+				{{- else }}
+				{{- $place = .Site.Params.defaultPlace }}
+				{{- end }}
+
                           <!-- FIXME: get a better svg for this -->
 				<p>
-                                  {{ partial "svg.html" (dict "type" "place") }}{{ . }}
+                                  {{ partial "svg.html" (dict "type" "place") }}{{ $place }}
                                 </p>
-				{{- end }}
 
                           <!-- tags -->
 				{{- with .Params.tags }}
