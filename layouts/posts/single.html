@@ -51,20 +51,18 @@
 
 				<p>{{ dateFormat .Site.Params.dateformNum .Date }}</p>
 
-                          <!-- place param -->
-				{{- $place := "" }}
-				{{- with $.Param "place" }}
-				{{- $place = . }}
-				{{- else }}
-				{{- $place = .Site.Params.defaultPlace }}
-				{{- end }}
-
-                          <!-- FIXME: get a better svg for this -->
+                                <!-- place -->
+                                <!-- FIXME: get a better svg for this -->
 				<p>
-                                  {{ partial "svg.html" (dict "type" "place") }}{{ $place }}
+                                {{- partial "svg.html" (dict "type" "place") -}}
+                                {{- with $.Param "place" -}}
+                                  {{- . -}}
+                                {{- else -}}
+                                  {{- .Site.Params.defaultPlace -}}
+                                {{- end -}}
                                 </p>
 
-                          <!-- tags -->
+                                <!-- tags -->
 				{{- with .Params.tags }}
 				<p>
                                   {{ partial "svg.html" (dict "type" "tag") }}
