@@ -47,19 +47,41 @@ const autoHideHeader = () => {
 
 // Mobile Menu Toggle
 //
-let mobileMenuVisible = false;
+let worksMenuVisible = false;
 
-const toggleMobileMenu = () => {
-  let mobileMenu = document.getElementById('mobile-menu');
-  if (mobileMenuVisible == false) {
-    mobileMenu.style.animationName = 'fadeIn';
-    mobileMenu.style.webkitAnimationName = 'fadeIn';
-    mobileMenu.style.display = 'block';
-    mobileMenuVisible = true;
+const toggleWorksMenu = () => {
+  let worksMenu = document.getElementById('works-menu');
+  if (infoMenuVisible == true) {
+    toggleInfoMenu();
+  }
+  if (worksMenuVisible == false) {
+    worksMenu.style.animationName = 'fadeIn';
+    worksMenu.style.webkitAnimationName = 'fadeIn';
+    worksMenu.style.display = 'block';
+    worksMenuVisible = true;
   } else {
-    mobileMenu.style.animationName = 'fadeOut';
-    mobileMenu.style.webkitAnimationName = 'fadeOut'
-    mobileMenuVisible = false;
+    worksMenu.style.animationName = 'fadeOut';
+    worksMenu.style.webkitAnimationName = 'fadeOut'
+    worksMenuVisible = false;
+  }
+}
+
+let infoMenuVisible = false;
+
+const toggleInfoMenu = () => {
+  let infoMenu = document.getElementById('info-menu');
+  if (worksMenuVisible == true) {
+    toggleWorksMenu();
+  }
+  if (infoMenuVisible == false) {
+    infoMenu.style.animationName = 'fadeIn';
+    infoMenu.style.webkitAnimationName = 'fadeIn';
+    infoMenu.style.display = 'block';
+    infoMenuVisible = true;
+  } else {
+    infoMenu.style.animationName = 'fadeOut';
+    infoMenu.style.webkitAnimationName = 'fadeOut'
+    infoMenuVisible = false;
   }
 }
 
@@ -71,7 +93,8 @@ const toggleToc = () => {
 
 
 if (header !== null) {
-  listen('#menu-btn', "click", toggleMobileMenu);
+  listen('#works-btn', "click", toggleWorksMenu);
+  listen('#info-btn', "click", toggleInfoMenu);
   listen('#toc-btn', "click", toggleToc);
 
   document.querySelectorAll('.post-year').forEach((ele)=> {
@@ -83,8 +106,11 @@ if (header !== null) {
   window.addEventListener('scroll', throttle(() => {
     autoHideHeader();
 
-    if (mobileMenuVisible == true) {
-      toggleMobileMenu();
+    if (worksMenuVisible == true) {
+      toggleWorksMenu();
+    }
+    if (infoMenuVisible == true) {
+      toggleInfoMenu();
     }
   }, 250));
 }

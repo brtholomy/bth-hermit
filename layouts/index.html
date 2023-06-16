@@ -20,7 +20,9 @@
 			{{- end }}
 
 			<nav id="home-nav" class="site-nav">
-				{{ partialCached "menu.html" . }}
+		          {{- range .Site.Menus.main -}}
+			  <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+		          {{- end -}}
 			</nav>
 		</div>
 

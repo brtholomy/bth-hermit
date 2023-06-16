@@ -8,15 +8,18 @@
 
 			<div class="hdr-right hdr-icons">
 
-                          <!-- desktop menu -->
-                          <!-- NOTE: moved to right align -->
-				<nav class="site-nav hide-in-mobile">
-					{{- partialCached "menu.html" . -}}
-				</nav><a id="subscribe-btn" href="{{ .Site.Params.subscribeURL }}">subscribe</a>
-                          <!-- subscribe button above -->
-                          <!-- NOTE: whitespace will get stripped out in prod with --minify turned on -->
-                          <!-- be sure to run hugo server --minify to see this -->
-                          <!-- I'm removing it here just to be sure. -->
+                          <!-- nav buttons -->
+				<nav class="site-nav ">
+
+                                  <button id="works-btn" class="hdr-btn" >
+                                  {{- partial "svg.html" (dict "type" "writing") -}}
+                                  </button>
+
+                                  <button id="info-btn" class="hdr-btn" >
+                                  {{- partial "svg.html" (dict "type" "info") -}}
+                                  </button>
+
+				</nav>
 
                           <!-- toc -->
 				{{- with .Params.toc -}}
@@ -25,19 +28,23 @@
                                 </button>
 				{{- end }}
 
-                          <!-- menu button -->
-				<button id="menu-btn" class="hdr-btn" title="{{i18n "menu"}}">
-                                  {{ partial "svg.html" (dict "type" "menu-btn") }}
-                                </button>
-
 			</div>
 		</div>
 	</header>
 
-	<div id="mobile-menu" class="animated faster">
+	<div id="works-menu" class="animated faster">
 		<ul>
-			{{- range .Site.Menus.main }}
-			<li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
-			{{- end }}
+                  {{- range .Site.Menus.works }}
+                  <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                  {{- end }}
+
+		</ul>
+	</div>
+
+	<div id="info-menu" class="animated faster">
+		<ul>
+                  {{- range .Site.Menus.info }}
+                  <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                  {{- end }}
 		</ul>
 	</div>

@@ -255,21 +255,20 @@ code {
   }
 }
 
-#menu-btn {
+#works-btn, #info-btn {
   border: none;
   background: none;
   padding: 0;
-  display: none;
-  margin-left: .1em;
+  margin-left: $menu-initial-spacing;
   cursor: pointer;
 }
 
-#mobile-menu {
+#works-menu, #info-menu {
+  display: none;
   font-size: $menu-initial-size;
   position: fixed;
   top: 4.8em;
   right: 1.5em;
-  display: none;
   padding: .6em 1.8em;
   z-index: 1;
   box-sizing: border-box;
@@ -281,6 +280,10 @@ code {
     margin: 0;
     padding: 0;
     line-height: 2;
+
+    li {
+        text-align: right;
+    }
   }
 }
 
@@ -982,12 +985,8 @@ div.action_button p {
 
 @media (min-width: 360px) {
 
-  .hdr-wrapper {
+  .hdr-wrapper, #works-menu, #info-menu {
     font-size: 1.2em;
-  }
-
-  #menu-btn {
-      margin-left: .2em;
   }
 
 }
@@ -998,12 +997,8 @@ div.action_button p {
       font-size: 1em;
   }
 
-  .hdr-wrapper {
+  .hdr-wrapper, #works-menu, #info-menu {
     font-size: 1.3em;
-  }
-
-  #menu-btn {
-      margin-left: .3em;
   }
 
 }
@@ -1125,10 +1120,6 @@ div.action_button p {
   .hide-in-mobile,
   .site-nav.hide-in-mobile {
     display: none;
-  }
-
-  #menu-btn {
-    display: inline-block;
   }
 
   #spotlight.error-404 {
