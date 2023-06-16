@@ -62,6 +62,7 @@ const toggleWorksMenu = () => {
   } else {
     worksMenu.style.animationName = 'fadeOut';
     worksMenu.style.webkitAnimationName = 'fadeOut'
+    worksMenu.style.display = 'none';
     worksMenuVisible = false;
   }
 }
@@ -81,6 +82,7 @@ const toggleInfoMenu = () => {
   } else {
     infoMenu.style.animationName = 'fadeOut';
     infoMenu.style.webkitAnimationName = 'fadeOut'
+    infoMenu.style.display = 'none';
     infoMenuVisible = false;
   }
 }
