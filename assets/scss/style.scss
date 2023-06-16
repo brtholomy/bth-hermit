@@ -226,41 +226,33 @@ code {
     }
   }
 
-  #subscribe-btn {
-      margin-left: $menu-initial-spacing;
-      text-decoration: underline;
-      cursor: pointer;
-  }
-
   .site-nav {
-    // NOTE: the author probably set this to inline-block because it's vertical
-    // in the mobile version. Otherwise I'd set it to inline. Note that
-    // it causes the stray whitespace issue between inline elements separated by
-    // a newline in source. Minifying the HTML removes it, but it's finicky and
-    // I don't like it.
-    display: inline-block;
+    display: flex;
+    align-items: center;
 
     a {
       margin-left: $menu-initial-spacing;
     }
 
-    .has-children {
-      padding-right: .5em;
-      border-right: 2px solid $highlight-grey;
+    .hdr-btn {
+        margin-left: $menu-initial-spacing;
+        cursor: pointer;
     }
 
-    .sub-menu > a{
-      margin-left: .3em;
+    #subscribe-btn {
+        border: none;
+        background: none;
+        padding: 0;
+        height: 24px;
+    }
+
+    #works-btn, #info-btn {
+        border: none;
+        background: none;
+        padding: 0;
+        height: 24px;
     }
   }
-}
-
-#works-btn, #info-btn {
-  border: none;
-  background: none;
-  padding: 0;
-  margin-left: $menu-initial-spacing;
-  cursor: pointer;
 }
 
 #works-menu, #info-menu {
