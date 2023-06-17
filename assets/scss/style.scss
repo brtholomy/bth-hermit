@@ -701,6 +701,11 @@ a.footnote-ref {
     margin-right: .8em;
   }
 
+  .tags {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
   .tag {
     margin-right: .5em;
 
