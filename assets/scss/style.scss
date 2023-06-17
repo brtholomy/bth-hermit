@@ -248,6 +248,11 @@ code {
         a {
             margin: 0;
         }
+
+        svg {
+            width: $menu-initial-icon-size;
+            height: $menu-initial-icon-size;
+        }
     }
   }
 }
