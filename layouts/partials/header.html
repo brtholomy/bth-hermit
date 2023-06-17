@@ -11,12 +11,18 @@
                           <!-- nav buttons -->
 				<nav class="site-nav ">
 
+                                  <div id="subscribe-btn" class="hdr-btn" >
+                                    <a href="/subscribe" >
+                                      {{- partial "svg.html" (dict "type" "plane") -}}
+                                    </a>
+				  </div>
+
                                   <button id="works-btn" class="hdr-btn" >
-                                  {{- partial "svg.html" (dict "type" "writing") -}}
+                                  {{- partial "svg.html" (dict "type" "oeuvre") -}}
                                   </button>
 
                                   <button id="info-btn" class="hdr-btn" >
-                                  {{- partial "svg.html" (dict "type" "info") -}}
+                                  {{- partial "svg.html" (dict "type" "plus") -}}
                                   </button>
 
 				</nav>

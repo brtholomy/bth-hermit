@@ -239,18 +239,15 @@ code {
         cursor: pointer;
     }
 
-    #subscribe-btn {
+    #subscribe-btn, #works-btn, #info-btn {
         border: none;
         background: none;
         padding: 0;
         height: 24px;
-    }
 
-    #works-btn, #info-btn {
-        border: none;
-        background: none;
-        padding: 0;
-        height: 24px;
+        a {
+            margin: 0;
+        }
     }
   }
 }
