@@ -248,11 +248,6 @@ code {
         a {
             margin: 0;
         }
-
-        svg {
-            width: $menu-initial-icon-size;
-            height: $menu-initial-icon-size;
-        }
     }
   }
 }
@@ -699,11 +694,6 @@ a.footnote-ref {
 
   svg {
     margin-right: .8em;
-  }
-
-  .tags {
-      display: flex;
-      flex-wrap: wrap;
   }
 
   .tag {

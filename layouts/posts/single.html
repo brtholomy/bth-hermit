@@ -63,7 +63,7 @@
 
                                 <!-- tags -->
 				{{- with .Params.tags }}
-				<p class="tags">
+				<p>
                                   {{ partial "svg.html" (dict "type" "tag") }}
 					{{- range . -}}
 					<span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
