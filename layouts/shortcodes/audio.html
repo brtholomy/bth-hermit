@@ -1,10 +1,11 @@
 <figure class="audio">
 <audio controls preload="{{ .Get "preload" | default "metadata" }}">
-  <!-- because we have to hardcode the type, we do this -->
-    {{ with .Get "ogg" }}<source src="{{ . }}" type="audio/ogg">{{ end }}
-    {{ with .Get "mp3" }}<source src="{{ . }}" type="audio/mpeg">{{ end }}
-    {{ with .Get "wav" }}<source src="{{ . }}" type="audio/wav">{{ end }}
-    Your browser does not support the audio element.
+
+  <source src="{{ .Get "src" | absURL }}" type="audio/{{ with .Get "type" }}{{ . }}{{ else }}mpeg{{ end }}">
+
+  <p>
+    <a href="{{ .Get "src" | absURL }}">Listen here</a>.
+  </p>
 {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
 </audio>
 </figure>
