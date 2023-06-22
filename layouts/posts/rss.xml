@@ -49,7 +49,7 @@
                                 />
                         {{ end }}
                         {{ end -}}
-			<content:encoded>{{ printf `<![CDATA[%s]]>` .Content | safeHTML }}</content:encoded>
+			<content:encoded>{{ printf `<![CDATA[%s]]>` | partial "absolute-links.html" (dict "context" . "content" .Content) | safeHTML }}</content:encoded>
 		</item>
 		{{ end }}
 	</channel>
