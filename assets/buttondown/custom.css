@@ -27,25 +27,33 @@ li {
 }
 
 .newsletter-container {
-    width: 100%;
-    color: #c09030;
-    background-color: #180904;
+    width: 800px;
 }
 
 .newsletter-body {
-    width: 600px;
-    margin: 0 auto 0 auto;
-    padding: 50px 0 20px 0;
+    margin-bottom: 20px;
 }
 
-.newsletter-footer, .newsletter-colophon {
-    width: 600px;
-    margin: 0 auto 0 auto;
+.bth-header {
+    color: #c09030;
+    background-color: #180904;
+    border-radius: 10px;
+    padding: 50px 0;
+    margin: 20px 0 20px 0;
+}
+
+.bth-header h1, .bth-header h2 {
+    text-align: center;
+}
+
+.bth-header-link {
+    margin: 20px 20px 0 0;
+    text-align: right;
 }
 
 hr {
   border: 0;
-  border-bottom: 1px #c65108 dotted;
+  border-bottom: 1px #c65108 solid;
   max-width: 80%;
   margin-left: 0;
 }
@@ -78,7 +86,7 @@ img {
 }
 
 blockquote {
-  color: #c09030;
+  color: #6e4522;
   border-left: 4px solid #c65108;
   margin-left: 0;
   padding-left: 1em;
@@ -94,15 +102,15 @@ figcaption {
 
 .newsletter-notice {
   background-color: #d9edf7;
-  color: #31708f;
+  color: #c65108;
   border-radius: 5px;
   text-align: center;
   padding: 20px 30px;
 }
 
 pre {
-  color: #edd;
-  background: #7d828a;
+  color: #d6c59f;
+  background: #6e4522;
   border-radius: 0 0.25rem 0.25rem 0;
   overflow-x: auto;
   padding: 1em;
@@ -115,8 +123,8 @@ pre {
 }
 
 code {
-  color: #edd;
-  background: #7d828a;
+  color: #d6c59f;
+  background: #6e4522;
   border-radius: 0 0.25rem 0.25rem 0;
   font-size: 14px;
   padding: 3px 6px;
