@@ -34,13 +34,35 @@ li {
     margin-bottom: 20px;
 }
 
-.bth-header {
+.bth-header, .newsletter-footer, .newsletter-colophon {
     color: #c09030;
     background-color: #180904;
     border-radius: 10px;
     padding: 50px 0;
     margin: 20px 0 20px 0;
 }
+
+.newsletter-footer {
+    margin: 50px 0 20px 0;
+    padding: 50px 0 20px 0;
+}
+
+.newsletter-footer img {
+    width: 15%;
+}
+
+.newsletter-footer p, .newsletter-footer h2 {
+    text-align: center;
+}
+
+.newsletter-colophon {
+    padding: 12px 12px 0 12px;
+}
+
+/* this feel disingenuous. I hate small unsubscribe links. */
+/* .newsletter-colophon p { */
+/*     font-size: 14px; */
+/* } */
 
 .bth-header h1, .bth-header h2 {
     text-align: center;
