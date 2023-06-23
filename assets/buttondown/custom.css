@@ -55,6 +55,11 @@ li {
     text-align: center;
 }
 
+.newsletter-footer p.copyright {
+    color: #6e4522;
+    font-size: 14px;
+}
+
 .newsletter-colophon {
     padding: 12px 12px 0 12px;
 }
