@@ -471,10 +471,11 @@ ul.posts-list {
             display: flex;
             flex-direction: column;
             text-align: center;
+            margin-top: 1em;
 
             .featured-post-title {
                 font-weight: bold;
-                font-size: 1.2em;
+                font-size: 1.4em;
             }
             .featured-post-subtitle {
                 font-size: 1em;
