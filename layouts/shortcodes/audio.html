@@ -1,11 +1,2 @@
-<div class="audio">
-<audio controls preload="{{ .Get "preload" | default "metadata" }}">
-
-  <source src="{{ .Get "src" | absURL }}" type="audio/{{ with .Get "type" }}{{ . }}{{ else }}mpeg{{ end }}">
-
-  <p>
-    <a href="{{ .Get "src" | absURL }}">Listen here</a>.
-  </p>
-{{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
-</audio>
-</div>
+{{ $src := .Get "src" }}
+{{ partial "audio.html" (dict "src" $src ) }}

@@ -1,0 +1,11 @@
+<figure class="audio">
+<audio controls preload="{{ .preload | default "metadata" }}">
+
+  <source src="{{ .src | absURL }}" type="audio/{{ .type | default "mpeg" }}">
+
+  <p>
+    <a href="{{ .src | absURL }}">Listen here</a>.
+  </p>
+</audio>
+{{ with .caption }}<figcaption>"{{ . }}"</figcaption>{{ end }}
+</figure>

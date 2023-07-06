@@ -848,6 +848,16 @@ ul.oeuvre-list {
             .oeuvre-year {
                 @include dimmed;
             }
+
+        }
+
+        .oeuvre-audio {
+            margin: 0;
+            padding: 0;
+
+            figure.audio {
+                margin: 0;
+            }
         }
 
         .oeuvre-description {
@@ -862,12 +872,16 @@ ul.oeuvre-list {
 // audio
 ////////////////////////////////////////
 
-div.audio {
+figure.audio {
     margin: 3em 0;
 
     audio {
         width: 100%;
         background-color: $theme;
+    }
+    figcaption {
+        @include dimmed;
+        font-size: 0.9em;
     }
 }
 

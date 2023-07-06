@@ -36,13 +36,19 @@
                         </h3>
                       {{ end }}
 
-                      {{ if .Params.year }}
+                      {{ with .Params.year }}
 		        <p class="oeuvre-year">
-                          {{ .Params.year }}
+                          {{ . }}
 		        </p>
                       {{ end }}
 
 		      </div>
+
+                      {{ if .Params.featuredAudio }}
+		      <div class="oeuvre-audio">
+                        {{ partial "audio.html" (dict "src" .Params.featuredAudio "caption" .Params.featuredAudioCaption ) }}
+		      </div>
+                      {{ end }}
 
 		      <div class="oeuvre-description">
                         {{ .Content }}
