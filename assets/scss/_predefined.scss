@@ -15,8 +15,9 @@ $midnightblue: #2c3e50;
 
 // Fonts
 //
-$fonts: "Courier New", Courier, monospace;
-$code-fonts: "Courier New", Courier, monospace;
+$fonts: Courier, "Nimbus Mono PS", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", Monaco, monospace;
+// just reuse the same for now:
+$code-fonts: $fonts;
 
 $menu-initial-size: 1.1em;
 $menu-initial-spacing: 1em;
