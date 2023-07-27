@@ -4,7 +4,7 @@
 
 {{ define "main" }}
 
-	<main class="site-main section-inner thin animated fadeIn faster">
+        <main class="site-main section-inner thin animated fadeIn faster">
 
               <ul class="oeuvre-list">
 
@@ -12,59 +12,64 @@
 
                     <li class="oeuvre-item">
 
-                      {{ if .Params.cover }}
-		      <div class="oeuvre-cover">
-                        <a href="{{ .Params.link }}" target="_blank">
-                          <img src="{{ .Params.cover }}" />
-                        </a>
-		      </div>
-                      {{ end }}
+                      <div class="oeuvre-cover-title-year">
 
-		      <div class="oeuvre-title-year">
-
-                      {{ if .Params.title }}
-                        <h3 class="oeuvre-title">
-
-                          {{- if .Params.link }}
+                        {{ if .Params.cover }}
+                        <div class="oeuvre-cover">
                           <a href="{{ .Params.link }}" target="_blank">
-                            {{ .Params.title }}
+                            <img src="{{ .Params.cover }}" />
                           </a>
-                          {{ else }}
-                            {{ .Params.title }}
-                          {{ end -}}
+                        </div>
+                        {{ end }}
 
-                        </h3>
-                      {{ end }}
+                        <div class="oeuvre-title-year">
 
-                      {{ with .Params.year }}
-		        <p class="oeuvre-year">
-                          {{ . }}
-		        </p>
-                      {{ end }}
+                        {{ if .Params.title }}
+                          <h3 class="oeuvre-title">
 
-		      </div>
+                            {{- if .Params.link }}
+                            <a href="{{ .Params.link }}" target="_blank">
+                              {{ .Params.title }}
+                            </a>
+                            {{ else }}
+                              {{ .Params.title }}
+                            {{ end -}}
+
+                          </h3>
+                        {{ end }}
+
+                        {{ with .Params.year }}
+                          <p class="oeuvre-year">
+                            {{ . }}
+                          </p>
+                        {{ end }}
+
+                        <!-- class="oeuvre-title-year -->
+                        </div>
+                      <!-- class="oeuvre-cover-title-year" -->
+                      </div>
 
                       {{ if .Params.featuredAudio }}
-		      <div class="oeuvre-audio">
+                      <div class="oeuvre-audio">
                         {{ partial "audio.html" (dict "src" .Params.featuredAudio "caption" .Params.featuredAudioCaption ) }}
-		      </div>
+                      </div>
                       {{ end }}
 
-		      <div class="oeuvre-description">
+                      <div class="oeuvre-description">
                         {{ .Content }}
-		      </div>
+                      </div>
 
                     </li>
 
-		{{- end }}
+                {{- end }}
 
-		</ul>
+                </ul>
 
-		<div class="content">
-		    {{ .Content | safeHTML }}
-		</div>
+                <div class="content">
+                    {{ .Content | safeHTML }}
+                </div>
 
-	</main>
+        </main>
 {{ end }}
 
 {{ define "footer" }}

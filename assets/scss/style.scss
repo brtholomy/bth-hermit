@@ -819,52 +819,56 @@ ul.oeuvre-list {
     padding: 0;
     list-style: none;
 
-    .oeuvre-item {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
+    li.oeuvre-item {
         margin-bottom: 4em;
 
-        .oeuvre-cover {
-            margin: 0em 1em 1em 0em;
-            padding: 0em;
+        // cover and title boxes are flex row.
+        // audio and description are stacked.
+        .oeuvre-cover-title-year {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
 
-            img {
-                max-width: 300px;
-                align-self: center;
+            .oeuvre-cover {
+                margin: 0em 1em 1em 0em;
+                padding: 0em;
+
+                img {
+                    max-width: 300px;
+                    align-self: center;
+                }
             }
+
+            .oeuvre-title-year {
+                margin: 0em 1em 0em 0em;
+
+                .oeuvre-title {
+                    margin: 0;
+                    padding: 0;
+                    font-weight: bold;
+                    @include animated-a-tag;
+                }
+
+                .oeuvre-year {
+                    @include dimmed;
+                }
+
+            }
+
         }
-
-        .oeuvre-title-year {
-            margin: 0em 1em 0em 0em;
-
-            .oeuvre-title {
-                margin: 0;
-                padding: 0;
-                font-weight: bold;
-                @include animated-a-tag;
-            }
-
-            .oeuvre-year {
-                @include dimmed;
-            }
-
-        }
-
         .oeuvre-audio {
             margin: 0;
             padding: 0;
 
             figure.audio {
                 margin: 0;
+                width: 80%;
             }
         }
-
         .oeuvre-description {
             margin: 0em 1em 0em 0em;
             @include animated-a-tag;
         }
-
     }
 }
 
@@ -877,8 +881,18 @@ figure.audio {
 
     audio {
         width: 100%;
-        background-color: $theme;
     }
+
+    // Most of the styling you cannot control. But you can reach into the webkit
+    // default css for Chromium browsers at least.
+    // https://gist.github.com/Realetive/43c970b72a70badbd2a3
+    // https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css
+
+    // Chrome uses white by default, which looks dumb:
+    audio::-webkit-media-controls-panel {
+        background-color: $coffee;
+    }
+
     figcaption {
         @include dimmed;
         font-size: 0.9em;
