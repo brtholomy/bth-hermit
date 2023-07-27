@@ -196,7 +196,7 @@ code {
   animation-duration: .3s;
 }
 
-.hdr-wrapper {
+.header-wrapper {
   font-size: $menu-initial-size;
   display: flex;
   justify-content: space-between;
@@ -231,12 +231,9 @@ code {
       margin-left: $menu-initial-spacing;
     }
 
-    .hdr-btn {
+    .header-btn {
         margin-left: $menu-initial-spacing;
         cursor: pointer;
-    }
-
-    #subscribe-btn, #works-btn, #info-btn {
         border: none;
         background: none;
         padding: 0;
@@ -1013,7 +1010,7 @@ div.action_button p {
 
 @media (min-width: 360px) {
 
-  .hdr-wrapper, #works-menu, #info-menu {
+  .header-wrapper, #works-menu, #info-menu {
     font-size: 1.2em;
   }
 
@@ -1025,7 +1022,7 @@ div.action_button p {
       font-size: 1em;
   }
 
-  .hdr-wrapper, #works-menu, #info-menu {
+  .header-wrapper, #works-menu, #info-menu {
     font-size: 1.3em;
   }
 
@@ -1059,7 +1056,7 @@ div.action_button p {
     margin-top: 10em;
   }
 
-  .hdr-wrapper {
+  .header-wrapper {
     font-size: 1.4em;
   }
 
