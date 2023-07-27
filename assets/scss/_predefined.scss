@@ -25,12 +25,12 @@ $menu-initial-spacing: 1em;
 // Mixins
 //
 @keyframes color-theme-glow {
-	0% {
-		color: $text;
-	}
-	100% {
-		color: $theme;
-	}
+        0% {
+                color: $text;
+        }
+        100% {
+                color: $theme;
+        }
 }
 
 @mixin theme-glow {

@@ -2,37 +2,37 @@
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:atom="http://www.w3.org/2005/Atom"
 >
-	<channel>
-		<title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
-		<link>{{ .Permalink }}</link>
-		<description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
-		<generator>Hugo -- gohugo.io</generator>
+        <channel>
+                <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+                <link>{{ .Permalink }}</link>
+                <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+                <generator>Hugo -- gohugo.io</generator>
                 {{ with .Site.LanguageCode }}
-		<language>{{.}}</language>{{end}}
+                <language>{{.}}</language>{{end}}
                 {{ with .Site.Author.email }}
-		<managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}
+                <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}
                 {{ with .Site.Author.email }}
-		<webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}
+                <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}
                 {{ with .Site.Copyright }}
-		<copyright>{{.}}</copyright>{{end}}
+                <copyright>{{.}}</copyright>{{end}}
                 {{ if not .Date.IsZero }}
-		<lastBuildDate>{{ .Date.Format .Site.Params.dateformRFC822 | safeHTML }}</lastBuildDate>{{ end }}
-		{{ with .OutputFormats.Get "RSS" -}}
-			{{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
-		{{ end -}}
-		{{ range .Pages }}
-		<item>
-			<title>{{ .Title }}</title>
-			<link>{{ .Permalink }}</link>
-			<pubDate>{{ .Date.Format $.Site.Params.dateformRFC822 | safeHTML }}</pubDate>
+                <lastBuildDate>{{ .Date.Format .Site.Params.dateformRFC822 | safeHTML }}</lastBuildDate>{{ end }}
+                {{ with .OutputFormats.Get "RSS" -}}
+                        {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+                {{ end -}}
+                {{ range .Pages }}
+                <item>
+                        <title>{{ .Title }}</title>
+                        <link>{{ .Permalink }}</link>
+                        <pubDate>{{ .Date.Format $.Site.Params.dateformRFC822 | safeHTML }}</pubDate>
                         {{- with .Site.Author.email -}}
                           <author>{{ . -}}
                           {{- with $.Site.Author.name }} ({{.}})
                           {{- end -}}
                           </author>
                         {{ end -}}
-			<guid>{{ .Permalink }}</guid>
-			<description>
+                        <guid>{{ .Permalink }}</guid>
+                        <description>
                           {{- with .Description -}}
                             {{- . | html -}}
                           {{- else -}}
@@ -49,8 +49,8 @@
                                 />
                         {{ end }}
                         {{ end -}}
-			<content:encoded>{{ printf `<![CDATA[%s]]>` | partial "absolute-links.html" (dict "context" . "content" .Content) | safeHTML }}</content:encoded>
-		</item>
-		{{ end }}
-	</channel>
+                        <content:encoded>{{ printf `<![CDATA[%s]]>` | partial "absolute-links.html" (dict "context" . "content" .Content) | safeHTML }}</content:encoded>
+                </item>
+                {{ end }}
+        </channel>
 </rss>

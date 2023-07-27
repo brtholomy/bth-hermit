@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-	<main class="site-main section-inner thin animated fadeIn faster">
+        <main class="site-main section-inner thin animated fadeIn faster">
 
           <!-- featuredPost on posts/ only -->
           {{- if (eq .Page.Type "posts") -}}
@@ -16,7 +16,7 @@
             {{- end -}}
           {{- end -}}
 
-	  <h2 class="list-heading">
+          <h2 class="list-heading">
             <!-- hash in front of tag listings: -->
 
             <!-- below condition will change name of rest of posts/ to "archive" -->
@@ -34,11 +34,11 @@
 
           </h2>
 
-	  {{- if .Content }}
-	  <div class="content">
-	    {{ .Content }}
-	  </div>
-	  {{- end }}
+          {{- if .Content }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          {{- end }}
 
           <!-- checkFeatured for posts/ only -->
           {{- if (eq .Page.Type "posts") -}}
@@ -47,7 +47,7 @@
           {{ partial "post-list.html" (dict "range" .Data.Pages "context" . "checkFeatured" false ) }}
           {{- end -}}
 
-	</main>
+        </main>
 {{ end }}
 
 {{ define "footer" }}
