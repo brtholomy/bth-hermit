@@ -29,7 +29,8 @@
                     <!-- https://gohugo.io/templates/internal/#open-graph -->
                     {{- with .Params.images -}}
                     {{- range first 1 . -}}
-                    <img class="post-image" src="{{ . | relURL}}"/>
+                    <img class="post-image" src="{{ . | relURL}}"
+                         alt="{{ $.Params.Summary | default $.Page.Title }}"/>
                     {{- end }}
                     {{- end }}
 
@@ -93,3 +94,4 @@
 {{ define "footer" }}
 {{ partialCached "footer.html" . }}
 {{ end }}
+
