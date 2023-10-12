@@ -1,14 +1,7 @@
 {{ define "head" }}
-        {{ if .Site.Params.bgImg -}}
-        <style>.bg-img {background-image: url('{{.Site.Params.bgImg}}');}</style>
-        {{- end -}}
 {{ end }}
 
 {{ define "main" }}
-
-        {{- if .Site.Params.bgImg }}
-        <div class="bg-img"></div>
-        {{- end }}
 
         <div id="spotlight" class="animated fadeIn">
                 <div id="home-center">
@@ -34,3 +27,4 @@
 
         </div>
 {{ end }}
+

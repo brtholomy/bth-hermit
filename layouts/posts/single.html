@@ -1,7 +1,4 @@
 {{ define "head" }}
-        {{ if .Params.bgImg -}}
-        <style>.bg-img {background-image: url('{{.Params.bgImg}}');}</style>
-        {{- end -}}
 {{ end }}
 
 {{ define "header" }}
@@ -9,9 +6,6 @@
 {{ end }}
 
 {{ define "main" }}
-        {{ if .Params.bgImg -}}
-        <div class="bg-img"></div>
-        {{- end }}
 
         <main class="site-main section-inner animated fadeIn faster">
                 <article class="thin">
