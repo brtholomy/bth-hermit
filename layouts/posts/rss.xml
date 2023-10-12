@@ -14,7 +14,7 @@
                 {{ with .Site.Author.email }}
                 <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}
                 {{ with .Site.Copyright }}
-                <copyright>{{.}}</copyright>{{end}}
+                <copyright>&#169; {{ now.Format "2006" }} {{.}}</copyright>{{end}}
                 {{ if not .Date.IsZero }}
                 <lastBuildDate>{{ .Date.Format .Site.Params.dateformRFC822 | safeHTML }}</lastBuildDate>{{ end }}
                 {{ with .OutputFormats.Get "RSS" -}}
@@ -54,3 +54,4 @@
                 {{ end }}
         </channel>
 </rss>
+

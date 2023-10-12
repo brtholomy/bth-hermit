@@ -1,5 +1,5 @@
 <p>
-&copy; {{ now.Format "2006" }} <a href="{{ .Site.Author.url | relURL }}">{{ .Site.Params.footerCopyright }}</a>
+&#169; {{ now.Format "2006" }} <a href="{{ .Site.Author.url | relURL }}">{{ .Site.Copyright }}</a>
 
 {{- with (not .Site.Params.disableRss) }}
 
@@ -12,3 +12,4 @@
 {{ end }}
 
 </p>
+
