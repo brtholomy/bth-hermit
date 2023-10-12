@@ -17,7 +17,9 @@
                         {{ if .Params.cover }}
                         <div class="oeuvre-cover">
                           <a href="{{ .Params.link }}" target="_blank">
-                            <img src="{{ .Params.cover }}" />
+                            <img src="{{ .Params.cover }}"
+                                 alt="{{ .Params.Title }}"/>
+
                           </a>
                         </div>
                         {{ end }}
@@ -75,3 +77,4 @@
 {{ define "footer" }}
 {{ partialCached "footer.html" . }}
 {{ end }}
+

@@ -7,7 +7,8 @@
                       <div class="post-thumbail-and-titles">
 
                         {{- with .Params.thumbnail }}
-                        <img class="post-thumbnail" src="{{ . | relURL}}"/>
+                        <img class="post-thumbnail" src="{{ . | relURL}}"
+                        alt="{{ $.Params.Summary | default $.Params.Title }}"/>
                         {{- end }}
 
                         <!-- flex-direction: column -->
@@ -29,3 +30,4 @@
 
                     </a>
                   </div>
+
