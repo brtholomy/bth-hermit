@@ -21,6 +21,7 @@ select,
 textarea {
   color: $text;
   font-family: $fonts;
+  font-variant-ligatures: none;
 }
 
 ////////////////////////////////////////
@@ -1174,3 +1175,4 @@ div.action_button p {
     right: 1.2em;
   }
 }
+
