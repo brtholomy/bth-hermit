@@ -45,7 +45,7 @@ const autoHideHeader = () => {
   lastScrollPosition = currentScrollPosition;
 }
 
-// Mobile Menu Toggle
+// Header menu toggles
 //
 let worksMenuVisible = false;
 
@@ -93,17 +93,12 @@ const toggleToc = () => {
   document.getElementById('toc').classList.toggle('show-toc');
 }
 
+// Listeners : actual function invocation
 
 if (header !== null) {
   listen('#works-btn', "click", toggleWorksMenu);
   listen('#info-btn', "click", toggleInfoMenu);
   listen('#toc-btn', "click", toggleToc);
-
-  document.querySelectorAll('.post-year').forEach((ele)=> {
-    ele.addEventListener('click', () => {
-      window.location.hash = '#' + ele.id;
-    });
-  });
 
   window.addEventListener('scroll', throttle(() => {
     autoHideHeader();
