@@ -1029,6 +1029,9 @@ div.action_button p {
 
 }
 
+// NOTE: this is where the main.js query changes autoHideHeader() behavior.
+// would have preferred to use this query to change an attribute to be queried
+// there, but it's so much easier to make a query in JS at that point I guess.
 @media (min-width: 800px) {
 
   .content {

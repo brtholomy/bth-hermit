@@ -95,13 +95,20 @@ const toggleToc = () => {
 
 // Listeners : actual function invocation
 
+// see note in style.scss about this query breakpoint.
+var desktop = window.matchMedia("(min-width: 800px)")
+
 if (header !== null) {
   listen('#works-btn', "click", toggleWorksMenu);
   listen('#info-btn', "click", toggleInfoMenu);
   listen('#toc-btn', "click", toggleToc);
 
   window.addEventListener('scroll', throttle(() => {
-    autoHideHeader();
+
+    // don't hide the header on desktop anymore.
+    if (desktop.matches == false) {
+      autoHideHeader();
+    }
 
     if (worksMenuVisible == true) {
       toggleWorksMenu();
