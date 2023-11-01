@@ -45,7 +45,7 @@ a {
   backface-visibility: hidden;
 
   &:hover {
-    color: $text-secondary;
+    color: $theme;
   }
 }
 
@@ -210,8 +210,7 @@ code {
   }
 
   .site-branding a {
-    color: $background;
-    // font-weight: bold;
+    color: $text-emphasis;
 
     text-decoration: none;
     border: none;
@@ -220,7 +219,7 @@ code {
     transition-timing-function: ease-out;
 
     &:hover {
-        color: $text-secondary;
+        color: $theme;
     }
   }
 
