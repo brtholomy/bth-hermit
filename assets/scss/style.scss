@@ -45,7 +45,7 @@ a {
   backface-visibility: hidden;
 
   &:hover {
-    color: $cream;
+    color: $text-secondary;
   }
 }
 
@@ -105,8 +105,8 @@ pre {
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
-  color: $cream;
-  background: $coffee;
+  color: $text-secondary;
+  background: $background-secondary;
   border-radius: 4px;
   // -webkit-overflow-scrolling: touch;
 
@@ -117,8 +117,8 @@ pre {
 }
 
 code {
-  color: $cream;
-  background: $coffee;
+  color: $text-secondary;
+  background: $background-secondary;
   border-radius: 3px;
   padding: 0 3px;
   margin: 0 4px;
@@ -193,7 +193,7 @@ code {
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0px 10px 10px $background;
-  background-color: $menu-background;
+  background-color: $background-secondary;
   animation-duration: .3s;
 }
 
@@ -220,7 +220,7 @@ code {
     transition-timing-function: ease-out;
 
     &:hover {
-        color: $cream;
+        color: $text-secondary;
     }
   }
 
@@ -257,7 +257,7 @@ code {
   z-index: 1;
   box-sizing: border-box;
   box-shadow: -1px -2px 3px 0px rgba(0, 0, 0, 0.45);
-  background-color: $menu-background;
+  background-color: $background-secondary;
 
   ul {
     list-style: none;
@@ -512,7 +512,6 @@ ul.posts-list {
   h2 {
       margin-top: -.5em;
       font-weight: normal;
-      // color: $offwhite;
   }
 
   img.post-image {
@@ -544,7 +543,7 @@ hr.post-end {
 
   em {
       font-style: italic;
-      color: $text-light;
+      color: $text-emphasis;
   }
 
   figure {
@@ -666,7 +665,7 @@ a.footnote-ref {
   text-decoration: none;
   padding: 2px;
   border-radius: 2px;
-  background-color: $midnightblue;
+  background-color: $background-secondary;
 
   &:hover{
     box-shadow: none;
@@ -888,7 +887,7 @@ figure.audio {
 
     // Chrome uses white by default, which looks dumb:
     audio::-webkit-media-controls-panel {
-        background-color: $coffee;
+        background-color: $background-secondary;
     }
 
     figcaption {
@@ -911,7 +910,7 @@ div.action_button {
 
 div.action_button p {
     text-align: center;
-    color: $offwhite;
+    color: $text-secondary;
 }
 
 ////////////////////////////////////////
@@ -992,7 +991,7 @@ div.action_button p {
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: $midnightblue;
+  background: $background-secondary;
 }
 
 ::-webkit-scrollbar-thumb {
