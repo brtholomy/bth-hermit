@@ -875,9 +875,10 @@ figure.audio {
 
 
 ////////////////////////////////////////
-// webkit scrollbar
+// scrollbar
 ////////////////////////////////////////
 
+// chrome
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -885,11 +886,16 @@ figure.audio {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $background;
 
   &:hover {
-    background: $text;
+    background: $theme;
   }
+}
+
+// firefox
+html {
+    scrollbar-color: $background $background-secondary;
 }
 
 ////////////////////////////////////////
