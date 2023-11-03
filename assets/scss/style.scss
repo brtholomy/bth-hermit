@@ -544,16 +544,11 @@ hr.post-end {
   color: $theme;
   text-decoration: none;
   border: none;
-  // TODO: isn't this a duplicate of the mixin?
-  transition-property: color;
-  transition-duration: .4s;
-  transition-timing-function: ease-out;
   @include theme-glow;
 
-  // TODO: why white?
   &:hover {
-    color: #fff;
-    text-shadow: 0 0 1px #fff;
+    color: $text-emphasis;
+    text-shadow: 0 0 2px $text-emphasis;
   }
 }
 
