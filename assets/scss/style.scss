@@ -137,6 +137,7 @@ code {
   margin-top: 5em;
 }
 
+// TODO: what's the conceptual difference?
 .section-inner {
   margin-left: auto;
   margin-right: auto;
@@ -144,6 +145,8 @@ code {
   width: 93%;
 }
 
+// TODO: i don't like this. it's thrown in as a class to control width, but I'd
+// rather it was a mixin maybe.
 .thin {
   max-width: 720px;
   margin-left: auto;
@@ -151,6 +154,7 @@ code {
   margin-bottom: 0em;
 }
 
+// TODO: seems to apply to svg only. meaning https://feathericons.com
 .feather {
   display: inline-block;
   vertical-align: -.125em;
@@ -162,6 +166,7 @@ code {
   font-size: .7em;
 }
 
+// TODO: remove or simplify
 .desktop-only, .desktop-only-ib {
   display: none;
 }
@@ -179,6 +184,7 @@ code {
 
 }
 
+// TODO: what's the heading-wrapper:hover doing?
 .heading-wrapper:hover a.heading-anchor{
     display: inline;
     color: $theme;
@@ -362,6 +368,10 @@ img#footer-logo {
   }
 }
 
+////////////////////////////////////////
+// 404
+////////////////////////////////////////
+
 p.img-404 {
   margin: 0;
 
@@ -489,6 +499,7 @@ ul.posts-list {
 // single.html
 ////////////////////////////////////////
 
+// TODO: remove?
 .bg-img {
   width: 100vw;
   height: 100vh;
@@ -532,10 +543,12 @@ hr.post-end {
 }
 
 .content {
+  // TODO: font-size is way too scattered. should be abstracted out and made clearer.
   // small size for mobile screens, turned up with media queries
   font-size: 0.95em;
   line-height: 2.2em;
 
+  // TODO: remove?
   {{- with .Site.Params.justifyContent }}
   text-align: justify;
   text-justify: inter-ideograph; //For IE/Edge
@@ -561,6 +574,7 @@ hr.post-end {
     }
   }
 
+  // TODO: remove? can always add back
   figure.left {
     float: left;
     margin-right: 1.5em;
@@ -591,6 +605,7 @@ hr.post-end {
     margin-left: 1.8em;
   }
 
+  // TODO: is this still used? .heading-anchor replaces it?
   a.anchor {
     float: left;
     margin-left: -20px;
@@ -615,6 +630,7 @@ hr.post-end {
     }
   }
 
+  // TODO: is this a duplicate?
   h1:hover a.anchor svg,
   h2:hover a.anchor svg,
   h3:hover a.anchor svg,
@@ -629,11 +645,13 @@ hr.post-end {
   color: $theme;
   text-decoration: none;
   border: none;
+  // TODO: isn't this a duplicate of the mixin?
   transition-property: color;
   transition-duration: .4s;
   transition-timing-function: ease-out;
   @include theme-glow;
 
+  // TODO: why white?
   &:hover {
     color: #fff;
     text-shadow: 0 0 1px #fff;
@@ -702,6 +720,7 @@ a.footnote-ref {
   }
 }
 
+// TODO: remove all toc stuff?
 #toc {
   position: fixed;
   left: 50%;
@@ -738,7 +757,7 @@ a.footnote-ref {
   }
 }
 
-
+// TODO: remove?
 .post-nav {
   display: flex;
   justify-content: space-between;
