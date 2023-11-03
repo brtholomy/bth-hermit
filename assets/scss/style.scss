@@ -176,15 +176,16 @@ code {
 
 /* https://discourse.gohugo.io/t/adding-anchor-next-to-headers/1726/24 */
 .heading-anchor {
+    // TODO: what's this color?
     color: #999;
     text-decoration: none;
     display: none;
     box-shadow: none;
     transition-property: none;
-
 }
 
-// TODO: what's the heading-wrapper:hover doing?
+// NOTE: the .heading-wrapper:hover is necessary to get the thing to appear
+// reasonably over the whole div.
 .heading-wrapper:hover a.heading-anchor{
     display: inline;
     color: $theme;
@@ -499,21 +500,6 @@ ul.posts-list {
 // single.html
 ////////////////////////////////////////
 
-// TODO: remove?
-.bg-img {
-  width: 100vw;
-  height: 100vh;
-  opacity: .03;
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transition: opacity .5s;
-}
-
 .post-header {
   margin-top: 1.2em;
   line-height: normal;
@@ -548,12 +534,6 @@ hr.post-end {
   font-size: 0.95em;
   line-height: 2.2em;
 
-  // TODO: remove?
-  {{- with .Site.Params.justifyContent }}
-  text-align: justify;
-  text-justify: inter-ideograph; //For IE/Edge
-  {{- end }}
-
   @include animated-a-tag;
 
   em {
@@ -572,23 +552,6 @@ hr.post-end {
       font-style: italic;
       @include dimmed;
     }
-  }
-
-  // TODO: remove? can always add back
-  figure.left {
-    float: left;
-    margin-right: 1.5em;
-    max-width: 50%;
-  }
-
-  figure.right {
-    float: right;
-    margin-left: 1.5em;
-    max-width: 50%;
-  }
-
-  figure.big {
-    max-width: 100vw;
   }
 
   img {
@@ -720,74 +683,11 @@ a.footnote-ref {
   }
 }
 
-// TODO: remove all toc stuff?
-#toc {
-  position: fixed;
-  left: 50%;
-  top: 0;
-  display: none;
-}
-
-.toc-title {
-  margin-left: 1em;
-  margin-bottom: .5em;
-  font-size: .8em;
-  font-weight: bold;
-}
-
-#TableOfContents {
-  font-size: .8em;
-  @include dimmed;
-
-  ul {
-    padding-left: 1em;
-    margin: 0;
-  }
-
-  &>ul {
-    list-style-type: none;
-
-    ul ul {
-      font-size: .9em;
-    }
-  }
-
-  a:hover {
-    border-bottom: $theme 1px solid;
-  }
-}
-
-// TODO: remove?
-.post-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5em;
-  margin-bottom: 2.5em;
-  font-size: 1.2em;
-
-  a {
-    flex-basis: 50%;
-    flex-grow: 1;
-  }
-
-  .next-post {text-align: left; padding-right: 5px;}
-  .prev-post {text-align: right; padding-left: 5px;}
-
-  .post-nav-label {
-    font-size: .8em;
-    opacity: .8;
-    text-transform: uppercase;
-  }
-}
-
 .related-posts {
-  // padding: .8em;
   margin-top: 5em;
   font-size: 1rem;
-  // border: 3px solid $theme;
-  // border-radius: 5px;
 
-  h2{
+  h2 {
     margin: 0;
     line-height: normal;
   }
