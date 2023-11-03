@@ -216,6 +216,10 @@ code {
         padding: 0;
         height: 24px;
 
+        &:hover {
+            color: $theme;
+        }
+
         a {
             margin: 0;
         }
