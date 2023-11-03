@@ -567,41 +567,6 @@ hr.post-end {
     padding: 0;
     margin-left: 1.8em;
   }
-
-  // TODO: is this still used? .heading-anchor replaces it?
-  a.anchor {
-    float: left;
-    margin-left: -20px;
-    padding-right: 6px;
-    box-shadow: none;
-    opacity: .8;
-    &:hover {
-      background: none;
-      color: $theme;
-      opacity: 1;
-    }
-
-    svg {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      vertical-align: baseline;
-      visibility: hidden;
-    }
-    &:focus svg {
-      visibility: visible;
-    }
-  }
-
-  // TODO: is this a duplicate?
-  h1:hover a.anchor svg,
-  h2:hover a.anchor svg,
-  h3:hover a.anchor svg,
-  h4:hover a.anchor svg,
-  h5:hover a.anchor svg,
-  h6:hover a.anchor svg {
-    visibility: visible;
-  }
 }
 
 .signature a {
