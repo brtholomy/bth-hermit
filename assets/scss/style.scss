@@ -154,42 +154,9 @@ code {
   margin-bottom: 0em;
 }
 
-// TODO: seems to apply to svg only. meaning https://feathericons.com
-.feather {
-  display: inline-block;
-  vertical-align: -.125em;
-  width: 1em;
-  height: 1em;
-}
-
-.sub-menu {
-  font-size: .7em;
-}
-
 // TODO: remove or simplify
 .desktop-only, .desktop-only-ib {
   display: none;
-}
-
-////////////////////////////////////////
-// markdown rendering hooks
-
-/* https://discourse.gohugo.io/t/adding-anchor-next-to-headers/1726/24 */
-.heading-anchor {
-    // TODO: what's this color?
-    color: #999;
-    text-decoration: none;
-    display: none;
-    box-shadow: none;
-    transition-property: none;
-}
-
-// NOTE: the .heading-wrapper:hover is necessary to get the thing to appear
-// reasonably over the whole div.
-.heading-wrapper:hover a.heading-anchor{
-    display: inline;
-    color: $theme;
-    box-shadow: none;
 }
 
 ////////////////////////////////////////
@@ -756,6 +723,57 @@ ul.oeuvre-list {
 }
 
 ////////////////////////////////////////
+// support
+////////////////////////////////////////
+
+div.action_button {
+    background: $theme;
+    max-width: 15em;
+    margin: 2em 0em;
+    padding: 0.1rem 0.1rem;
+    border-radius: 0.5rem;
+}
+
+div.action_button p {
+    text-align: center;
+    color: $text-secondary;
+}
+
+////////////////////////////////////////
+// markdown rendering hooks
+////////////////////////////////////////
+
+/* https://discourse.gohugo.io/t/adding-anchor-next-to-headers/1726/24 */
+.heading-anchor {
+    // TODO: what's this color?
+    color: #999;
+    text-decoration: none;
+    display: none;
+    box-shadow: none;
+    transition-property: none;
+}
+
+// NOTE: the .heading-wrapper:hover is necessary to get the thing to appear
+// reasonably over the whole div.
+.heading-wrapper:hover a.heading-anchor{
+    display: inline;
+    color: $theme;
+    box-shadow: none;
+}
+
+////////////////////////////////////////
+// svg
+////////////////////////////////////////
+
+// meaning https://feathericons.com
+.feather {
+  display: inline-block;
+  vertical-align: -.125em;
+  width: 1em;
+  height: 1em;
+}
+
+////////////////////////////////////////
 // audio
 ////////////////////////////////////////
 
@@ -780,23 +798,6 @@ figure.audio {
         @include dimmed;
         font-size: 0.9em;
     }
-}
-
-////////////////////////////////////////
-// support
-////////////////////////////////////////
-
-div.action_button {
-    background: $theme;
-    max-width: 15em;
-    margin: 2em 0em;
-    padding: 0.1rem 0.1rem;
-    border-radius: 0.5rem;
-}
-
-div.action_button p {
-    text-align: center;
-    color: $text-secondary;
 }
 
 ////////////////////////////////////////
