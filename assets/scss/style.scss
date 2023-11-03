@@ -35,6 +35,10 @@ h1 {
     font-size: 2em;
 }
 
+h2 {
+    @include dimmed;
+}
+
 a {
   color: $text;
   text-decoration: none;
