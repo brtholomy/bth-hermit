@@ -87,12 +87,6 @@ const toggleInfoMenu = () => {
   }
 }
 
-// ToC Toggle
-//
-const toggleToc = () => {
-  document.getElementById('toc').classList.toggle('show-toc');
-}
-
 // Listeners : actual function invocation
 
 // see note in style.scss about this query breakpoint.
@@ -101,7 +95,6 @@ var desktop = window.matchMedia("(min-width: 800px)")
 if (header !== null) {
   listen('#works-btn', "click", toggleWorksMenu);
   listen('#info-btn', "click", toggleInfoMenu);
-  listen('#toc-btn', "click", toggleToc);
 
   window.addEventListener('scroll', throttle(() => {
 

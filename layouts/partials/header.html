@@ -23,13 +23,6 @@
 
     </nav>
 
-    <!-- toc -->
-    {{- with .Params.toc -}}
-    <button id="toc-btn" class="header-btn desktop-only-ib" title="{{i18n "tableOfContents"}}">
-      {{ partial "svg.html" (dict "type" "toc") }}
-    </button>
-    {{- end }}
-
   </div>
 </header>
 
@@ -49,3 +42,4 @@
     {{- end }}
   </ul>
 </div>
+

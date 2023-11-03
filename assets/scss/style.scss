@@ -634,43 +634,6 @@ a.footnote-ref {
   }
 }
 
-// TODO: remove all toc stuff?
-#toc {
-  position: fixed;
-  left: 50%;
-  top: 0;
-  display: none;
-}
-
-.toc-title {
-  margin-left: 1em;
-  margin-bottom: .5em;
-  font-size: .8em;
-  font-weight: bold;
-}
-
-#TableOfContents {
-  font-size: .8em;
-  @include dimmed;
-
-  ul {
-    padding-left: 1em;
-    margin: 0;
-  }
-
-  &>ul {
-    list-style-type: none;
-
-    ul ul {
-      font-size: .9em;
-    }
-  }
-
-  a:hover {
-    border-bottom: $theme 1px solid;
-  }
-}
-
 ////////////////////////////////////////
 // subscribe-form.html
 ////////////////////////////////////////
@@ -991,8 +954,7 @@ figure.audio {
     font-size: 1.4em;
   }
 
-  .desktop-only,
-  #toc.show-toc {
+  .desktop-only {
     display: block;
   }
 
@@ -1021,12 +983,6 @@ figure.audio {
 
   hr.post-end {
     width: 30%;
-  }
-
-  #toc {
-    top: 13em;
-    margin-left: 370px;
-    max-width: 220px;
   }
 }
 
@@ -1060,12 +1016,6 @@ figure.audio {
 
   hr.post-end {
     width: 30%;
-  }
-
-  #toc {
-    top: 15em;
-    margin-left: 490px;
-    max-width: 300px;
   }
 }
 
