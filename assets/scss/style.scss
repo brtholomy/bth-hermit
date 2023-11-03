@@ -785,16 +785,29 @@ figure.audio {
 
     audio {
         width: 100%;
+        border-radius: 5px;
+        background-color: $theme;
     }
 
-    // Most of the styling you cannot control. But you can reach into the webkit
-    // default css for Chromium browsers at least.
-    // https://gist.github.com/Realetive/43c970b72a70badbd2a3
-    // https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css
+// Most of the styling you cannot control. But you can reach into the webkit
+// default css for Chromium browsers at least.
+// https://gist.github.com/Realetive/43c970b72a70badbd2a3
+// https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css
 
-    // Chrome uses white by default, which looks dumb:
     audio::-webkit-media-controls-panel {
         background-color: $background-secondary;
+        border-radius: 0px;
+    }
+
+    audio::-webkit-media-controls-current-time-display, audio::-webkit-media-controls-time-remaining-display {
+        color: $text;
+        text-shadow: none;
+        font-weight: bold;
+    }
+
+    audio::-webkit-media-controls-play-button {
+        background-color: $theme;
+        border-radius: 10px;
     }
 
     figcaption {
