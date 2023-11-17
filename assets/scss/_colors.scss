@@ -16,6 +16,14 @@ $bluegreen: #002029;
 $bluegreen-shade: #002631;
 
 ////////////////////////////////////////
+// fuschiaparty
+$fuschia: #f07;
+$fuschia-light: #fdf;
+$fuschia-light-light: #fad;
+$fuschia-dark: #1b0008;
+$fuschia-dark-shade: #301;
+
+////////////////////////////////////////
 // assignments
 
 ////////////////////////////////////////
@@ -30,14 +38,26 @@ $bluegreen-shade: #002631;
 // $text-emphasis: $gold-light;
 // $text-secondary: $cream;
 
+// ////////////////////////////////////////
+// // greenteen
+
+// $theme: $green;
+
+// $background: $bluegreen;
+// $background-secondary: $bluegreen-shade;
+
+// $text: $green-light;
+// $text-emphasis: $green-light-light;
+// $text-secondary: $cream;
+
 ////////////////////////////////////////
-// greenteen
+// fuschiaparty
 
-$theme: $green;
+$theme: $fuschia;
 
-$background: $bluegreen;
-$background-secondary: $bluegreen-shade;
+$background: $fuschia-dark;
+$background-secondary: $fuschia-dark-shade;
 
-$text: $green-light;
-$text-emphasis: $green-light-light;
+$text: $fuschia-light;
+$text-emphasis: $fuschia-light-light;
 $text-secondary: $cream;
