@@ -24,15 +24,17 @@
         {{ end -}}
 
         {{- $style := "" -}}
-        {{- if (and (eq .Page.Kind "section") (ne .Page.Section "posts")) }}
-        {{ $style = resources.Get "scss/theme_fuschsiaparty.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
-        {{- else if (eq .Page.Kind "page") }}
-        {{ $style = resources.Get "scss/theme_greenteen.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+        {{- $theme := "" -}}
+        {{- if (isset .Params "theme") }}
+          {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
+        {{- else if (and (eq .Page.Kind "section") (ne .Page.Section "posts")) }}
+          {{ $theme = "scss/theme_fuschsiaparty.scss" }}
         {{ else -}}
-        {{ $style = resources.Get "scss/theme_rolotony.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+          {{ $theme = "scss/theme_rolotony.scss" }}
         {{ end -}}
-
+        {{ $style = resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
         <link rel="stylesheet" href="{{ $style.Permalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
+
         {{- block "head" . -}}{{- end }}
         {{- if templates.Exists "partials/extra-head.html" -}}
         {{ partial "extra-head.html" . }}
@@ -61,4 +63,3 @@
 </body>
 
 </html>
-
