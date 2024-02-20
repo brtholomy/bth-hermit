@@ -3,12 +3,41 @@
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Noto Sans Mono';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   src:
       local('Noto Sans Mono'),
-      url('/fonts/noto-sans-mono-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('/fonts/NotoSansMono-VariableFont_wdth,wght.ttf') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-$fonts: "Noto Sans Mono", "Courier New", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Liberation Mono", Monaco, monospace;
+// Courier Prime regular
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: normal;
+  src:
+      local('Courier Prime'),
+      url('/fonts/CourierPrime-Regular.ttf') format('truetype'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: italic;
+  font-weight: normal;
+  src:
+      local('Courier Prime Italic'),
+      url('/fonts/CourierPrime-Italic.ttf') format('truetype'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+// bold
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: bold;
+  src:
+      local('Courier Prime Bold'),
+      url('/fonts/CourierPrime-Bold.ttf') format('truetype'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+$fonts: "Courier Prime", "Noto Sans Mono", "Courier New", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Liberation Mono", Monaco, monospace;
 
 // just reuse the same for now:
 $code-fonts: $fonts;
