@@ -1,4 +1,14 @@
-$fonts: Courier, "Nimbus Mono PS", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", Monaco, monospace;
+/* noto-sans-mono-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src:
+      local('Noto Sans Mono'),
+      url('/fonts/noto-sans-mono-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+$fonts: "Noto Sans Mono", "Courier New", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Liberation Mono", Monaco, monospace;
 
 // just reuse the same for now:
 $code-fonts: $fonts;
