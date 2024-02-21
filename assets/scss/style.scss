@@ -734,6 +734,11 @@ div.action_button p {
     color: $text-secondary;
 }
 
+div.stripe {
+    max-width: 15em;
+    margin: -2em 0;
+}
+
 ////////////////////////////////////////
 // markdown rendering hooks
 ////////////////////////////////////////
