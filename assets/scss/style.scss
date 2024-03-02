@@ -19,6 +19,13 @@ textarea {
   font-variant-ligatures: none;
 }
 
+#home-background {
+  // background-image: url('/minimal_dendrites.png');
+  // background-image: url('/minimal_dendrites2.png');
+  // background-image: url('/pixelglow_dendrites2.png');
+  background-image: url('/tree_dendrites.png');
+}
+
 ////////////////////////////////////////
 // default tags everywhere
 ////////////////////////////////////////
@@ -292,6 +299,8 @@ img#footer-logo {
 ////////////////////////////////////////
 
 #home-center {
+  background: $background;
+  padding: 2rem;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
