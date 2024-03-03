@@ -19,10 +19,6 @@ textarea {
   font-variant-ligatures: none;
 }
 
-#home-background {
-  background-image: url('/dendrites_med_spotty_lossy.gif');
-}
-
 ////////////////////////////////////////
 // default tags everywhere
 ////////////////////////////////////////
@@ -275,15 +271,15 @@ img#footer-logo {
 // spotlight : center aligned content
 ////////////////////////////////////////
 
+// TODO: remove depedence on this, merge with home-center
 #spotlight {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 93%;
   margin: auto;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 
   &.error-404 {
     flex-direction: row;
@@ -295,9 +291,13 @@ img#footer-logo {
 // home page
 ////////////////////////////////////////
 
+#home-background {
+  background-image: url('/dendrites_med_spotty_lossy.gif');
+}
+
 #home-center {
   background: $background;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -951,6 +951,10 @@ html {
 
   .site-main {
     margin-top: 6em;
+  }
+
+  #spotlight {
+      font-size: 1.5rem;
   }
 
   hr.post-end {
