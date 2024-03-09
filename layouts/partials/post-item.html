@@ -17,8 +17,10 @@
                           <span class="post-title">
                           {{- if (eq .Page.Kind "term") -}}
                           #
+                            {{- .Title | lower -}}
+                          {{- else -}}
+                            {{- .Title -}}
                           {{- end -}}
-                          {{- .Title -}}
                           </span>
 
                           {{- with .Params.Summary }}
@@ -30,4 +32,3 @@
 
                     </a>
                   </div>
-
