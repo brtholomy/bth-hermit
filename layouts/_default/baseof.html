@@ -27,7 +27,7 @@
         {{- $theme := "" -}}
         {{- if (isset .Params "theme") }}
           {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
-        {{- else if (and (eq .Page.Kind "section") (ne .Page.Section "posts")) }}
+        {{- else if (eq .Page.Kind "section")  }}
           {{ $theme = "scss/theme_fuschsiaparty.scss" }}
         {{ else -}}
           {{ $theme = "scss/theme_rolotony.scss" }}
