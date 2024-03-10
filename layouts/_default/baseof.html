@@ -36,9 +36,6 @@
         <link rel="stylesheet" href="{{ $style.Permalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
 
         {{- block "head" . -}}{{- end }}
-        {{- if templates.Exists "partials/extra-head.html" -}}
-        {{ partial "extra-head.html" . }}
-        {{- end }}
 </head>
 
 <body id="page">

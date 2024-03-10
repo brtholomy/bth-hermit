@@ -1,8 +1,5 @@
-{{ define "head" }}
-{{ end }}
-
 {{ define "header" }}
-{{ partial "header.html" . }}
+{{ partialCached "header.html" . }}
 {{ end }}
 
 {{ define "main" }}
@@ -80,4 +77,3 @@
 {{ define "footer" }}
 {{ partialCached "footer.html" . }}
 {{ end }}
-
