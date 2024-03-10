@@ -1,6 +1,12 @@
 // theme
 @import "colors.scss";
-@import "color_vars_rolotony.scss";
+
+$theme: $orange;
+$background: $brown;
+$background-secondary: $coffee;
+$text: $gold;
+$text-emphasis: $gold-light;
+$text-secondary: $cream;
 
 // shared settings
 @import "fonts.scss";

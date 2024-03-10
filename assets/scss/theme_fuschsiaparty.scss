@@ -1,6 +1,12 @@
 // theme
 @import "colors.scss";
-@import "color_vars_fuchsiaparty.scss";
+
+$theme: $fuschia;
+$background: $fuschia-dark;
+$background-secondary: $fuschia-dark-shade;
+$text: $cream;
+$text-emphasis: $fuschia-light-light;
+$text-secondary: $fuschia-light;
 
 // shared settings
 @import "fonts.scss";

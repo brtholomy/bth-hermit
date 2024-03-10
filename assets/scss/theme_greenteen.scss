@@ -1,6 +1,12 @@
 // theme
 @import "colors.scss";
-@import "color_vars_greenteen.scss";
+
+$theme: $green;
+$background: $bluegreen;
+$background-secondary: $bluegreen-shade;
+$text: $green-light;
+$text-emphasis: $green-light-light;
+$text-secondary: $cream;
 
 // shared settings
 @import "fonts.scss";
