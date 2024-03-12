@@ -1,0 +1,20 @@
+// theme
+@import "colors.scss";
+
+$theme: $orange;
+$background: $coffee-dark;
+$background-secondary: $brown;
+$text: $cream;
+$text-emphasis: $gold;
+$text-secondary: $cream;
+
+// shared settings
+@import "fonts.scss";
+@import "mixins.scss";
+
+// thirdparty
+@import "normalize.scss";
+@import "animate.scss";
+
+// main styles
+@import "style.scss"
