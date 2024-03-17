@@ -27,7 +27,6 @@
             {{- end -}}
 
             {{- if (and .Site.Params.featuredPost (eq .Page.Type "posts")) -}}
-            archive
             {{- else -}}
             {{- .Title | lower -}}
             {{- end -}}
