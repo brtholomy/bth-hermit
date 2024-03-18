@@ -33,38 +33,36 @@
 
                   </div>
 
-                  <div class="signature">
-                  <p><a href="{{ .Site.Params.Author.url | relURL }}">
-                      {{- .Site.Params.Author.name -}}</a></p>
-                  </div>
+                  <footer class="post-info">
 
-                        <hr class="post-end">
+                    <div class="signature">
+                      <p><a href="{{ .Site.Params.Author.url | relURL }}">
+                          {{- .Site.Params.Author.name -}}</a></p>
+                    </div>
 
-                        <footer class="post-info">
+                    <p>{{ dateFormat .Site.Params.dateformNum .Date }}</p>
 
-                                <p>{{ dateFormat .Site.Params.dateformNum .Date }}</p>
+                    <!-- place -->
+                    <p>
+                      {{- partial "svg.html" (dict "type" "place") -}}
+                      {{- with $.Param "place" -}}
+                      {{- . -}}
+                      {{- else -}}
+                      {{- .Site.Params.defaultPlace -}}
+                      {{- end -}}
+                    </p>
 
-                                <!-- place -->
-                                <p>
-                                {{- partial "svg.html" (dict "type" "place") -}}
-                                {{- with $.Param "place" -}}
-                                  {{- . -}}
-                                {{- else -}}
-                                  {{- .Site.Params.defaultPlace -}}
-                                {{- end -}}
-                                </p>
+                    <!-- tags -->
+                    {{- with .Params.tags }}
+                    <p>
+                      {{ partial "svg.html" (dict "type" "tag") -}}
+                      {{- range . -}}
+                      <span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>&#32;
+                      {{- end -}}
+                    </p>
+                    {{- end }}
 
-                                <!-- tags -->
-                                {{- with .Params.tags }}
-                                <p>
-                                  {{ partial "svg.html" (dict "type" "tag") -}}
-                                        {{- range . -}}
-                                        <span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>&#32;
-                                        {{- end -}}
-                                </p>
-                                {{- end }}
-
-                        </footer>
+                  </footer>
 
                   <!-- FIXME: this needs a proper wrapper and better spacing -->
                   {{- partial "related-posts.html" . -}}

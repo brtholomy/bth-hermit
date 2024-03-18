@@ -492,15 +492,6 @@ ul.posts-list {
   }
 }
 
-hr.post-end {
-  width: 50%;
-  margin-top: 1em;
-  margin-bottom: .8em;
-  margin-left: 0;
-  border-style: solid;
-  border-bottom-width: 4px;
-}
-
 .content {
   // TODO: font-size is way too scattered. should be abstracted out and made clearer.
   // small size for mobile screens, turned up with media queries
@@ -547,18 +538,6 @@ hr.post-end {
   }
 }
 
-.signature a {
-  color: $theme;
-  text-decoration: none;
-  border: none;
-  @include theme-glow;
-
-  &:hover {
-    color: $text-emphasis;
-    text-shadow: 0 0 2px $text-emphasis;
-  }
-}
-
 .footnotes {
   font-size: .85em;
 
@@ -595,30 +574,49 @@ a.footnote-ref {
   }
 }
 
-.post-info {
-  font-size: .8rem;
-  line-height: normal;
-  @include dimmed;
+footer.post-info {
+    margin-top: 4rem;
+    font-size: .8rem;
+    @include dimmed;
+    line-height: normal;
+    // single line on left:
+    padding-left: 1rem;
+    border-left: 1px solid $text;
 
-  p {
-    margin: .8em 0;
-  }
+    // included in footer
+    .signature {
+        a {
+            color: $theme;
+            text-decoration: none;
+            border: none;
+            @include theme-glow;
 
-  a:hover {
-    border-bottom: 1px solid $theme;
-  }
-
-  svg {
-    margin-right: .8em;
-  }
-
-  .tag {
-    margin-right: .2em;
-
-    &::before {
-      content: "#"
+            &:hover {
+                color: $text-emphasis;
+                text-shadow: 0 0 2px $text-emphasis;
+            }
+        }
     }
-  }
+
+    p {
+        margin: .8em 0;
+    }
+
+    a:hover {
+        border-bottom: 1px solid $theme;
+    }
+
+    svg {
+        margin-right: .8em;
+    }
+
+    .tag {
+        margin-right: .2em;
+
+        &::before {
+            content: "#"
+        }
+    }
 }
 
 .related-posts {
