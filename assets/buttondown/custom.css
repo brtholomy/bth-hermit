@@ -29,15 +29,15 @@ li {
 table {
   width: 100%;
   max-width: 100%;
+}
 
-  th,
-  td {
+th,
+td {
     border-bottom: 1px solid;
-  }
+}
 
-  th {
+th {
     font-weight: 700;
-  }
 }
 
 .newsletter-container {
@@ -95,8 +95,8 @@ table {
 hr {
   border: 0;
   border-bottom: 1px #c65108 solid;
-  max-width: 80%;
-  margin-left: 0;
+  max-width: 50%;
+  margin: 1.8em auto;
 }
 
 .newsletter-body + hr {
