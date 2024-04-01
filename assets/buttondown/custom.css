@@ -26,6 +26,20 @@ li {
   font-size: 16px;
 }
 
+table {
+  width: 100%;
+  max-width: 100%;
+
+  th,
+  td {
+    border-bottom: 1px solid;
+  }
+
+  th {
+    font-weight: 700;
+  }
+}
+
 .newsletter-container {
     width: 800px;
 }
