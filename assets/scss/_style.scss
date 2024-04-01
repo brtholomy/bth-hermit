@@ -67,11 +67,12 @@ table {
   th,
   td {
     padding: 1.5%;
-    border: 1px solid;
+    border-bottom: 1px solid;
   }
 
   th {
     font-weight: 700;
+    background-color: $background-secondary;
     vertical-align: bottom;
   }
 }
