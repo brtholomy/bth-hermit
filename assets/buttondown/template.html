@@ -5,9 +5,13 @@
   <h2>
     {{ item.description }}
   </h2>
+
+{% if item.enclosure != None %}
   <a href="{{ item.url }}" >
     <img src="{{ item.enclosure }}" alt="{{ item.title }}"/>
   </a>
+{% endif %}
+
   <p class="bth-header-link">
     <a href="{{ item.url }}" >
       Read it on bartholomy.ooo
