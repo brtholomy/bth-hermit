@@ -24,18 +24,21 @@ const listen = (ele, e, callback) => {
   }
 }
 
-// https://support.google.com/analytics/answer/1136920
-/**
-* Function that captures a click on an outbound link in Analytics.
-* This function takes a valid URL string as an argument, and uses that URL string
-* as the event label. Setting the transport method to 'beacon' lets the hit be sent
-* using 'navigator.sendBeacon' in browser that support it.
-*/
-var captureOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
+// Google Ads generated this for me. Uses
+function gtagConversionEventOutboundClick(url) {
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    var callback = function () {
+        if (typeof url === 'string') {
+            window.location = url;
+        }
+    };
+    gtag('event', 'conversion_event_outbound_click', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+    });
+    return false;
 }
 
 /**
