@@ -24,7 +24,7 @@ const listen = (ele, e, callback) => {
   }
 }
 
-// Google Ads generated this for me. Uses
+// Google Ads generated this.
 function gtagConversionEventOutboundClick(url) {
     // Helper function to delay opening a URL until a gtag event is sent.
     // Call it in response to an action that should navigate to a URL.
@@ -36,8 +36,10 @@ function gtagConversionEventOutboundClick(url) {
     gtag('event', 'conversion_event_outbound_click', {
         'event_callback': callback,
         'event_timeout': 2000,
-        // <event_parameters>
+        // added param:
+        'url': url,
     });
+    // NOTE: this will prevent default behavior, meaning not navigate.
     return false;
 }
 
