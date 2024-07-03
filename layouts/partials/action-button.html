@@ -1,5 +1,9 @@
 <div class="action_button">
-  <a href="{{- .href -}}">
+  <a href="{{- .href -}}"
+     {{- with .onclick -}}
+     onclick="{{- . -}}"
+     {{- end -}}
+     >
     <p>
       {{- .text -}}
     </p>
