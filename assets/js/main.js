@@ -47,25 +47,10 @@ function gtagConversionEventOutboundClick(url) {
  * Functions
  */
 
-// Auto Hide Header
-//
-let header = document.getElementById('site-header');
-let lastScrollPosition = window.pageYOffset;
-
-const autoHideHeader = () => {
-  let currentScrollPosition = Math.max(window.pageYOffset, 0);
-  if (currentScrollPosition > lastScrollPosition + 150) {
-    header.classList.remove('slideInDown');
-    header.classList.add('slideOutUp');
-  } else if (currentScrollPosition < lastScrollPosition - 150) {
-    header.classList.remove('slideOutUp');
-    header.classList.add('slideInDown');
-  }
-  lastScrollPosition = currentScrollPosition;
-}
-
 // Header menu toggles
 //
+let header = document.getElementById('site-header');
+
 let worksMenuVisible = false;
 
 const toggleWorksMenu = () => {
@@ -108,19 +93,11 @@ const toggleInfoMenu = () => {
 
 // Listeners : actual function invocation
 
-// see note in style.scss about this query breakpoint.
-var desktop = window.matchMedia("(min-width: 800px)")
-
 if (header !== null) {
   listen('#works-btn', "click", toggleWorksMenu);
   listen('#info-btn', "click", toggleInfoMenu);
 
   window.addEventListener('scroll', throttle(() => {
-
-    // don't hide the header on desktop anymore.
-    if (desktop.matches == false) {
-      autoHideHeader();
-    }
 
     if (worksMenuVisible == true) {
       toggleWorksMenu();
