@@ -1,7 +1,7 @@
 <div class="action_button">
   <a href="{{- .href -}}"
-     {{- with .onclick -}}
-     onclick="{{- . -}}"
+     {{- if .track -}}
+     onclick="gtagConversionEventOutboundClick({{- .href -}});"
      {{- end -}}
      >
     <p>

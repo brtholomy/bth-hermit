@@ -1,4 +1,4 @@
 {{ $href := .Get "href" }}
 {{ $text := .Get "text" }}
-{{ $onclick := .Get "onclick" }}
-{{- partial "action-button.html" (dict "href" $href "text" $text "onclick" $onclick ) -}}
+{{ $track := .Get "track" }}
+{{- partial "action-button.html" (dict "href" $href "text" $text "track" $track ) -}}
