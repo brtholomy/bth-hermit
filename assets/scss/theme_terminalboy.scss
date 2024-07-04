@@ -1,0 +1,20 @@
+// theme
+@import "colors.scss";
+
+$theme: $yellow;
+$background: $black;
+$background-secondary: $grey-dark;
+$text: $grey;
+$text-emphasis: $grey-light;
+$text-secondary: $grey-light;
+
+// shared settings
+@import "fonts.scss";
+@import "mixins.scss";
+
+// thirdparty
+@import "normalize.scss";
+@import "animate.scss";
+
+// main styles
+@import "style.scss"
