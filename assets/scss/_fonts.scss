@@ -1,16 +1,6 @@
 // To understand these variations, see:
 // https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css
 
-// noto-sans-mono-regular - variable width, as fallback
-@font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Noto Sans Mono';
-  font-style: normal;
-  font-weight: 300;
-  src:
-      local('Noto Sans Mono'),
-      url('/fonts/NotoSansMono-VariableFont_wdth,wght.ttf') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
 // Courier Prime regular
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -41,7 +31,7 @@
       local('Courier Prime Bold'),
       url('/fonts/CourierPrime-Bold.ttf') format('truetype'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-$fonts: "Courier Prime", "Noto Sans Mono", "Courier New", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Liberation Mono", Monaco, monospace;
+$fonts: "Courier Prime", "Courier New", "Noto Sans Mono", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Liberation Mono", Monaco, monospace;
 
 // just reuse the same for now:
 $code-fonts: $fonts;
