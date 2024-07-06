@@ -1,9 +1,9 @@
 // To understand these variations, see:
 // https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css
 
-/* noto-sans-mono-regular - latin */
+// noto-sans-mono-regular - variable width, as fallback
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Noto Sans Mono';
   font-style: normal;
   font-weight: 300;
