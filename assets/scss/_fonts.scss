@@ -1,9 +1,12 @@
 // To understand these variations, see:
 // https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css
 
-// Courier Prime regular
+// Courier Prime provided if not locally installed, which is unlikely.
+// "swap" means it effectively doesn't block loading and can always swap back in.
+// "fallback" would be the same but with a short swap period.
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Courier Prime';
   font-style: normal;
   font-weight: normal;
@@ -13,7 +16,7 @@
 }
 // italic
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Courier Prime';
   font-style: italic;
   font-weight: normal;
@@ -23,7 +26,7 @@
 }
 // bold
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Courier Prime';
   font-style: normal;
   font-weight: bold;
@@ -31,6 +34,9 @@
       local('Courier Prime Bold'),
       url('/fonts/CourierPrime-Bold.ttf') format('truetype'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+// NOTE: I'm still relatively certain that preferring a downloaded font is the
+// best approach, otherwise browsers and OSes will fallback in unpredictable ways.
 $fonts: "Courier Prime", "Courier New", "Noto Sans Mono", Consolas, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Liberation Mono", Monaco, monospace;
 
 // just reuse the same for now:
