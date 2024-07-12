@@ -172,7 +172,7 @@ code {
 }
 
 .header-wrapper {
-  font-size: $menu-initial-size;
+  font-size: $menu-button-initial-size;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -226,15 +226,17 @@ code {
 
 #works-menu, #info-menu {
   display: none;
-  font-size: $menu-initial-size;
+  font-size: $menu-item-initial-size;
   position: fixed;
   top: 4.8em;
   right: 1.5em;
   padding: .6em 1.8em;
   z-index: 1;
   box-sizing: border-box;
-  box-shadow: -1px -2px 3px 0px rgba(0, 0, 0, 0.45);
-  background-color: $background-secondary;
+  box-shadow: 0em 0em 1em 1em $background;
+  background-color: $background;
+  border: 2px solid $text;
+  border-radius: 4px;
 
   ul {
     list-style: none;
@@ -244,6 +246,11 @@ code {
 
     li {
         text-align: right;
+    }
+    li + li {
+        margin-top: 0.2em;
+        padding-top: 0.2em;
+        border-top: 1px dashed $text;
     }
   }
 }
@@ -922,22 +929,25 @@ html {
 
 @media (min-width: 360px) {
 
-  .header-wrapper, #works-menu, #info-menu {
-    font-size: 1.2em;
-  }
-
+    .header-wrapper {
+        font-size: $menu-button-360-size;
+    }
+    #works-menu, #info-menu {
+        font-size: $menu-item-360-size;
+    }
 }
 
 @media (min-width: 410px) {
 
-  .content {
-      font-size: 1em;
-  }
-
-  .header-wrapper, #works-menu, #info-menu {
-    font-size: 1.3em;
-  }
-
+    .content {
+        font-size: 1em;
+    }
+    .header-wrapper {
+        font-size: $menu-button-410-size;
+    }
+    #works-menu, #info-menu {
+        font-size: $menu-item-410-size;
+    }
 }
 
 // NOTE: this is where the main.js query used to invoke autoHideHeader()
@@ -974,7 +984,11 @@ html {
   }
 
   .header-wrapper {
-    font-size: 1.4em;
+      font-size: $menu-button-1280-size;
+  }
+
+  #works-menu, #info-menu {
+      font-size: $menu-item-1280-size;
   }
 
   .desktop-only {
