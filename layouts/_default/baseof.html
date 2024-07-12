@@ -18,7 +18,7 @@
         {{- end }}
         {{- partial "structured-data.html" . }}
         {{- partial "favicons.html" . }}
-        <title>{{.Title}}</title>
+        <title>{{ or .Title .Params.quiet_title}}</title>
         {{ range .AlternativeOutputFormats -}}
                 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
         {{ end -}}
