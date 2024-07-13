@@ -7,6 +7,7 @@
     <!-- nav buttons -->
     <nav class="site-nav ">
 
+
       <button id="subscribe-btn" class="header-btn" >
         <a href="/subscribe" >
           {{- partial "svg.html" (dict "type" "plane") -}}
@@ -14,11 +15,7 @@
       </button>
 
       <button id="works-btn" class="header-btn" >
-        {{- partial "svg.html" (dict "type" "oeuvre") -}}
-      </button>
-
-      <button id="info-btn" class="header-btn" >
-        {{- partial "svg.html" (dict "type" "contact") -}}
+        {{- partial "svg.html" (dict "type" "plus") -}}
       </button>
 
     </nav>
@@ -31,15 +28,8 @@
     {{- range .Site.Menus.works }}
     <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
     {{- end }}
-
-  </ul>
-</div>
-
-<div id="info-menu" class="animated faster">
-  <ul>
     {{- range .Site.Menus.info }}
     <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
     {{- end }}
   </ul>
 </div>
-
