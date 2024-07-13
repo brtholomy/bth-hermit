@@ -54,10 +54,8 @@ let header = document.getElementById('site-header');
 let worksMenuVisible = false;
 
 const toggleWorksMenu = () => {
-  let worksMenu = document.getElementById('works-menu');
-  if (infoMenuVisible == true) {
-    toggleInfoMenu();
-  }
+
+  let worksMenu = document.getElementById('menu');
   if (worksMenuVisible == false) {
     worksMenu.style.animationName = 'fadeIn';
     worksMenu.style.webkitAnimationName = 'fadeIn';
@@ -71,39 +69,15 @@ const toggleWorksMenu = () => {
   }
 }
 
-let infoMenuVisible = false;
-
-const toggleInfoMenu = () => {
-  let infoMenu = document.getElementById('info-menu');
-  if (worksMenuVisible == true) {
-    toggleWorksMenu();
-  }
-  if (infoMenuVisible == false) {
-    infoMenu.style.animationName = 'fadeIn';
-    infoMenu.style.webkitAnimationName = 'fadeIn';
-    infoMenu.style.display = 'block';
-    infoMenuVisible = true;
-  } else {
-    infoMenu.style.animationName = 'fadeOut';
-    infoMenu.style.webkitAnimationName = 'fadeOut'
-    infoMenu.style.display = 'none';
-    infoMenuVisible = false;
-  }
-}
-
 // Listeners : actual function invocation
 
 if (header !== null) {
-  listen('#works-btn', "click", toggleWorksMenu);
-  listen('#info-btn', "click", toggleInfoMenu);
+  listen('#menu-btn', "click", toggleWorksMenu);
 
   window.addEventListener('scroll', throttle(() => {
 
     if (worksMenuVisible == true) {
       toggleWorksMenu();
-    }
-    if (infoMenuVisible == true) {
-      toggleInfoMenu();
     }
   }, 250));
 }

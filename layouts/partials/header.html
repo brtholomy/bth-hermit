@@ -14,7 +14,7 @@
         </a>
       </button>
 
-      <button id="works-btn" class="header-btn" >
+      <button id="menu-btn" class="header-btn" >
         {{- partial "svg.html" (dict "type" "plus") -}}
       </button>
 
@@ -23,12 +23,9 @@
   </div>
 </header>
 
-<div id="works-menu" class="animated faster">
+<div id="menu" class="animated faster">
   <ul>
-    {{- range .Site.Menus.works }}
-    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-    {{- end }}
-    {{- range .Site.Menus.info }}
+    {{- range .Site.Menus.main }}
     <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
     {{- end }}
   </ul>

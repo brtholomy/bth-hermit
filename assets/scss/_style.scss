@@ -229,7 +229,7 @@ code {
   }
 }
 
-#works-menu, #info-menu {
+#menu {
   display: none;
   font-size: $menu-item-initial-size;
   position: fixed;
@@ -937,7 +937,7 @@ html {
     .header-wrapper {
         font-size: $menu-button-360-size;
     }
-    #works-menu, #info-menu {
+    #menu {
         font-size: $menu-item-360-size;
     }
 }
@@ -950,7 +950,7 @@ html {
     .header-wrapper {
         font-size: $menu-button-410-size;
     }
-    #works-menu, #info-menu {
+    #menu {
         font-size: $menu-item-410-size;
     }
 }
@@ -992,7 +992,7 @@ html {
       font-size: $menu-button-1280-size;
   }
 
-  #works-menu, #info-menu {
+  #menu {
       font-size: $menu-item-1280-size;
   }
 
