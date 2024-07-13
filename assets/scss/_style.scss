@@ -213,6 +213,11 @@ code {
         padding: 0;
         height: 24px;
 
+        svg.nav-btn {
+            width: 1em;
+            height: 1em;
+        }
+
         &:hover {
             color: $theme;
         }
