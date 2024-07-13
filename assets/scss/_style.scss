@@ -331,9 +331,9 @@ img#footer-logo {
 }
 
 #home-nav {
-  opacity: .8;
 
   a {
+    font-size: $menu-item-initial-size;
     display: block;
     text-align: center;
     margin-top: .5em;
@@ -938,6 +938,9 @@ html {
         font-size: $menu-button-360-size;
     }
     #menu {
+        font-size: $menu-item-360-size;
+    }
+    #home-nav a {
         font-size: $menu-item-360-size;
     }
 }
