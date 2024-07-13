@@ -13,13 +13,22 @@
         </a>
       </button>
 
-      <button id="works-btn" class="header-btn" >
-        {{- partial "svg.html" (dict "type" "oeuvre") -}}
-      </button>
+      <!-- <button id="works-btn" class="header-btn" > -->
+      <!--   {{- partial "svg.html" (dict "type" "oeuvre") -}} -->
+      <!-- </button> -->
 
-      <button id="info-btn" class="header-btn" >
+      <label for="menu-toggle" class="header-btn">
         {{- partial "svg.html" (dict "type" "contact") -}}
-      </button>
+      </label>
+      <input type="checkbox" id="menu-toggle"/>
+
+      <div id="toggle-menu">
+        <ul>
+          {{- range .Site.Menus.info }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
 
     </nav>
 
@@ -42,4 +51,3 @@
     {{- end }}
   </ul>
 </div>
-
