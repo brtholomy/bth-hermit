@@ -499,6 +499,12 @@ ul.posts-list {
       margin-top: 1em;
       width: 100%;
   }
+
+  .post-glyph svg {
+      color: $theme;
+      width: 50%;
+      height: 50%;
+  }
 }
 
 .content {

@@ -25,6 +25,12 @@
                     {{- end }}
                     {{- end }}
 
+                    {{- with .Params.glyph -}}
+                    <div class="post-glyph">
+                      {{ partial "glyphs.html" (dict "type" .) -}}
+                    </div>
+                    {{- end }}
+
                   </header>
 
                   <div class="content">
