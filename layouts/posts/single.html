@@ -14,21 +14,25 @@
                     <h2 class="subtitle">{{ . | html }}</h2>
                     {{- end }}
 
+                    <!-- TODO: switch to "cover:", because they changed
+                    the logic to discover images -->
+                    <!-- https://github.com/gohugoio/hugo/commit/14d85ec136413dcfc96ad8e4d31633f8f9cbf410 -->
+                    <!-- https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/partials/_funcs/get-page-images.html -->
                     <!-- use images parameter because _internal/opengraph.html picks it up -->
                     <!-- otherwise I could manually create the meta tag up in the head -->
                     <!-- <meta property="og:image" content=" URL " /> -->
                     <!-- https://gohugo.io/templates/internal/#open-graph -->
                     {{- with .Params.images -}}
-                    {{- range first 1 . -}}
-                    <img class="post-image" src="{{ . | relURL}}"
-                         alt="{{ $.Params.Summary | default $.Page.Title }}"/>
-                    {{- end }}
-                    {{- end }}
-
-                    {{- with .Params.glyph -}}
-                    <div class="post-glyph">
-                      {{ partial "glyphs.html" (dict "type" .) -}}
-                    </div>
+                      {{- range first 1 . -}}
+                      <img class="post-image" src="{{ . | relURL}}"
+                           alt="{{ $.Params.Summary | default $.Page.Title }}"/>
+                      {{- end }}
+                    {{- else -}}
+                      {{- with .Params.glyph -}}
+                      <div class="post-glyph">
+                        {{ partial "glyphs.html" (dict "type" .) -}}
+                      </div>
+                      {{- end }}
                     {{- end }}
 
                   </header>

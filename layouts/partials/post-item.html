@@ -7,8 +7,14 @@
                       <div class="post-thumbail-and-titles">
 
                         {{- with .Params.thumbnail }}
-                        <img class="post-thumbnail" src="{{ . | relURL}}"
-                        alt="{{ $.Params.Summary | default $.Params.Title }}"/>
+                          <img class="post-thumbnail" src="{{ . | relURL}}"
+                          alt="{{ $.Params.Summary | default $.Params.Title }}"/>
+                        {{- else -}}
+                          {{- with .Params.glyph }}
+                          <div class="post-glyph">
+                            {{ partial "glyphs.html" (dict "type" .) -}}
+                          </div>
+                          {{- end }}
                         {{- end }}
 
                         <!-- flex-direction: column -->

@@ -424,11 +424,16 @@ ul.posts-list {
         display: flex;
         flex-direction: row;
 
-        img.post-thumbnail {
+        img.post-thumbnail, .post-glyph svg  {
             width: 4em;
             align-self: center;
             padding: 0em;
             margin: 0em 1em 0em 0em;
+        }
+
+        .post-glyph svg {
+            color: $text-emphasis;
+            height: 4em;
         }
 
         .post-titles {
@@ -457,6 +462,12 @@ ul.posts-list {
 
         .featured-image {
             width: 70%;
+            align-self: center;
+        }
+
+        .featured-glyph {
+            color: $theme;
+            width: 50%;
             align-self: center;
         }
 

@@ -6,10 +6,16 @@
                       <div class="featured-post-image-and-titles">
 
                         {{- with .Params.images -}}
-                        {{- range first 1 . -}}
-                        <img class="featured-image" src="{{ . | relURL}}"
-                        alt="{{ $.Params.Summary | default $.Params.Title }}"/>
-                        {{- end }}
+                          {{- range first 1 . -}}
+                          <img class="featured-image" src="{{ . | relURL}}"
+                               alt="{{ $.Params.Summary | default $.Params.Title }}"/>
+                          {{- end }}
+                        {{- else -}}
+                          {{- with .Params.glyph -}}
+                          <div class="featured-glyph">
+                            {{ partial "glyphs.html" (dict "type" .) -}}
+                          </div>
+                          {{- end }}
                         {{- end }}
 
                         <!-- flex-direction: column -->
@@ -26,4 +32,3 @@
 
                     </a>
                   </div>
-
