@@ -5,14 +5,15 @@
         <channel>
                 <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
                 <link>{{ .Permalink }}</link>
-                <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+                {{ with .Site.Params.description }}
+                <description>{{.}}</description>{{end}}
                 <generator>Hugo -- gohugo.io</generator>
                 {{ with .Site.LanguageCode }}
                 <language>{{.}}</language>{{end}}
                 {{ with .Site.Params.Author.email }}
-                <managingEditor>{{.}}{{ with $.Site.Params.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}
+                <managingEditor>{{.}}</managingEditor>{{end}}
                 {{ with .Site.Params.Author.email }}
-                <webMaster>{{.}}{{ with $.Site.Params.Author.name }} ({{.}}){{end}}</webMaster>{{end}}
+                <webMaster>{{.}}</webMaster>{{end}}
                 {{ with .Site.Copyright }}
                 <copyright>&#169; {{ now.Format "2006" }} {{.}}</copyright>{{end}}
                 {{ if not .Date.IsZero }}
@@ -54,4 +55,3 @@
                 {{ end }}
         </channel>
 </rss>
-
