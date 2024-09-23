@@ -1,0 +1,4 @@
+{{- $content := .content -}}
+{{- $content = $content | replaceRE `<a class="heading-anchor" href=.*">
+.*<svg.*</a>` `` -}}
+{{- $content | safeHTML -}}

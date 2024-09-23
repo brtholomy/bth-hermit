@@ -50,7 +50,10 @@
                                 />
                         {{ end }}
                         {{ end -}}
-                        <content:encoded>{{ printf `<![CDATA[%s]]>` | partial "absolute-links.html" (dict "context" . "content" .Content) | safeHTML }}</content:encoded>
+                        {{- $content := .Content -}}
+                        {{- $content = partial "strip-heading-anchor.html" (dict "content" $content) -}}
+                        {{- $content = partial "absolute-links.html" (dict "context" . "content" $content) -}}
+                        <content:encoded>{{ printf `<![CDATA[%s]]>` $content | safeHTML }}</content:encoded>
                 </item>
                 {{ end }}
         </channel>
