@@ -1,0 +1,18 @@
+<form
+  class="consult-form"
+  name="consult-form"
+  method="POST"
+  action="/consult"
+  data-netlify-recaptcha="true"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
+  <div hidden aria-hidden="true">
+    <label>
+      Don't fill this out if you're human:
+      <input name="bot-field" />
+    </label>
+  </div>
+
+  <button type="submit">Initial consultation</button>
+</form>

@@ -691,6 +691,23 @@ form.subscription-form {
 }
 
 ////////////////////////////////////////
+// consult-form.html
+////////////////////////////////////////
+
+form.consult-form {
+    button {
+        color: $background;
+        background-color: $theme;
+        max-width: 15em;
+        padding: 0.5em 0.5em;
+        padding: 1rem 1rem;
+        border-radius: 0.5rem;
+        border: 2px solid $theme;
+        cursor: pointer;
+    }
+}
+
+////////////////////////////////////////
 // music/ and books/
 ////////////////////////////////////////
 
