@@ -699,11 +699,14 @@ form.consult-form {
         color: $background;
         background-color: $theme;
         max-width: 15em;
-        padding: 0.5em 0.5em;
+        margin: 1em 0;
         padding: 1rem 1rem;
         border-radius: 0.5rem;
         border: 2px solid $theme;
         cursor: pointer;
+    }
+    div#recaptcha {
+        margin: 1em 0;
     }
 }
 
