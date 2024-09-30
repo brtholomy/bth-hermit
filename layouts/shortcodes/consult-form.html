@@ -1,8 +1,8 @@
 <form
   class="consult-form"
   name="consult-form"
-  method="GET"
-  action="/consult"
+  method="POST"
+  action="/study/confirm"
   data-netlify-recaptcha="true"
   data-netlify="true"
   netlify-honeypot="bot-field"
@@ -13,6 +13,9 @@
       <input name="bot-field" />
     </label>
   </div>
- <div data-netlify-recaptcha="true"></div>
-  <button type="submit">Initial consultation</button>
+<div>
+  <input type="email" name="email" placeholder="you@foo.com"  id="email" required autocomplete="email"/>
+</div>
+  <button type="submit">Contact me</button>
+  <div data-netlify-recaptcha="true"></div>
 </form>
