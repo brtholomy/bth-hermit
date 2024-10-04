@@ -1,6 +1,6 @@
 name = "bth-hermit"
 license = "MIT"
-description = "rollotony browntown"
+description = "rolotony browntown"
 tags = ["blog", "minimal", "dark", "responsive"]
 features = [
   "single column",
