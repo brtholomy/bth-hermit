@@ -142,11 +142,6 @@ code {
   @include width-adjustment;
 }
 
-// TODO: remove or simplify
-.desktop-only, .desktop-only-ib {
-  display: none;
-}
-
 ////////////////////////////////////////
 // header & footer
 ////////////////////////////////////////
@@ -1031,14 +1026,6 @@ html {
 
   #menu {
       font-size: $menu-item-1280-size;
-  }
-
-  .desktop-only {
-    display: block;
-  }
-
-  .desktop-only-ib {
-    display: inline-block;
   }
 
   figure.left {
