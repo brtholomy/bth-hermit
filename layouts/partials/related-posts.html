@@ -1,7 +1,7 @@
 {{- $context := . }}
 {{- $related := .Site.RegularPages.Related . | first 3 }}
 {{ with $related }}
-<div class="related-posts thin">
+<div class="related-posts">
 <hr/>
 
   {{ partial "post-list.html" (dict "range" . "context" $context "checkFeatured" false) }}

@@ -130,25 +130,16 @@ code {
 // main content classes
 ////////////////////////////////////////
 
-.site-main {
+.main-margin-top {
   margin-top: 5em;
 }
 
-// TODO: what's the conceptual difference?
-.section-inner {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px;
-  width: 93%;
-}
-
-// TODO: i don't like this. it's thrown in as a class to control width, but I'd
-// rather it was a mixin maybe.
-.thin {
-  max-width: 720px;
+.columnar {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0em;
+  // NOTE: this is what keeps it off the edge:
+  @include width-adjustment;
 }
 
 // TODO: remove or simplify
@@ -177,6 +168,12 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: .5em 0;
+
+  // previously .section-inner, but .header-wrapper was the only real application:
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  @include width-adjustment;
 
   .site-branding {
     display: inline-block;
@@ -1002,7 +999,7 @@ html {
       font-size: 1.1em;
   }
 
-  .site-main {
+  .main-margin-top {
     margin-top: 6em;
   }
 
@@ -1017,14 +1014,14 @@ html {
 
 @media (min-width: 960px) {
 
-  .site-main {
+  .main-margin-top {
     margin-top: 8em;
   }
 
 }
 
 @media (min-width: 1280px) {
-  .site-main {
+  .main-margin-top {
     margin-top: 10em;
   }
 
@@ -1069,15 +1066,15 @@ html {
 }
 
 @media (min-width: 1800px) {
-  .site-main {
+  .main-margin-top {
     margin-top: 12em;
   }
 
-  .section-inner {
+  .header-wrapper {
     max-width: 1600px;
   }
 
-  .thin {
+  .columnar {
     max-width: 960px;
   }
 
