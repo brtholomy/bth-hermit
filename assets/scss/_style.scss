@@ -276,7 +276,7 @@ img#footer-logo {
 // spotlight : center aligned content
 ////////////////////////////////////////
 
-// TODO: remove depedence on this, merge with home-center
+// NOTE: provides a column wrapper for #home-center and #home-footer
 #spotlight {
   display: flex;
   min-height: 100vh;
