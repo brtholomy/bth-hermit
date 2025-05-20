@@ -72,8 +72,8 @@
 
                   </footer>
 
-                    {{- partial "action-button.html" (dict "href" "/study" "text"
-                    (or .Params.studyButton .Site.Params.defaultStudyButton )) -}}
+                    {{- partial "action-button.html" (dict "href" "/subscribe" "text"
+                    (or .Params.subscribeButton .Site.Params.defaultSubscribeButton )) -}}
 
                   <!-- FIXME: this needs a proper wrapper and better spacing -->
                   {{- partial "related-posts.html" . -}}
