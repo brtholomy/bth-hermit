@@ -436,7 +436,7 @@ ul.posts-list {
             // align <p> horizontally:
             justify-content: center;
 
-            p.post-tag-p {
+            p#post-tag {
                 color: $text;
                 font-size: 2em;
                 margin: 0em;
@@ -482,7 +482,7 @@ ul.posts-list {
             // align <p> horizontally:
             justify-content: center;
 
-            p.featured-tag-p {
+            p#featured-tag {
                 color: $text;
                 font-size: 6em;
                 margin: 0em;

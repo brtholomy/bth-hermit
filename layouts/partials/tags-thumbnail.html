@@ -1,15 +1,26 @@
-{{- range first 1 .tags }}
+<div class="{{- .class -}}">
+<p id="{{- .class -}}">
 
-{{- if (eq . "psychoanalysis") -}}
-ϕ
-{{- else if (eq . "exclusion") -}}
-𐆍
-{{- else if (eq . "morality") -}}
-μ
-{{- else if (eq . "medicine") -}}
-☤
+{{- with .context.Params.tags }}
+
+    {{- range first 1 . }}
+
+        {{- if (eq . "psychoanalysis") -}}
+        ϕ
+        {{- else if (eq . "exclusion") -}}
+        𐆍
+        {{- else if (eq . "morality") -}}
+        μ
+        {{- else if (eq . "medicine") -}}
+        ☤
+        {{- else -}}
+        x
+        {{- end -}}
+
+    {{- end -}}
+
 {{- else -}}
 x
 {{- end -}}
-
-{{- end -}}
+</p>
+</div>

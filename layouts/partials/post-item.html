@@ -10,13 +10,7 @@
                           <img class="post-thumbnail" src="{{ . | relURL}}"
                           alt="{{ $.Params.Summary | default $.Params.Title }}"/>
                         {{- else -}}
-                          {{- with .Params.tags }}
-                          <div class="post-tag">
-                            <p class="post-tag-p">
-                              {{ partial "tags-thumbnail.html" (dict "tags" .) -}}
-                            </p>
-                          </div>
-                          {{- end }}
+                          {{ partial "tags-thumbnail.html" (dict "context" . "class" "post-tag") -}}
                         {{- end }}
 
                         <!-- flex-direction: column -->
