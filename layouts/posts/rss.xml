@@ -33,13 +33,15 @@
                           </author>
                         {{ end -}}
                         <guid>{{ .Permalink }}</guid>
+                        {{ if .Params.Description -}}
                         <description>
-                          {{- with .Description -}}
-                            {{- . | html -}}
-                          {{- else -}}
-                            {{- .Summary | html -}}
-                          {{- end -}}
+                            {{- .Params.Description | html -}}
                         </description>
+                        {{- else if .Params.Summary -}}
+                        <description>
+                            {{- .Params.Summary | html -}}
+                        </description>
+                        {{- end }}
                         {{- with .Params.images }}
                         {{- range first 1 . }}
                             {{ $image := resources.Get . }}
