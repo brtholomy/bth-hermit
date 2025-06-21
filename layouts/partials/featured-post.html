@@ -11,9 +11,11 @@
                                alt="{{ $.Params.Summary | default $.Params.Title }}"/>
                           {{- end }}
                         {{- else -}}
-                          {{- with .Params.glyph -}}
-                          <div class="featured-glyph">
-                            {{ partial "glyphs.html" (dict "type" .) -}}
+                          {{- with .Params.tags }}
+                          <div class="featured-tag">
+                            <p class="featured-tag-p">
+                            {{ partial "tags-thumbnail.html" (dict "tags" .) -}}
+                            </p>
                           </div>
                           {{- end }}
                         {{- end }}

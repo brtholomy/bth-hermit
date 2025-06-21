@@ -10,18 +10,10 @@
                           <img class="post-thumbnail" src="{{ . | relURL}}"
                           alt="{{ $.Params.Summary | default $.Params.Title }}"/>
                         {{- else -}}
-
-                          <!-- FIXME: keep both? -->
-                          {{- with .Params.glyph }}
-                          <div class="post-glyph">
-                            {{ partial "glyphs.html" (dict "type" .) -}}
-                          </div>
-                          {{- end }}
-
                           {{- with .Params.tags }}
                           <div class="post-tag">
                             <p class="post-tag-p">
-                            {{ partial "tags-thumbnail.html" (dict "tags" .) -}}
+                              {{ partial "tags-thumbnail.html" (dict "tags" .) -}}
                             </p>
                           </div>
                           {{- end }}

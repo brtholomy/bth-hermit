@@ -25,12 +25,6 @@
                       <img class="post-image" src="{{ . | relURL}}"
                            alt="{{ $.Params.Summary | default $.Page.Title }}"/>
                       {{- end }}
-                    {{- else -}}
-                      {{- with .Params.glyph -}}
-                      <div class="post-glyph">
-                        {{ partial "glyphs.html" (dict "type" .) -}}
-                      </div>
-                      {{- end }}
                     {{- end }}
 
                   </header>
