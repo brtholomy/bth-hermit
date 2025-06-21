@@ -1,0 +1,15 @@
+{{- range first 1 .tags }}
+
+{{- if (eq . "psychoanalysis") -}}
+ϕ
+{{- else if (eq . "exclusion") -}}
+𐆍
+{{- else if (eq . "morality") -}}
+μ
+{{- else if (eq . "medicine") -}}
+☤
+{{- else -}}
+x
+{{- end -}}
+
+{{- end -}}

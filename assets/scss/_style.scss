@@ -417,7 +417,7 @@ ul.posts-list {
         display: flex;
         flex-direction: row;
 
-        img.post-thumbnail, .post-glyph svg  {
+        img.post-thumbnail, .post-glyph svg {
             width: 4em;
             align-self: center;
             padding: 0em;
@@ -427,6 +427,27 @@ ul.posts-list {
         .post-glyph svg {
             color: $text-emphasis;
             height: 4em;
+        }
+
+        .post-tag {
+            width: 4em;
+            height: 4em;
+            padding: 0em;
+            margin: 0em 1em 0em 0em;
+            background-color: $theme;
+            border-radius: 2em;
+
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
+
+            p.post-tag-p {
+                color: $text;
+                font-size: 2em;
+                margin: 0em;
+            }
         }
 
         .post-titles {
