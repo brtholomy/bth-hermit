@@ -1,26 +1,30 @@
 <div class="{{- .class -}}">
 <p id="{{- .class -}}">
 
-{{- with .context.Params.tags }}
+{{- $title_letter := lower (substr $.context.Title 0 1) -}}
 
-    {{- range first 1 . }}
+{{- if .context.Params.glyph -}}
+
+    {{- .context.Params.glyph -}}
+
+{{- else if .context.Params.tags -}}
+
+    {{- range first 1 .context.Params.tags }}
 
         {{- if (eq . "psychoanalysis") -}}
         ϕ
         {{- else if (eq . "exclusion") -}}
         𐆍
-        {{- else if (eq . "morality") -}}
-        μ
         {{- else if (eq . "medicine") -}}
         ☤
         {{- else -}}
-        x
+        {{- $title_letter -}}
         {{- end -}}
 
     {{- end -}}
 
 {{- else -}}
-x
+{{- $title_letter -}}
 {{- end -}}
 </p>
 </div>
