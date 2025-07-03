@@ -10,7 +10,9 @@
                           <img class="post-thumbnail" src="{{ . | relURL}}"
                           alt="{{ $.Params.Summary | default $.Params.Title }}"/>
                         {{- else -}}
-                          {{ partial "tags-thumbnail.html" (dict "context" . "class" "post-tag") -}}
+                          {{- if (eq .Page.Type "posts") -}}
+                            {{ partial "tags-thumbnail.html" (dict "context" . "class" "post-tag") -}}
+                          {{- end }}
                         {{- end }}
 
                         <!-- flex-direction: column -->
