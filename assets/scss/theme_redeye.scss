@@ -1,12 +1,12 @@
 // theme
 @import "colors.scss";
 
-$theme: $yellowgreen;
-$background: $black;
-$background-secondary: $grey-dark;
-$text: $grey;
-$text-emphasis: $grey-light;
-$text-secondary: $grey-light;
+$theme: $redeye-red;
+$background: $redeye-dark-red;
+$background-secondary: $redeye-darker-red;
+$text: $redeye-yellow;
+$text-emphasis: $redeye-yellow;
+$text-secondary: $redeye-yellow;
 
 // shared settings
 @import "fonts.scss";
