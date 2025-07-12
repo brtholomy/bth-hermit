@@ -27,8 +27,44 @@ h1 {
     font-size: 2em;
 }
 
+// description headings:
 h2 {
     @include dimmed;
+}
+
+// within post headings:
+h3 {
+    color: $theme;
+    font-weight: normal;
+    margin: 2em 0 0 0;
+}
+
+// numbered section headings:
+h4 {
+    color: $theme;
+    @include dimmed;
+    font-weight: normal;
+    border-bottom: 1px solid $theme;
+}
+
+// alternate section headings, large, bordered, colored:
+h5 {
+    font-size: 2em;
+    color: $theme;
+    font-weight: normal;
+    border-bottom: 1px solid $theme;
+    margin: 2em 0 0 0;
+}
+
+// unnumbered sections, et al
+hr {
+  color: $theme;
+  @include dimmed;
+  border-bottom: 1px solid $theme;
+  background: transparent;
+  // TODO: fix the case of the trailing related posts:
+  // width: 50%;
+  margin: 2em auto;
 }
 
 a {
@@ -46,15 +82,6 @@ a {
   &:hover {
     color: $theme;
   }
-}
-
-hr {
-  opacity: .2;
-  border-width: 0 0 2px 0;
-  border-style: solid;
-  background: transparent;
-  width: 50%;
-  margin: 1.8em auto;
 }
 
 table {
