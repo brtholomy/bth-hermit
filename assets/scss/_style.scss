@@ -1053,9 +1053,6 @@ html {
       font-size: 1.5rem;
   }
 
-  hr.post-end {
-    width: 40%;
-  }
 }
 
 @media (min-width: 960px) {
@@ -1099,9 +1096,6 @@ html {
     margin-left: -240px;
   }
 
-  hr.post-end {
-    width: 30%;
-  }
 }
 
 @media (min-width: 1800px) {
@@ -1128,9 +1122,6 @@ html {
     margin-left: -320px;
   }
 
-  hr.post-end {
-    width: 30%;
-  }
 }
 
 // max-width queries
@@ -1156,7 +1147,4 @@ html {
     margin: 0;
   }
 
-  hr.post-end {
-    width: 60%;
-  }
 }
