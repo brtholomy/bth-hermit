@@ -1061,14 +1061,15 @@ html {
 @media (min-width: 960px) {
 
   .main-margin-top {
-    margin-top: 8em;
+    margin-top: 7em;
   }
 
 }
 
 @media (min-width: 1280px) {
+
   .main-margin-top {
-    margin-top: 10em;
+    margin-top: 8em;
   }
 
   .header-wrapper {
@@ -1104,10 +1105,6 @@ html {
 }
 
 @media (min-width: 1800px) {
-  .main-margin-top {
-    margin-top: 12em;
-  }
-
   .header-wrapper {
     max-width: 1600px;
   }
