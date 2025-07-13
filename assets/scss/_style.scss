@@ -563,7 +563,7 @@ ul.posts-list {
 .content {
   // TODO: font-size is way too scattered. should be abstracted out and made clearer.
   // small size for mobile screens, turned up with media queries
-  font-size: 0.95em;
+  font-size: $content-initial-size;
   line-height: 2.2em;
 
   @include animated-a-tag;
@@ -1028,7 +1028,7 @@ html {
 @media (min-width: 410px) {
 
     .content {
-        font-size: 1em;
+        font-size: $content-410-size;
     }
     .header-wrapper {
         font-size: $menu-button-410-size;
@@ -1042,7 +1042,7 @@ html {
 @media (min-width: 800px) {
 
   .content {
-      font-size: 1.1em;
+      font-size: $content-800-size;
   }
 
   .main-margin-top {
