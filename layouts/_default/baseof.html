@@ -23,7 +23,10 @@
                 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
         {{ end -}}
 
-        {{- $style := "" -}}
+        {{ $light_theme := "scss/theme_redeye.scss" }}
+        {{ $compiled_light_css := resources.Get $light_theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+        {{ $light_integrity := $compiled_light_css.Data.Integrity | safeHTMLAttr }}
+
         {{- $theme := "" -}}
         {{- if (isset .Params "theme") }}
           {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
@@ -34,8 +37,21 @@
         {{ else -}}
           {{ $theme = "scss/theme_redeye.scss" }}
         {{ end -}}
-        {{ $style = resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
-        <link rel="stylesheet" href="{{ $style.Permalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous">
+        {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+        {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
+        <link id="theme-link"
+              rel="stylesheet"
+              data-set-theme="{{ $theme }}"
+              data-current-theme="{{ $theme }}"
+              data-light-theme="{{ $light_theme }}"
+              data-set-theme-path="{{ $compiled_css.Permalink }}"
+              data-light-theme-path="{{ $compiled_light_css.Permalink }}"
+              href="{{ $compiled_css.Permalink }}"
+              integrity="{{- $set_integrity -}}"
+              data-set-integrity="{{- $set_integrity -}}"
+              data-light-integrity="{{- $light_integrity -}}"
+              crossorigin="anonymous"
+              >
 
         {{- block "head" . -}}{{- end }}
 </head>
