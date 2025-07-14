@@ -23,15 +23,14 @@ textarea {
 // default tags everywhere
 ////////////////////////////////////////
 
-// post headings:
+// NOTE: see header.post-header below
 h1 {
     font-size: 2em;
     font-weight: normal;
 }
 
-// summary subheading:
 h2 {
-    @include dimmed;
+    font-weight: normal;
 }
 
 // within post headings:
@@ -540,7 +539,7 @@ ul.posts-list {
 // single.html
 ////////////////////////////////////////
 
-.post-header {
+header.post-header {
   margin-top: 1.2em;
   line-height: normal;
 
@@ -549,8 +548,8 @@ ul.posts-list {
   }
 
   h2 {
+      @include dimmed;
       margin-top: -.5em;
-      font-weight: normal;
   }
 
   img.post-image {
