@@ -172,7 +172,173 @@ code {
 }
 
 ////////////////////////////////////////
-// header & footer
+// posts/single.html
+////////////////////////////////////////
+
+header.post-header {
+  margin-top: 1.2em;
+  line-height: normal;
+
+  h1 {
+    margin-top: .1em;
+  }
+
+  h2 {
+      @include dimmed;
+      margin-top: -.5em;
+  }
+
+  img.post-image {
+      margin-top: 1em;
+      width: 100%;
+  }
+
+}
+
+.content {
+  // TODO: font-size is way too scattered. should be abstracted out and made clearer.
+  // small size for mobile screens, turned up with media queries
+  font-size: $content-initial-size;
+  line-height: 2.2em;
+
+  @include animated-a-tag;
+
+  em {
+      font-style: italic;
+      color: $text-emphasis;
+  }
+
+  figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+
+    p {
+      font-size: .8em;
+      font-style: italic;
+      @include dimmed;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 4px;
+
+  }
+
+  img.narrow {
+      max-width: 400px;
+  }
+
+  ul,
+  ol {
+    padding: 0;
+    margin-left: 1.8em;
+  }
+}
+
+.footnotes {
+  font-size: .85em;
+
+  a {
+    box-shadow: none;
+    text-decoration: underline;
+    transition-property: color;
+
+    &:hover {
+      background: transparent;
+    }
+
+    &.footnote-backref {
+      text-decoration: none;
+    }
+  }
+
+  ol {
+    line-height: 1.8;
+  }
+}
+
+a.footnote-ref {
+  box-shadow: none;
+  text-decoration: none;
+  padding: 2px;
+  border-radius: 2px;
+  background-color: $background-secondary;
+
+  &:hover{
+    box-shadow: none;
+    background-color: $theme;
+    transition-property: background-color;
+  }
+}
+
+footer.post-info {
+    margin-top: 4rem;
+    font-size: .8rem;
+    @include dimmed;
+    line-height: normal;
+    // single line on left:
+    padding-left: 1rem;
+    border-left: 1px solid $text;
+
+    // included in footer
+    .signature {
+        a {
+            color: $theme;
+            text-decoration: none;
+            border: none;
+            @include theme-glow;
+
+            &:hover {
+                color: $text-emphasis;
+                text-shadow: 0 0 2px $text-emphasis;
+            }
+        }
+    }
+
+    p {
+        margin: .8em 0;
+    }
+
+    a:hover {
+        border-bottom: 1px solid $theme;
+    }
+
+    svg {
+        margin-right: .8em;
+    }
+
+    .tag {
+        margin-right: .2em;
+
+        &::before {
+            content: "#"
+        }
+    }
+}
+
+.related-posts {
+  margin-top: 5em;
+  font-size: 1rem;
+
+  h2 {
+    margin: 0;
+    line-height: normal;
+  }
+
+  ul {
+    margin-top: .5em;
+    margin-bottom: 0;
+  }
+}
+
+////////////////////////////////////////
+// site header & site footer
 ////////////////////////////////////////
 
 #site-header {
@@ -533,172 +699,6 @@ ul.posts-list {
             }
         }
     }
-}
-
-////////////////////////////////////////
-// single.html
-////////////////////////////////////////
-
-header.post-header {
-  margin-top: 1.2em;
-  line-height: normal;
-
-  h1 {
-    margin-top: .1em;
-  }
-
-  h2 {
-      @include dimmed;
-      margin-top: -.5em;
-  }
-
-  img.post-image {
-      margin-top: 1em;
-      width: 100%;
-  }
-
-}
-
-.content {
-  // TODO: font-size is way too scattered. should be abstracted out and made clearer.
-  // small size for mobile screens, turned up with media queries
-  font-size: $content-initial-size;
-  line-height: 2.2em;
-
-  @include animated-a-tag;
-
-  em {
-      font-style: italic;
-      color: $text-emphasis;
-  }
-
-  figure {
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-    text-align: center;
-
-    p {
-      font-size: .8em;
-      font-style: italic;
-      @include dimmed;
-    }
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    border-radius: 4px;
-
-  }
-
-  img.narrow {
-      max-width: 400px;
-  }
-
-  ul,
-  ol {
-    padding: 0;
-    margin-left: 1.8em;
-  }
-}
-
-.footnotes {
-  font-size: .85em;
-
-  a {
-    box-shadow: none;
-    text-decoration: underline;
-    transition-property: color;
-
-    &:hover {
-      background: transparent;
-    }
-
-    &.footnote-backref {
-      text-decoration: none;
-    }
-  }
-
-  ol {
-    line-height: 1.8;
-  }
-}
-
-a.footnote-ref {
-  box-shadow: none;
-  text-decoration: none;
-  padding: 2px;
-  border-radius: 2px;
-  background-color: $background-secondary;
-
-  &:hover{
-    box-shadow: none;
-    background-color: $theme;
-    transition-property: background-color;
-  }
-}
-
-footer.post-info {
-    margin-top: 4rem;
-    font-size: .8rem;
-    @include dimmed;
-    line-height: normal;
-    // single line on left:
-    padding-left: 1rem;
-    border-left: 1px solid $text;
-
-    // included in footer
-    .signature {
-        a {
-            color: $theme;
-            text-decoration: none;
-            border: none;
-            @include theme-glow;
-
-            &:hover {
-                color: $text-emphasis;
-                text-shadow: 0 0 2px $text-emphasis;
-            }
-        }
-    }
-
-    p {
-        margin: .8em 0;
-    }
-
-    a:hover {
-        border-bottom: 1px solid $theme;
-    }
-
-    svg {
-        margin-right: .8em;
-    }
-
-    .tag {
-        margin-right: .2em;
-
-        &::before {
-            content: "#"
-        }
-    }
-}
-
-.related-posts {
-  margin-top: 5em;
-  font-size: 1rem;
-
-  h2 {
-    margin: 0;
-    line-height: normal;
-  }
-
-  ul {
-    margin-top: .5em;
-    margin-bottom: 0;
-  }
 }
 
 ////////////////////////////////////////
