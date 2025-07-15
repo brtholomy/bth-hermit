@@ -388,10 +388,6 @@ footer.post-info {
     display: flex;
     align-items: center;
 
-    a {
-      margin-left: $menu-initial-spacing;
-    }
-
     .header-btn {
         margin-left: $menu-initial-spacing;
         cursor: pointer;
@@ -416,8 +412,19 @@ footer.post-info {
   }
 }
 
+#menu-toggle {
+  display: none;
+}
+
+// NOTE: the + selector is the key, since it allows selecting an element
+// conditionally relative to another:
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
 #menu {
   display: none;
+  -webkit-transition: all 0.3s ease;
   font-size: $menu-item-initial-size;
   position: fixed;
   top: 4.8em;
@@ -434,7 +441,7 @@ footer.post-info {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 2;
+    line-height: 2em;
 
     li {
         text-align: right;
