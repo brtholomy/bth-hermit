@@ -64,7 +64,14 @@
         {{ $main := resources.Get "js/main.js" -}}
         {{ $script := $main | minify | fingerprint -}}
         <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous"></script>
-
+        <!-- https://scottjehl.com/posts/async-css-already/ -->
+        <link id="light-theme-link"
+              rel="stylesheet"
+              media="bogus-media-query"
+              href="{{ $compiled_light_css.Permalink }}"
+              integrity="{{- $light_integrity -}}"
+              crossorigin="anonymous"
+              >
         {{- partial "analytics.html" . }}
 </body>
 
