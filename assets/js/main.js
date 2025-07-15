@@ -70,28 +70,8 @@ const toggleWorksMenu = () => {
 }
 
 const toggleTheme = () => {
-    let link = document.getElementById('theme-link');
-
-    let theme_current = link.getAttribute('data-current-theme');
-    let theme_set = link.getAttribute('data-set-theme');
-    let theme_light = link.getAttribute('data-light-theme');
-
-    // we can't just use the href as key for the if block because it's fingerprinted.
-    let theme_set_href = link.getAttribute('data-set-theme-path');
-    let theme_light_href = link.getAttribute('data-light-theme-path');
-
-    let theme_set_integ = link.getAttribute('data-set-integrity');
-    let theme_light_integ = link.getAttribute('data-light-integrity');
-
-    if (theme_current == theme_set) {
-        link.setAttribute('data-current-theme', theme_light);
-        link.setAttribute('integrity', theme_light_integ);
-        link.setAttribute('href', theme_light_href);
-    } else {
-        link.setAttribute('data-current-theme', theme_set);
-        link.setAttribute('integrity', theme_set_integ);
-        link.setAttribute('href', theme_set_href);
-    }
+    let link = document.getElementById('light-theme-link');
+    link.disabled = !link.disabled;
 }
 
 // Listeners : actual function invocation

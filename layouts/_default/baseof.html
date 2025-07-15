@@ -41,15 +41,8 @@
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
         <link id="theme-link"
               rel="stylesheet"
-              data-set-theme="{{ $theme }}"
-              data-current-theme="{{ $theme }}"
-              data-light-theme="{{ $light_theme }}"
-              data-set-theme-path="{{ $compiled_css.Permalink }}"
-              data-light-theme-path="{{ $compiled_light_css.Permalink }}"
               href="{{ $compiled_css.Permalink }}"
               integrity="{{- $set_integrity -}}"
-              data-set-integrity="{{- $set_integrity -}}"
-              data-light-integrity="{{- $light_integrity -}}"
               crossorigin="anonymous"
               >
 
@@ -64,10 +57,9 @@
         {{ $main := resources.Get "js/main.js" -}}
         {{ $script := $main | minify | fingerprint -}}
         <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous"></script>
-        <!-- https://scottjehl.com/posts/async-css-already/ -->
         <link id="light-theme-link"
+              disabled=true
               rel="stylesheet"
-              media="bogus-media-query"
               href="{{ $compiled_light_css.Permalink }}"
               integrity="{{- $light_integrity -}}"
               crossorigin="anonymous"
