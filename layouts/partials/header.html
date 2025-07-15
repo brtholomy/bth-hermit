@@ -1,5 +1,6 @@
 <header id="site-header" class="animated">
   <div class="header-wrapper">
+
     <div class="site-branding">
       <a href="{{.Site.BaseURL}}">{{ .Site.Title }}</a>
     </div>
@@ -18,19 +19,21 @@
         </a>
       </button>
 
-      <button id="menu-btn" class="header-btn" >
+      <label for="menu-toggle" class="header-btn">
         {{- partial "svg.html" (dict "type" "hamburger") -}}
-      </button>
+      </label>
+      <input type="checkbox" id="menu-toggle"/>
+
+      <!-- NOTE: must be immediate sibling -->
+      <div id="menu" class="animated faster fadeIn">
+        <ul>
+          {{- range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
 
     </nav>
 
   </div>
 </header>
-
-<div id="menu" class="animated faster">
-  <ul>
-    {{- range .Site.Menus.main }}
-    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-    {{- end }}
-  </ul>
-</div>

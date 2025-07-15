@@ -2,20 +2,6 @@
  * Utils
  */
 
-// Throttle
-//
-const throttle = (callback, limit) => {
-  let timeoutHandler = null;
-  return () => {
-    if (timeoutHandler == null) {
-      timeoutHandler = setTimeout(() => {
-        callback();
-        timeoutHandler = null;
-      }, limit);
-    }
-  };
-};
-
 // addEventListener Helper
 //
 const listen = (ele, e, callback) => {
@@ -47,28 +33,6 @@ function gtagConversionEventOutboundClick(url) {
  * Functions
  */
 
-// Header menu toggles
-//
-let header = document.getElementById('site-header');
-
-let worksMenuVisible = false;
-
-const toggleWorksMenu = () => {
-
-  let worksMenu = document.getElementById('menu');
-  if (worksMenuVisible == false) {
-    worksMenu.style.animationName = 'fadeIn';
-    worksMenu.style.webkitAnimationName = 'fadeIn';
-    worksMenu.style.display = 'block';
-    worksMenuVisible = true;
-  } else {
-    worksMenu.style.animationName = 'fadeOut';
-    worksMenu.style.webkitAnimationName = 'fadeOut'
-    worksMenu.style.display = 'none';
-    worksMenuVisible = false;
-  }
-}
-
 const toggleTheme = () => {
     let link = document.getElementById('light-theme-link');
     link.disabled = !link.disabled;
@@ -76,14 +40,7 @@ const toggleTheme = () => {
 
 // Listeners : actual function invocation
 
+let header = document.getElementById('site-header');
 if (header !== null) {
-  listen('#menu-btn', "click", toggleWorksMenu);
   listen('#theme-toggle-btn', "click", toggleTheme);
-
-  window.addEventListener('scroll', throttle(() => {
-
-    if (worksMenuVisible == true) {
-      toggleWorksMenu();
-    }
-  }, 250));
 }
