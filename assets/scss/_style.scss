@@ -682,7 +682,7 @@ form.subscription-form, form.consult-form {
         background-color: $theme;
         padding: 0.5em 0.5em;
         border: 2px solid $theme;
-        border-radius: 4px;
+        border-radius: 1px;
         cursor: pointer;
     }
 }
@@ -700,12 +700,8 @@ form.consult-form {
     }
     button {
         margin-bottom: 1em;
-        color: $background;
-        background-color: $theme;
         max-width: 15em;
         padding: 1rem 1rem;
-        border-radius: 0.5rem;
-        border: 2px solid $theme;
         cursor: pointer;
     }
 }
@@ -779,10 +775,10 @@ ul.oeuvre-list {
 
 div.action_button {
     background: $theme;
-    max-width: 15em;
+    max-width: 8rem;
     margin: 2em 0em;
-    padding: 0.1rem 1rem;
-    border-radius: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 1px;
 }
 
 div.action_button p {
