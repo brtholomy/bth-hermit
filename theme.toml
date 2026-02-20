@@ -5,7 +5,7 @@ tags = ["blog", "minimal", "dark", "responsive"]
 features = [
   "single column",
   "featured image",
-  "google analytics",
+  "theme toggle",
 ]
 
 [author]
