@@ -61,10 +61,7 @@ h5 {
 hr {
   color: $theme;
   @include dimmed;
-  border-bottom: 1px solid $theme;
   background: transparent;
-  // TODO: fix the case of the trailing related posts:
-  // width: 50%;
   margin: 2em auto;
 }
 
@@ -323,18 +320,16 @@ footer.post-info {
 }
 
 .related-posts {
-  margin-top: 5em;
-  font-size: 1rem;
+    margin-top: 3rem;
+    font-size: 1rem;
 
-  h2 {
-    margin: 0;
-    line-height: normal;
-  }
-
-  ul {
-    margin-top: .5em;
-    margin-bottom: 0;
-  }
+    hr {
+        color: $text;
+        // @include dimmed is already applied to hr globally:
+        // we want a little more:
+        opacity: .2;
+    }
+    // NOTE: all other styling is controlled by .posts-list and children
 }
 
 ////////////////////////////////////////
