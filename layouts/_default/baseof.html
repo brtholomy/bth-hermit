@@ -23,8 +23,9 @@
                 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
         {{ end -}}
 
+        {{ $opts := dict "transpiler" "dartsass"}}
         {{ $light_theme := "scss/theme_blueboy.scss" }}
-        {{ $compiled_light_css := resources.Get $light_theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+        {{ $compiled_light_css := resources.Get $light_theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
         {{ $light_integrity := $compiled_light_css.Data.Integrity | safeHTMLAttr }}
 
         {{- $theme := "" -}}
@@ -38,7 +39,6 @@
           {{ $theme = "scss/theme_redeye.scss" }}
         {{ end -}}
 
-        {{ $opts := dict "transpiler" "dartsass"}}
         {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
         <link id="theme-link"
