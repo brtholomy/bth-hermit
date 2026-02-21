@@ -148,7 +148,213 @@ code {
 }
 
 ////////////////////////////////////////
-/// main content classes
+/// home
+////////////////////////////////////////
+
+// NOTE: column wrapper for #home-center and #home-footer
+// and the 404 elements
+#center-flex {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 1.2rem;
+
+  // NOTE: the & here conditionally selects the element with both the parent and this class
+  // this does not transpile to a normal nested expression. essentially an if clause
+  &.error-404 {
+    flex-direction: row;
+    line-height: normal;
+  }
+}
+
+#home-center {
+    background: $background;
+    padding: 1rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+
+    #home-title {
+        margin: 0;
+        text-align: center;
+        @include theme-glow;
+    }
+
+    #home-subtitle {
+        margin-top: 0;
+        margin-bottom: 1.5em;
+        text-align: center;
+        line-height: normal;
+        font-size: .7em;
+        // font-style: italic;
+        color: $theme;
+        opacity: .9;
+    }
+
+    #home-nav {
+        a {
+            font-size: $menu-item-initial-size;
+            display: block;
+            text-align: center;
+            margin-top: .5em;
+        }
+    }
+}
+
+#home-footer {
+  text-align: center;
+  font-size: .6em;
+  line-height: normal;
+  @include dimmed;
+
+  p {
+    margin-top: 0;
+  }
+}
+
+////////////////////////////////////////
+/// site-header, site-footer, menu
+////////////////////////////////////////
+
+#site-header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 10px $background;
+  background-color: $background-secondary;
+  animation-duration: .3s;
+}
+
+.header-wrapper {
+  font-size: $menu-button-initial-size;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em 0;
+
+  // previously .section-inner, but .header-wrapper was the only real application:
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  @include width-adjustment;
+
+  .site-branding {
+    display: inline-block;
+    margin-right: 0.1em;
+  }
+
+  .site-branding a {
+    color: $text-emphasis;
+
+    text-decoration: none;
+    border: none;
+    transition-property: color;
+    transition-duration: .4s;
+    transition-timing-function: ease-out;
+
+    &:hover {
+        color: $theme;
+    }
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+
+    .header-btn {
+        margin-left: $menu-initial-spacing;
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+        height: 24px;
+
+        svg.nav-btn {
+            width: 1em;
+            height: 1em;
+        }
+
+        &:hover {
+            color: $theme;
+        }
+
+        a {
+            margin: 0;
+        }
+    }
+  }
+}
+
+#menu-toggle {
+  display: none;
+}
+
+// NOTE: the + selector is the key, since it allows selecting an element
+// conditionally relative to another:
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+#menu {
+  display: none;
+  -webkit-transition: all 0.3s ease;
+  font-size: $menu-item-initial-size;
+  position: fixed;
+  top: 4.8em;
+  right: 1.5em;
+  padding: .6em 1.8em;
+  z-index: 1;
+  box-sizing: border-box;
+  box-shadow: 0em 0em 1em 1em $background;
+  background-color: $background;
+  border: 2px solid $text;
+  border-radius: 4px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+
+    li {
+        text-align: right;
+    }
+    li + li {
+        margin-top: 0.2em;
+        padding-top: 0.2em;
+        border-top: 1px dashed $text;
+    }
+  }
+}
+
+#site-footer {
+  text-align: center;
+  font-size: .9em;
+  margin-bottom: 96px;
+  margin-top: 64px;
+
+  p {
+    @include dimmed;
+    margin: 0;
+  }
+}
+
+#footer-logo-wrapper {
+    margin-top: 1em;
+}
+
+img#footer-logo {
+    width: 15%;
+}
+
+////////////////////////////////////////
+/// main content
 ////////////////////////////////////////
 
 .main-margin-top {
@@ -323,212 +529,6 @@ a.footnote-ref {
     margin-top: 3rem;
     font-size: 1rem;
     // NOTE: all other styling is controlled by .posts-list and children
-}
-
-////////////////////////////////////////
-/// site-header, site-footer, menu
-////////////////////////////////////////
-
-#site-header {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0px 10px 10px $background;
-  background-color: $background-secondary;
-  animation-duration: .3s;
-}
-
-.header-wrapper {
-  font-size: $menu-button-initial-size;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: .5em 0;
-
-  // previously .section-inner, but .header-wrapper was the only real application:
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px;
-  @include width-adjustment;
-
-  .site-branding {
-    display: inline-block;
-    margin-right: 0.1em;
-  }
-
-  .site-branding a {
-    color: $text-emphasis;
-
-    text-decoration: none;
-    border: none;
-    transition-property: color;
-    transition-duration: .4s;
-    transition-timing-function: ease-out;
-
-    &:hover {
-        color: $theme;
-    }
-  }
-
-  .site-nav {
-    display: flex;
-    align-items: center;
-
-    .header-btn {
-        margin-left: $menu-initial-spacing;
-        cursor: pointer;
-        border: none;
-        background: none;
-        padding: 0;
-        height: 24px;
-
-        svg.nav-btn {
-            width: 1em;
-            height: 1em;
-        }
-
-        &:hover {
-            color: $theme;
-        }
-
-        a {
-            margin: 0;
-        }
-    }
-  }
-}
-
-#menu-toggle {
-  display: none;
-}
-
-// NOTE: the + selector is the key, since it allows selecting an element
-// conditionally relative to another:
-#menu-toggle:checked + #menu {
-  display: block;
-}
-
-#menu {
-  display: none;
-  -webkit-transition: all 0.3s ease;
-  font-size: $menu-item-initial-size;
-  position: fixed;
-  top: 4.8em;
-  right: 1.5em;
-  padding: .6em 1.8em;
-  z-index: 1;
-  box-sizing: border-box;
-  box-shadow: 0em 0em 1em 1em $background;
-  background-color: $background;
-  border: 2px solid $text;
-  border-radius: 4px;
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    line-height: 2em;
-
-    li {
-        text-align: right;
-    }
-    li + li {
-        margin-top: 0.2em;
-        padding-top: 0.2em;
-        border-top: 1px dashed $text;
-    }
-  }
-}
-
-#site-footer {
-  text-align: center;
-  font-size: .9em;
-  margin-bottom: 96px;
-  margin-top: 64px;
-
-  p {
-    @include dimmed;
-    margin: 0;
-  }
-}
-
-#footer-logo-wrapper {
-    margin-top: 1em;
-}
-
-img#footer-logo {
-    width: 15%;
-}
-
-////////////////////////////////////////
-/// home
-////////////////////////////////////////
-
-// NOTE: column wrapper for #home-center and #home-footer
-// and the 404 elements
-#center-flex {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  font-size: 1.2rem;
-
-  // NOTE: the & here conditionally selects the element with both the parent and this class
-  // this does not transpile to a normal nested expression. essentially an if clause
-  &.error-404 {
-    flex-direction: row;
-    line-height: normal;
-  }
-}
-
-#home-center {
-    background: $background;
-    padding: 1rem;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: center;
-
-    #home-title {
-        margin: 0;
-        text-align: center;
-        @include theme-glow;
-    }
-
-    #home-subtitle {
-        margin-top: 0;
-        margin-bottom: 1.5em;
-        text-align: center;
-        line-height: normal;
-        font-size: .7em;
-        // font-style: italic;
-        color: $theme;
-        opacity: .9;
-    }
-
-    #home-nav {
-        a {
-            font-size: $menu-item-initial-size;
-            display: block;
-            text-align: center;
-            margin-top: .5em;
-        }
-    }
-}
-
-#home-footer {
-  text-align: center;
-  font-size: .6em;
-  line-height: normal;
-  @include dimmed;
-
-  p {
-    margin-top: 0;
-  }
 }
 
 ////////////////////////////////////////
