@@ -860,7 +860,8 @@ p.img-404 {
 .feather {
   display: inline-block;
   vertical-align: -.125em;
-  width: 1rem;
+  // don't set width also, because 1rem width != 1rem height, depending on font I believe.
+  // let the width be determined by the svg canvas itself, most of which are square.
   height: 1rem;
 }
 
