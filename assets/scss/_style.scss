@@ -463,11 +463,12 @@ img#footer-logo {
 }
 
 ////////////////////////////////////////
-/// spotlight : center aligned content
+/// home
 ////////////////////////////////////////
 
-// NOTE: provides a column wrapper for #home-center and #home-footer
-#spotlight {
+// NOTE: column wrapper for #home-center and #home-footer
+// and the 404 elements
+#center-flex {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -476,50 +477,47 @@ img#footer-logo {
   margin: auto;
   font-size: 1.2rem;
 
+  // NOTE: the & here conditionally selects the element with both the parent and this class
+  // this does not transpile to a normal nested expression. essentially an if clause
   &.error-404 {
     flex-direction: row;
     line-height: normal;
   }
 }
 
-////////////////////////////////////////
-/// home
-////////////////////////////////////////
-
 #home-center {
-  background: $background;
-  padding: 1rem;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: center;
-}
+    background: $background;
+    padding: 1rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
 
-#home-title {
-  margin: 0;
-  text-align: center;
-  @include theme-glow;
-}
+    #home-title {
+        margin: 0;
+        text-align: center;
+        @include theme-glow;
+    }
 
-#home-subtitle {
-  margin-top: 0;
-  margin-bottom: 1.5em;
-  text-align: center;
-  line-height: normal;
-  font-size: .7em;
-  // font-style: italic;
-  color: $theme;
-  opacity: .9;
-}
+    #home-subtitle {
+        margin-top: 0;
+        margin-bottom: 1.5em;
+        text-align: center;
+        line-height: normal;
+        font-size: .7em;
+        // font-style: italic;
+        color: $theme;
+        opacity: .9;
+    }
 
-#home-nav {
-
-  a {
-    font-size: $menu-item-initial-size;
-    display: block;
-    text-align: center;
-    margin-top: .5em;
-  }
+    #home-nav {
+        a {
+            font-size: $menu-item-initial-size;
+            display: block;
+            text-align: center;
+            margin-top: .5em;
+        }
+    }
 }
 
 #home-footer {
@@ -965,7 +963,7 @@ html {
     margin-top: 6em;
   }
 
-  #spotlight {
+  #center-flex {
       font-size: 1.5rem;
   }
 
@@ -1044,7 +1042,7 @@ html {
 
 @media (max-width: 760px) {
 
-  #spotlight.error-404 {
+  #center-flex.error-404 {
     flex-direction: column;
     text-align: center;
 
