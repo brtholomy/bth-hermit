@@ -648,7 +648,7 @@ ul.posts-list {
 }
 
 ////////////////////////////////////////
-/// subscribe-form.html
+/// subscribe-form consult-form
 ////////////////////////////////////////
 
 form.subscription-form, form.consult-form {
@@ -678,10 +678,6 @@ form.subscription-form, form.consult-form {
     }
 }
 
-////////////////////////////////////////
-/// consult-form.html
-////////////////////////////////////////
-
 form.consult-form {
     input {
         margin: 1em 0;
@@ -695,6 +691,27 @@ form.consult-form {
         padding: 1rem 1rem;
         cursor: pointer;
     }
+}
+
+////////////////////////////////////////
+/// action-button
+////////////////////////////////////////
+
+div.action-button {
+    background: $theme;
+    max-width: 8rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 1px;
+
+    p {
+        text-align: center;
+        color: $background;
+    }
+}
+
+div.stripe {
+    max-width: 15em;
+    margin: -1em 0;
 }
 
 ////////////////////////////////////////
@@ -758,27 +775,6 @@ ul.oeuvre-list {
             @include animated-a-tag;
         }
     }
-}
-
-////////////////////////////////////////
-/// support
-////////////////////////////////////////
-
-div.action_button {
-    background: $theme;
-    max-width: 8rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: 1px;
-}
-
-div.action_button p {
-    text-align: center;
-    color: $background;
-}
-
-div.stripe {
-    max-width: 15em;
-    margin: -1em 0;
 }
 
 ////////////////////////////////////////
