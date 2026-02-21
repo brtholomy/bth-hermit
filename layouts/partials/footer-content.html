@@ -1,8 +1,6 @@
 <p>
 &#169; {{ now.Format "2006" }} <a href="{{ .Site.Params.copyrightlink | relURL }}">{{ .Site.Copyright }}</a>
 
-&#183;
-
 <a href="{{ "posts/index.xml" | absURL }}" target="_blank" title="rss">
   {{ partial "svg.html" (dict "type" "rss") }}
 </a>
