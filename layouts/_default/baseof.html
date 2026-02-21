@@ -12,7 +12,7 @@
         {{- else }}
         <meta name="description" content="{{ .Site.Params.Description | plainify }}">
         {{- end }}
-        {{- with .Site.Params.themeColor }}
+        {{- with .Site.Params.Theme.metaTagThemeColor }}
         <meta name="theme-color" content="{{.}}">
         <meta name="msapplication-TileColor" content="{{.}}">
         {{- end }}
@@ -24,7 +24,7 @@
         {{ end -}}
 
         {{ $opts := dict "transpiler" "dartsass"}}
-        {{ $light_theme := "scss/theme_blueboy.scss" }}
+        {{ $light_theme := printf "scss/theme_%s.scss" $.Site.Params.theme.light }}
         {{ $compiled_light_css := resources.Get $light_theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
         {{ $light_integrity := $compiled_light_css.Data.Integrity | safeHTMLAttr }}
 
@@ -32,11 +32,11 @@
         {{- if (isset .Params "theme") }}
           {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
         {{- else if (eq .Page.Kind "section")  }}
-          {{ $theme = "scss/theme_fuschsiaparty.scss" }}
+          {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.section }}
         {{- else if (eq .Page.Kind "home")  }}
-          {{ $theme = "scss/theme_redeye.scss" }}
+          {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.home }}
         {{ else -}}
-          {{ $theme = "scss/theme_redeye.scss" }}
+          {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.default }}
         {{ end -}}
 
         {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
