@@ -1,20 +1,12 @@
-// theme
-@import "colors.scss";
+@use "colors.scss";
 
-$theme: $orange;
-$background: $brown;
-$background-secondary: $coffee;
-$text: $gold;
-$text-emphasis: $gold-light;
-$text-secondary: $cream;
+@use "theme.scss" with (
+    $theme: colors.$orange,
+    $background: colors.$brown,
+    $background-secondary: colors.$coffee,
+    $text: colors.$gold,
+    $text-emphasis: colors.$gold-light,
+    $text-secondary: colors.$cream,
+);
 
-// shared settings
-@import "fonts.scss";
-@import "mixins.scss";
-
-// thirdparty
-@import "normalize.scss";
-@import "animate.scss";
-
-// main styles
-@import "style.scss"
+@use "style.scss"

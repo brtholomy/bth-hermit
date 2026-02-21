@@ -1,9 +1,20 @@
+// theme variables
+@use "theme.scss";
+
+// shared settings
+@use "fonts.scss";
+@use "mixins.scss";
+
+// thirdparty
+@use "normalize.scss";
+@use "animate.scss";
+
 ////////////////////////////////////////
 /// fundamentals
 ////////////////////////////////////////
 
 html {
-  background: $background;
+  background: theme.$background;
   font-size: 20px;
   line-height: 1.6;
   scroll-behavior: smooth;
@@ -14,8 +25,8 @@ button,
 input,
 select,
 textarea {
-  color: $text;
-  font-family: $fonts;
+  color: theme.$text;
+  font-family: fonts.$fonts;
   font-variant-ligatures: none;
 }
 
@@ -31,38 +42,38 @@ h2 {
 
 // within post headings:
 h3 {
-    color: $theme;
+    color: theme.$theme;
     font-weight: normal;
     margin: 2em 0 0 0;
 }
 
 // numbered section headings:
 h4 {
-    color: $theme;
-    @include dimmed;
+    color: theme.$theme;
+    @include mixins.dimmed;
     font-weight: normal;
-    border-bottom: 1px solid $theme;
+    border-bottom: 1px solid theme.$theme;
 }
 
 // alternate section headings, large, bordered, colored:
 h5 {
     font-size: 2em;
-    color: $theme;
+    color: theme.$theme;
     font-weight: normal;
-    border-bottom: 1px solid $theme;
+    border-bottom: 1px solid theme.$theme;
     margin: 2em 0 0 0;
 }
 
 // unnumbered sections, et al
 hr {
-  color: $theme;
-  @include dimmed;
+  color: theme.$theme;
+  @include mixins.dimmed;
   background: transparent;
   margin: 2em auto;
 }
 
 a {
-  color: $text;
+  color: theme.$text;
   text-decoration: none;
   border: none;
   transition-property: color;
@@ -74,7 +85,7 @@ a {
   backface-visibility: hidden;
 
   &:hover {
-    color: $theme;
+    color: theme.$theme;
   }
 }
 
@@ -93,13 +104,13 @@ table {
 
   th {
     font-weight: 700;
-    background-color: $background-secondary;
+    background-color: theme.$background-secondary;
     vertical-align: bottom;
   }
 }
 
 blockquote {
-  border-left: .25em $theme solid;
+  border-left: .25em theme.$theme solid;
   margin: 1em 0em;
   padding-left: 1em;
 
@@ -116,7 +127,7 @@ blockquote {
 pre,
 code,
 pre tt {
-  font-family: $code-fonts;
+  font-family: fonts.$code-fonts;
 }
 
 pre {
@@ -126,8 +137,8 @@ pre {
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
-  color: $text-secondary;
-  background: $background-secondary;
+  color: theme.$text-secondary;
+  background: theme.$background-secondary;
   border-radius: 4px;
   // -webkit-overflow-scrolling: touch;
 
@@ -138,8 +149,8 @@ pre {
 }
 
 code {
-  color: $text-secondary;
-  background: $background-secondary;
+  color: theme.$text-secondary;
+  background: theme.$background-secondary;
   border-radius: 3px;
   padding: 0 3px;
   margin: 0 4px;
@@ -171,7 +182,7 @@ code {
 }
 
 #home-center {
-    background: $background;
+    background: theme.$background;
     padding: 1rem;
     display: flex;
     flex-grow: 1;
@@ -181,7 +192,7 @@ code {
     #home-title {
         margin: 0;
         text-align: center;
-        @include theme-glow;
+        @include mixins.theme-glow;
     }
 
     #home-subtitle {
@@ -191,13 +202,13 @@ code {
         line-height: normal;
         font-size: .7em;
         // font-style: italic;
-        color: $theme;
+        color: theme.$theme;
         opacity: .9;
     }
 
     #home-nav {
         a {
-            font-size: $menu-item-initial-size;
+            font-size: fonts.$menu-item-initial-size;
             display: block;
             text-align: center;
             margin-top: .5em;
@@ -209,7 +220,7 @@ code {
   text-align: center;
   font-size: .6em;
   line-height: normal;
-  @include dimmed;
+  @include mixins.dimmed;
 
   p {
     margin-top: 0;
@@ -226,13 +237,13 @@ code {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: 0px 10px 10px $background;
-  background-color: $background-secondary;
+  box-shadow: 0px 10px 10px theme.$background;
+  background-color: theme.$background-secondary;
   animation-duration: .3s;
 }
 
 .header-wrapper {
-  font-size: $menu-button-initial-size;
+  font-size: fonts.$menu-button-initial-size;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -242,7 +253,7 @@ code {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
-  @include width-adjustment;
+  @include mixins.width-adjustment;
 
   .site-branding {
     display: inline-block;
@@ -250,7 +261,7 @@ code {
   }
 
   .site-branding a {
-    color: $text-emphasis;
+    color: theme.$text-emphasis;
 
     text-decoration: none;
     border: none;
@@ -259,7 +270,7 @@ code {
     transition-timing-function: ease-out;
 
     &:hover {
-        color: $theme;
+        color: theme.$theme;
     }
   }
 
@@ -268,7 +279,7 @@ code {
     align-items: center;
 
     .header-btn {
-        margin-left: $menu-initial-spacing;
+        margin-left: fonts.$menu-initial-spacing;
         cursor: pointer;
         border: none;
         background: none;
@@ -281,7 +292,7 @@ code {
         }
 
         &:hover {
-            color: $theme;
+            color: theme.$theme;
         }
 
         a {
@@ -304,16 +315,16 @@ code {
 #menu {
   display: none;
   -webkit-transition: all 0.3s ease;
-  font-size: $menu-item-initial-size;
+  font-size: fonts.$menu-item-initial-size;
   position: fixed;
   top: 4.8em;
   right: 1.5em;
   padding: .6em 1.8em;
   z-index: 1;
   box-sizing: border-box;
-  box-shadow: 0em 0em 1em 1em $background;
-  background-color: $background;
-  border: 2px solid $text;
+  box-shadow: 0em 0em 1em 1em theme.$background;
+  background-color: theme.$background;
+  border: 2px solid theme.$text;
   border-radius: 4px;
 
   ul {
@@ -328,7 +339,7 @@ code {
     li + li {
         margin-top: 0.2em;
         padding-top: 0.2em;
-        border-top: 1px dashed $text;
+        border-top: 1px dashed theme.$text;
     }
   }
 }
@@ -340,7 +351,7 @@ code {
   margin-top: 64px;
 
   p {
-    @include dimmed;
+    @include mixins.dimmed;
     margin: 0;
   }
 }
@@ -367,7 +378,7 @@ img#footer-logo {
   margin-right: auto;
   margin-bottom: 0em;
   // NOTE: this is what keeps it off the edge:
-  @include width-adjustment;
+  @include mixins.width-adjustment;
 }
 
 ////////////////////////////////////////
@@ -383,7 +394,7 @@ header.post-header {
   }
 
   h2 {
-      @include dimmed;
+      @include mixins.dimmed;
       margin-top: -.5em;
   }
 
@@ -397,14 +408,14 @@ header.post-header {
 .content {
   // TODO: font-size is way too scattered. should be abstracted out and made clearer.
   // small size for mobile screens, turned up with media queries
-  font-size: $content-initial-size;
+  font-size: fonts.$content-initial-size;
   line-height: 2.2em;
 
-  @include animated-a-tag;
+  @include mixins.animated-a-tag;
 
   em {
       font-style: italic;
-      color: $text-emphasis;
+      color: theme.$text-emphasis;
   }
 
   figure {
@@ -416,7 +427,7 @@ header.post-header {
     p {
       font-size: .8em;
       font-style: italic;
-      @include dimmed;
+      @include mixins.dimmed;
     }
   }
 
@@ -467,11 +478,11 @@ a.footnote-ref {
   text-decoration: none;
   padding: 2px;
   border-radius: 2px;
-  background-color: $background-secondary;
+  background-color: theme.$background-secondary;
 
   &:hover{
     box-shadow: none;
-    background-color: $theme;
+    background-color: theme.$theme;
     transition-property: background-color;
   }
 }
@@ -483,7 +494,7 @@ a.footnote-ref {
     line-height: normal;
 
     // solid card:
-    border: 1px solid $text;
+    border: 1px solid theme.$text;
 
     // gap between elements:
     display: flex;
@@ -491,23 +502,23 @@ a.footnote-ref {
     gap: 1em;
 
     a:hover {
-        border-bottom: 1px solid $theme;
+        border-bottom: 1px solid theme.$theme;
     }
 
     #date, #place {
-        @include dimmed;
+        @include mixins.dimmed;
     }
 
     #signature {
         a {
-            color: $theme;
+            color: theme.$theme;
             text-decoration: none;
             border: none;
-            @include theme-glow;
+            @include mixins.theme-glow;
 
             &:hover {
-                color: $text-emphasis;
-                text-shadow: 0 0 2px $text-emphasis;
+                color: theme.$text-emphasis;
+                text-shadow: 0 0 2px theme.$text-emphasis;
             }
         }
     }
@@ -536,7 +547,7 @@ a.footnote-ref {
 ////////////////////////////////////////
 
 .list-heading {
-    @include dimmed;
+    @include mixins.dimmed;
     font-weight: normal;
 }
 
@@ -565,7 +576,7 @@ ul.posts-list {
 
         .post-tag {
             // create the circle:
-            background-color: $theme;
+            background-color: theme.$theme;
             border-radius: 2em;
 
             display: flex;
@@ -575,7 +586,7 @@ ul.posts-list {
             justify-content: center;
 
             p#post-tag {
-                color: $text;
+                color: theme.$text;
                 font-size: 2em;
                 margin: 0em;
             }
@@ -593,7 +604,7 @@ ul.posts-list {
             }
             .post-subtitle {
                 font-size: 0.9em;
-                @include dimmed;
+                @include mixins.dimmed;
             }
         }
     }
@@ -611,7 +622,7 @@ ul.posts-list {
         }
 
         .featured-tag {
-            background-color: $theme;
+            background-color: theme.$theme;
             width: 50%;
             align-self: center;
             display: flex;
@@ -621,7 +632,7 @@ ul.posts-list {
             justify-content: center;
 
             p#featured-tag {
-                color: $text;
+                color: theme.$text;
                 font-size: 6em;
                 margin: 0em;
             }
@@ -639,7 +650,7 @@ ul.posts-list {
             }
             .featured-post-subtitle {
                 font-size: 1em;
-                @include dimmed;
+                @include mixins.dimmed;
             }
         }
     }
@@ -652,25 +663,25 @@ ul.posts-list {
 form.subscription-form, form.consult-form {
 
     input {
-        background-color: $background;
+        background-color: theme.$background;
         width: 50%;
         padding: 0.5em 0.5em;
         margin: 1em 0;
-        border: 2px solid $text;
+        border: 2px solid theme.$text;
         border-radius: 4px;
     }
 
     input:focus {
         outline: none;
-        border-color: $theme;
+        border-color: theme.$theme;
     }
 
     // TODO: unite with action-button
     button {
-        color: $background;
-        background-color: $theme;
+        color: theme.$background;
+        background-color: theme.$theme;
         padding: 0.5em 0.5em;
-        border: 2px solid $theme;
+        border: 2px solid theme.$theme;
         border-radius: 1px;
         cursor: pointer;
     }
@@ -696,14 +707,14 @@ form.consult-form {
 ////////////////////////////////////////
 
 div.action-button {
-    background: $theme;
+    background: theme.$theme;
     max-width: 8rem;
     padding: 0.1rem 0.5rem;
     border-radius: 1px;
 
     p {
         text-align: center;
-        color: $background;
+        color: theme.$background;
     }
 }
 
@@ -749,11 +760,11 @@ ul.oeuvre-list {
                     padding: 0;
                     font-weight: normal;
                     font-size: 1.3em;
-                    @include animated-a-tag;
+                    @include mixins.animated-a-tag;
                 }
 
                 .oeuvre-year {
-                    @include dimmed;
+                    @include mixins.dimmed;
                 }
 
             }
@@ -770,7 +781,7 @@ ul.oeuvre-list {
         }
         .oeuvre-description {
             margin: 0em 1em 0em 0em;
-            @include animated-a-tag;
+            @include mixins.animated-a-tag;
         }
     }
 }
@@ -806,7 +817,7 @@ p.img-404 {
 
     a {
       display: inline-block;
-      border: 2px solid $text;
+      border: 2px solid theme.$text;
       border-radius: 5px;
       padding: 5px;
       transition-property: color, border-color;
@@ -816,7 +827,7 @@ p.img-404 {
       }
 
       &:hover {
-        border-color: $theme;
+        border-color: theme.$theme;
       }
 
       svg {
@@ -842,7 +853,7 @@ p.img-404 {
 // reasonably over the whole div.
 .heading-wrapper:hover a.heading-anchor{
     display: inline;
-    color: $theme;
+    color: theme.$theme;
     box-shadow: none;
 }
 
@@ -869,7 +880,7 @@ figure.audio {
     audio {
         width: 100%;
         border-radius: 5px;
-        background-color: $theme;
+        background-color: theme.$theme;
     }
 
 // Most of the styling you cannot control. But you can reach into the webkit
@@ -878,23 +889,23 @@ figure.audio {
 // https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css
 
     audio::-webkit-media-controls-panel {
-        background-color: $background-secondary;
+        background-color: theme.$background-secondary;
         border-radius: 0px;
     }
 
     audio::-webkit-media-controls-current-time-display, audio::-webkit-media-controls-time-remaining-display {
-        color: $text;
+        color: theme.$text;
         text-shadow: none;
         font-weight: bold;
     }
 
     audio::-webkit-media-controls-play-button {
-        background-color: $theme;
+        background-color: theme.$theme;
         border-radius: 10px;
     }
 
     figcaption {
-        @include dimmed;
+        @include mixins.dimmed;
         font-size: 0.9em;
     }
 }
@@ -907,20 +918,20 @@ figure.audio {
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: $background-secondary;
+  background: theme.$background-secondary;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $background;
+  background: theme.$background;
 
   &:hover {
-    background: $theme;
+    background: theme.$theme;
   }
 }
 
 // firefox
 html {
-    scrollbar-color: $background $background-secondary;
+    scrollbar-color: theme.$background theme.$background-secondary;
 }
 
 ////////////////////////////////////////
@@ -932,23 +943,23 @@ html {
 @media (min-width: 360px) {
 
     .header-wrapper {
-        font-size: $menu-button-360-size;
+        font-size: fonts.$menu-button-360-size;
     }
     #menu {
-        font-size: $menu-item-360-size;
+        font-size: fonts.$menu-item-360-size;
     }
 }
 
 @media (min-width: 410px) {
 
     .content {
-        font-size: $content-410-size;
+        font-size: fonts.$content-410-size;
     }
     .header-wrapper {
-        font-size: $menu-button-410-size;
+        font-size: fonts.$menu-button-410-size;
     }
     #menu {
-        font-size: $menu-item-410-size;
+        font-size: fonts.$menu-item-410-size;
     }
 }
 
@@ -956,7 +967,7 @@ html {
 @media (min-width: 800px) {
 
   .content {
-      font-size: $content-800-size;
+      font-size: fonts.$content-800-size;
   }
 
   .main-margin-top {
@@ -984,11 +995,11 @@ html {
   }
 
   .header-wrapper {
-      font-size: $menu-button-1280-size;
+      font-size: fonts.$menu-button-1280-size;
   }
 
   #menu {
-      font-size: $menu-item-1280-size;
+      font-size: fonts.$menu-item-1280-size;
   }
 
   figure.left {

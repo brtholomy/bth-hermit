@@ -1,12 +1,12 @@
-@import "colors.scss";
+@use "theme.scss";
 
 @keyframes color-theme-glow {
         0% {
-                color: $text;
+                color: theme.$text;
         }
         100% {
-                color: $theme;
-                text-shadow: 0 1px 5px $theme;
+                color: theme.$theme;
+                text-shadow: 0 1px 5px theme.$theme;
         }
 }
 
@@ -26,13 +26,13 @@
   a {
     word-wrap: break-word;
     border: none;
-    box-shadow: inset 0 -4px 0 $theme;
+    box-shadow: inset 0 -4px 0 theme.$theme;
     transition-property: box-shadow;
     transition-duration: .1s;
 
     &:hover {
-      box-shadow: inset 0 -1em 0 $theme;
-      color: $background;
+      box-shadow: inset 0 -1em 0 theme.$theme;
+      color: theme.$background;
     }
   }
 }

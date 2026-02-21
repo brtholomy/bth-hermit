@@ -1,20 +1,12 @@
-// theme
-@import "colors.scss";
+@use "colors.scss";
 
-$theme: $green;
-$background: $bluegreen;
-$background-secondary: $bluegreen-shade;
-$text: $green-light;
-$text-emphasis: $green-light-light;
-$text-secondary: $cream;
+@use "theme.scss" with (
+    $theme: colors.$green,
+    $background: colors.$bluegreen,
+    $background-secondary: colors.$bluegreen-shade,
+    $text: colors.$green-light,
+    $text-emphasis: colors.$green-light-light,
+    $text-secondary: colors.$cream,
+);
 
-// shared settings
-@import "fonts.scss";
-@import "mixins.scss";
-
-// thirdparty
-@import "normalize.scss";
-@import "animate.scss";
-
-// main styles
-@import "style.scss"
+@use "style.scss"

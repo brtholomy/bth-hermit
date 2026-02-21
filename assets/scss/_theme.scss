@@ -1,0 +1,20 @@
+@use "colors.scss";
+
+// theme variables referenced in _style.scss and elsewhere.
+//
+// to override, import while changing defaults:
+// @use "theme.scss" with (
+//     $theme: colors.$fuschia,
+// );
+//
+// then load the modules which reference these.
+
+// NOTE: set redeye to default
+// NOTE: needs !default keyword to allow overriding:
+// https://sass-lang.com/documentation/at-rules/use/#configuration
+$theme: colors.$redeye-red !default;
+$background: colors.$redeye-dark-red !default;
+$background-secondary: colors.$redeye-darker-red !default;
+$text: colors.$redeye-yellow !default;
+$text-emphasis: colors.$redeye-yellow !default;
+$text-secondary: colors.$redeye-yellow !default;

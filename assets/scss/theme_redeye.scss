@@ -1,20 +1,2 @@
-// theme
-@import "colors.scss";
-
-$theme: $redeye-red;
-$background: $redeye-dark-red;
-$background-secondary: $redeye-darker-red;
-$text: $redeye-yellow;
-$text-emphasis: $redeye-yellow;
-$text-secondary: $redeye-yellow;
-
-// shared settings
-@import "fonts.scss";
-@import "mixins.scss";
-
-// thirdparty
-@import "normalize.scss";
-@import "animate.scss";
-
-// main styles
-@import "style.scss"
+// redeye is default
+@use "style.scss"

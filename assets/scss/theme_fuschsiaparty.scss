@@ -1,20 +1,12 @@
-// theme
-@import "colors.scss";
+@use "colors.scss";
 
-$theme: $fuschia;
-$background: $fuschia-dark;
-$background-secondary: $fuschia-dark-shade;
-$text: $cream;
-$text-emphasis: $fuschia-light;
-$text-secondary: $fuschia-light-light;
+@use "theme.scss" with (
+    $theme: colors.$fuschia,
+    $background: colors.$fuschia-dark,
+    $background-secondary: colors.$fuschia-dark-shade,
+    $text: colors.$cream,
+    $text-emphasis: colors.$fuschia-light,
+    $text-secondary: colors.$fuschia-light-light,
+);
 
-// shared settings
-@import "fonts.scss";
-@import "mixins.scss";
-
-// thirdparty
-@import "normalize.scss";
-@import "animate.scss";
-
-// main styles
-@import "style.scss"
+@use "style.scss";

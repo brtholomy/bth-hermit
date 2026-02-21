@@ -1,20 +1,12 @@
-// theme
-@import "colors.scss";
+@use "colors.scss";
 
-$theme: $blue;
-$background: $grey-light;
-$background-secondary: $grey;
-$text: $black;
-$text-emphasis: $blackblue;
-$text-secondary: $blackblue;
+@use "theme.scss" with (
+    $theme: colors.$blue,
+    $background: colors.$grey-light,
+    $background-secondary: colors.$grey,
+    $text: colors.$black,
+    $text-emphasis: colors.$blackblue,
+    $text-secondary: colors.$blackblue,
+);
 
-// shared settings
-@import "fonts.scss";
-@import "mixins.scss";
-
-// thirdparty
-@import "normalize.scss";
-@import "animate.scss";
-
-// main styles
-@import "style.scss"
+@use "style.scss";
