@@ -37,7 +37,9 @@
         {{ else -}}
           {{ $theme = "scss/theme_redeye.scss" }}
         {{ end -}}
-        {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
+
+        {{ $opts := dict "transpiler" "dartsass"}}
+        {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
         <link id="theme-link"
               rel="stylesheet"
