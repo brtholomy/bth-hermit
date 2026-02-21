@@ -1,0 +1,38 @@
+<div class="post-info">
+
+  <div id="signature">
+    <a href="{{ .Site.Params.Author.url | relURL }}">
+      {{- .Site.Params.Author.name -}}
+    </a>
+  </div>
+
+  <div id="date">
+    {{ dateFormat .Site.Params.dateformNum .Date }}
+  </div>
+
+  <div id="place">
+    {{- partial "svg.html" (dict "type" "place") -}}
+    {{- with $.Param "place" -}}
+    {{- . -}}
+    {{- else -}}
+    {{- .Site.Params.defaultPlace -}}
+    {{- end -}}
+  </div>
+
+  <!-- tags -->
+  {{- with .Params.tags }}
+  <div id="tags">
+    {{ partial "svg.html" (dict "type" "tag") -}}
+    {{- range . -}}
+    <span class="tag"><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{.}}</a></span>&#32;
+    {{- end -}}
+  </div>
+  {{- end }}
+
+  <!-- subscribe -->
+  <div id="subscribe">
+  {{- partial "action-button.html" (dict "href" "/subscribe" "text"
+  (or .Params.subscribeButton .Site.Params.defaultSubscribeButton )) -}}
+  </div>
+
+</div>

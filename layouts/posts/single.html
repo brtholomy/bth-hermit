@@ -35,39 +35,7 @@
 
                   </div>
 
-                  <footer class="post-info">
-
-                    <div class="signature">
-                      <p><a href="{{ .Site.Params.Author.url | relURL }}">
-                          {{- .Site.Params.Author.name -}}</a></p>
-                    </div>
-
-                    <p>{{ dateFormat .Site.Params.dateformNum .Date }}</p>
-
-                    <!-- place -->
-                    <p>
-                      {{- partial "svg.html" (dict "type" "place") -}}
-                      {{- with $.Param "place" -}}
-                      {{- . -}}
-                      {{- else -}}
-                      {{- .Site.Params.defaultPlace -}}
-                      {{- end -}}
-                    </p>
-
-                    <!-- tags -->
-                    {{- with .Params.tags }}
-                    <p>
-                      {{ partial "svg.html" (dict "type" "tag") -}}
-                      {{- range . -}}
-                      <span class="tag"><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{.}}</a></span>&#32;
-                      {{- end -}}
-                    </p>
-                    {{- end }}
-
-                  </footer>
-
-                    {{- partial "action-button.html" (dict "href" "/subscribe" "text"
-                    (or .Params.subscribeButton .Site.Params.defaultSubscribeButton )) -}}
+                  {{- partial "post-info.html" . -}}
 
                   {{- partial "related-posts.html" . -}}
 

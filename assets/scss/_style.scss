@@ -274,17 +274,29 @@ a.footnote-ref {
   }
 }
 
-footer.post-info {
-    margin-top: 4rem;
-    font-size: .8rem;
-    @include dimmed;
+.post-info {
+    margin: 3rem 0em;
+    padding: 1rem;
+    font-size: .9rem;
     line-height: normal;
-    // single line on left:
-    padding-left: 1rem;
-    border-left: 1px solid $text;
 
-    // included in footer
-    .signature {
+    // solid card:
+    border: 1px solid $text;
+
+    // gap between elements:
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    a:hover {
+        border-bottom: 1px solid $theme;
+    }
+
+    #date, #place {
+        @include dimmed;
+    }
+
+    #signature {
         a {
             color: $theme;
             text-decoration: none;
@@ -296,14 +308,6 @@ footer.post-info {
                 text-shadow: 0 0 2px $text-emphasis;
             }
         }
-    }
-
-    p {
-        margin: .8em 0;
-    }
-
-    a:hover {
-        border-bottom: 1px solid $theme;
     }
 
     svg {
@@ -322,13 +326,6 @@ footer.post-info {
 .related-posts {
     margin-top: 3rem;
     font-size: 1rem;
-
-    hr {
-        color: $text;
-        // @include dimmed is already applied to hr globally:
-        // we want a little more:
-        opacity: .2;
-    }
     // NOTE: all other styling is controlled by .posts-list and children
 }
 
@@ -555,6 +552,8 @@ ul.posts-list {
     list-style: none;
 }
 
+// NOTE: much of this explicit unique naming is unnecessary.
+// the point of scss nesting is that it generates highly specific rulesets.
 .post-item {
     padding: 1em 0em;
 
@@ -672,6 +671,7 @@ form.subscription-form, form.consult-form {
         border-color: $theme;
     }
 
+    // TODO: unite with action-button
     button {
         color: $background;
         background-color: $theme;
@@ -771,7 +771,6 @@ ul.oeuvre-list {
 div.action_button {
     background: $theme;
     max-width: 8rem;
-    margin: 2em 0em;
     padding: 0.1rem 0.5rem;
     border-radius: 1px;
 }
@@ -783,7 +782,7 @@ div.action_button p {
 
 div.stripe {
     max-width: 15em;
-    margin: -2em 0;
+    margin: -1em 0;
 }
 
 ////////////////////////////////////////
@@ -865,8 +864,8 @@ p.img-404 {
 .feather {
   display: inline-block;
   vertical-align: -.125em;
-  width: 1em;
-  height: 1em;
+  width: 1rem;
+  height: 1rem;
 }
 
 ////////////////////////////////////////
