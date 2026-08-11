@@ -47,7 +47,14 @@
               integrity="{{- $set_integrity -}}"
               crossorigin="anonymous"
               >
-
+        <link id="light-theme-link"
+              disabled=true
+              rel="stylesheet"
+              href="{{ $compiled_light_css.Permalink }}"
+              integrity="{{- $light_integrity -}}"
+              crossorigin="anonymous"
+              >
+        {{- partial "theme-fetch.html" . }}
         {{- block "head" . -}}{{- end }}
 </head>
 
@@ -59,13 +66,6 @@
         {{ $main := resources.Get "js/main.js" -}}
         {{ $script := $main | minify | fingerprint -}}
         <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous"></script>
-        <link id="light-theme-link"
-              disabled=true
-              rel="stylesheet"
-              href="{{ $compiled_light_css.Permalink }}"
-              integrity="{{- $light_integrity -}}"
-              crossorigin="anonymous"
-              >
 </body>
 
 </html>

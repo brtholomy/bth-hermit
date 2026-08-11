@@ -1,0 +1,19 @@
+<!-- fetches 'theme' from localStorage and flips the <link disabled> boolean -->
+<!-- NOTE: inline script to block rendering of body, which prevents theme flash -->
+<!-- WARN: must be placed after both <link> tags to change their state -->
+<script>
+  // immediately evaluated function expression for lexically scoped vars:
+  (function() {
+      var theme = localStorage.getItem('theme');
+
+      if (theme === 'dark') {
+          document.getElementById('light-theme-link').disabled = true;
+      } else if (theme === 'light') {
+          document.getElementById('light-theme-link').disabled = false;
+      } else {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.getElementById('light-theme-link').disabled = true;
+          }
+      }
+  })();
+</script>
