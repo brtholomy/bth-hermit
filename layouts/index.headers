@@ -1,8 +1,7 @@
 {{- $themeFetch := partial "theme-fetch.html" -}}
 {{/* convert to "resource" in order to run fingerprint: https://gohugo.io/functions/resources/fingerprint/ */}}
-{{ $themeFetchResource := resources.FromString "tmp/tmp.js" $themeFetch }}
-{{ $themeFetchPrint := $themeFetchResource | fingerprint "sha256" }}
+{{ $themeFetchResource := resources.FromString "tmp/tmp.js" $themeFetch | fingerprint "sha256" }}
 {{ $themeFetchHash := $themeFetchResource.Data.Integrity }}
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-{{ $themeFetchHash }}'; form-action 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' '{{ $themeFetchHash }}'; form-action 'self';
