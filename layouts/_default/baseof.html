@@ -23,11 +23,6 @@
                 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
         {{ end -}}
 
-        {{ $opts := dict "transpiler" "dartsass"}}
-        {{ $light_theme := printf "scss/theme_%s.scss" $.Site.Params.theme.light }}
-        {{ $compiled_light_css := resources.Get $light_theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
-        {{ $light_integrity := $compiled_light_css.Data.Integrity | safeHTMLAttr }}
-
         {{- $theme := "" -}}
         {{- if (isset .Params "theme") }}
           {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
@@ -39,11 +34,16 @@
           {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.default }}
         {{ end -}}
 
+        {{ $opts := dict "transpiler" "dartsass"}}
         {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
-        <link rel="preload" href="{{ $compiled_css.Permalink }}" as="style">
-        <link rel="preload" href="{{ $compiled_light_css.Permalink }}" as="style">
-        {{- partial "theme-fetch.html" (dict "dark" $compiled_css "light" $compiled_light_css) }}
+        <link id="theme-link"
+              rel="stylesheet"
+              href="{{ $compiled_css.Permalink }}"
+              integrity="{{- $set_integrity -}}"
+              crossorigin="anonymous"
+              >
+        {{- partial "theme-fetch.html" }}
         {{- block "head" . -}}{{- end }}
 </head>
 
@@ -51,7 +51,8 @@
         {{ block "header" . -}}{{ end -}}
         {{ block "main" . -}}{{ end -}}
         {{ block "footer" . -}}{{ end }}
-        {{- partial "theme-toggle.html" (dict "dark" $compiled_css "light" $compiled_light_css) }}
+        {{ $themeToggle := resources.Get "js/theme-toggle.js" | minify | fingerprint }}
+        <script src="{{ $themeToggle.Permalink }}" {{ printf "integrity=%q" $themeToggle.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous"></script>
 </body>
 
 </html>
