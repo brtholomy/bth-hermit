@@ -1,8 +1,6 @@
-<!-- fetches 'theme' from localStorage and sets .light on root-->
-
-<!-- NOTE: inline script to block rendering of body -->
-<!-- NOTE: must not include the <script> tags : CSP header SHA hash wants the content only. -->
-{{- return `(function() {
+// NOTE: inline script to block rendering of body
+// NOTE: must not include the <script> tags : CSP header SHA hash wants the content only.
+(function() {
       var theme = localStorage.getItem('theme');
       var root = document.documentElement;
       if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -12,5 +10,4 @@
       } else {
           root.classList.remove('light');
       }
-})();`
--}}
+})();
