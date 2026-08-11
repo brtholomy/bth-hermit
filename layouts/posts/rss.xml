@@ -8,7 +8,7 @@
                 {{ with .Site.Params.description }}
                 <description>{{.}}</description>{{end}}
                 <generator>Hugo -- gohugo.io</generator>
-                {{ with .Site.LanguageCode }}
+                {{ with .Site.Language.Name }}
                 <language>{{.}}</language>{{end}}
                 {{ with .Site.Params.Author.email }}
                 <managingEditor>{{.}}</managingEditor>{{end}}
