@@ -43,7 +43,7 @@
               integrity="{{- $set_integrity -}}"
               crossorigin="anonymous"
               >
-        {{- $themeFetch := resources.Get "js/theme-fetch.js" -}}
+        {{- $themeFetch := resources.Get "js/theme-fetch.js" | minify -}}
         <script>{{ $themeFetch.Content | safeJS }}</script>
         {{- block "head" . -}}{{- end }}
 </head>
