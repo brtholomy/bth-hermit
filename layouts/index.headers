@@ -1,0 +1,5 @@
+{{- $fetchContent := partial "theme-fetch.html" -}}
+{{- $fetchHash := crypto.SHA256 $fetchContent | encoding.Base64Encode -}}
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-{{ $fetchHash }}'; form-action 'self';

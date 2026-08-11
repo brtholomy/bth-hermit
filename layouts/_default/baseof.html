@@ -43,7 +43,8 @@
               integrity="{{- $set_integrity -}}"
               crossorigin="anonymous"
               >
-        {{- partial "theme-fetch.html" }}
+        {{ $themeFetch := partial "theme-fetch.html" . }}
+        <script>{{ $themeFetch | safeJS }}</script>
         {{- block "head" . -}}{{- end }}
 </head>
 
