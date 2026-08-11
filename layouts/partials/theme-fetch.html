@@ -1,19 +1,16 @@
-<!-- fetches 'theme' from localStorage and flips the <link disabled> boolean -->
-<!-- NOTE: inline script to block rendering of body, which prevents theme flash -->
-<!-- WARN: must be placed after both <link> tags to change their state -->
+<!-- fetches 'theme' from localStorage and loads <link  id="active-theme-link" rel="stylesheet" href="$theme"> -->
+
+<!-- NOTE: prevent theme flash because we only declare a stylesheet once, despite fetching them both in head -->
+<!-- NOTE: inline script to block rendering of body -->
 <script>
   // immediately evaluated function expression for lexically scoped vars:
   (function() {
       var theme = localStorage.getItem('theme');
-
-      if (theme === 'dark') {
-          document.getElementById('light-theme-link').disabled = true;
-      } else if (theme === 'light') {
-          document.getElementById('light-theme-link').disabled = false;
-      } else {
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              document.getElementById('light-theme-link').disabled = true;
-          }
-      }
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var activeHref = (theme === 'light' || (!theme && prefersLight))
+          ? '{{ .light.Permalink }}'
+          : '{{ .dark.Permalink }}';
+      // document.write blocks the HTML parser until the CSS is applied, preventing FOUC.
+      document.write('<link id="active-theme-link" rel="stylesheet" href="' + activeHref + '">');
   })();
 </script>

@@ -41,20 +41,9 @@
 
         {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
-        <link id="theme-link"
-              rel="stylesheet"
-              href="{{ $compiled_css.Permalink }}"
-              integrity="{{- $set_integrity -}}"
-              crossorigin="anonymous"
-              >
-        <link id="light-theme-link"
-              disabled=true
-              rel="stylesheet"
-              href="{{ $compiled_light_css.Permalink }}"
-              integrity="{{- $light_integrity -}}"
-              crossorigin="anonymous"
-              >
-        {{- partial "theme-fetch.html" . }}
+        <link rel="preload" href="{{ $compiled_css.Permalink }}" as="style">
+        <link rel="preload" href="{{ $compiled_light_css.Permalink }}" as="style">
+        {{- partial "theme-fetch.html" (dict "dark" $compiled_css "light" $compiled_light_css) }}
         {{- block "head" . -}}{{- end }}
 </head>
 
@@ -62,10 +51,7 @@
         {{ block "header" . -}}{{ end -}}
         {{ block "main" . -}}{{ end -}}
         {{ block "footer" . -}}{{ end }}
-
-        {{ $main := resources.Get "js/main.js" -}}
-        {{ $script := $main | minify | fingerprint -}}
-        <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }} crossorigin="anonymous"></script>
+        {{- partial "theme-toggle.html" (dict "dark" $compiled_css "light" $compiled_light_css) }}
 </body>
 
 </html>

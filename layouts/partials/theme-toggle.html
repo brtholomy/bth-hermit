@@ -1,0 +1,28 @@
+<!-- switches out the href of the already loaded <link> stylesheet. -->
+<!-- the point of this is to avoid theme flash. -->
+<!-- NOTE: replaces main.js because we need to inject the compiled_css.Permalink -->
+
+<!-- WARN: slightly bad practice. the previous main.js loading scheme used an integrity attribute and XSS stuff. -->
+<!-- but the alternative for injecting these vars would be to push them down into the DOM stack --
+  -- and load them again here via data-* attributes, which is overkill. --
+  -- it's just a static site and caching this much JS is stupid. -->
+<!-- TODO: Content Security Policy by computing the SHA hash. -->
+
+<script>
+(function() {
+    var lightUrl = "{{ .light.Permalink }}";
+    var darkUrl = "{{ .dark.Permalink }}";
+    var toggle = document.getElementById("theme-toggle-btn");
+    var link = document.getElementById("active-theme-link");
+
+    if (!toggle || !link) {
+        return;
+    }
+
+    toggle.addEventListener("click", function() {
+        var theme = localStorage.getItem("theme") === "light" ? "dark" : "light";
+        link.href = theme === "light" ? lightUrl : darkUrl;
+        localStorage.setItem("theme", theme);
+    });
+})();
+</script>
