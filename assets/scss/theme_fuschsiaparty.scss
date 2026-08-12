@@ -11,10 +11,10 @@
 
 @use "theme_light.scss" with (
     $theme: colors.$fuschia,
-    $background: colors.$fuschia-light-light,
-    $background-secondary: colors.$fuschia-light-bright,
+    $background: colors.$grey-light,
+    $background-secondary: colors.$grey,
     $text: colors.$black,
-    $text-emphasis: colors.$fuschia-dark,
+    $text-emphasis: colors.$black,
     $text-secondary: colors.$fuschia-dark-shade,
 );
 
