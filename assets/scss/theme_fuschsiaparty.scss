@@ -6,7 +6,16 @@
     $background-secondary: colors.$fuschia-dark-shade,
     $text: colors.$cream,
     $text-emphasis: colors.$fuschia-light,
-    $text-secondary: colors.$fuschia-light-light,
+    $text-secondary: colors.$fuschia-light-bright,
+);
+
+@use "theme_light.scss" with (
+    $theme: colors.$fuschia,
+    $background: colors.$fuschia-light-light,
+    $background-secondary: colors.$fuschia-light-bright,
+    $text: colors.$black,
+    $text-emphasis: colors.$fuschia-dark,
+    $text-secondary: colors.$fuschia-dark-shade,
 );
 
 @use "style.scss";
