@@ -1,0 +1,21 @@
+@use "colors.scss";
+
+@use "theme.scss" with (
+    $theme: colors.$fuchsia,
+    $background: colors.$fuchsia-dark,
+    $background-secondary: colors.$fuchsia-dark-shade,
+    $text: colors.$cream,
+    $text-emphasis: colors.$fuchsia-light,
+    $text-secondary: colors.$fuchsia-light-bright,
+);
+
+@use "theme_light.scss" with (
+    $theme: colors.$fuchsia,
+    $background: colors.$grey-light,
+    $background-secondary: colors.$grey,
+    $text: colors.$black,
+    $text-emphasis: colors.$black,
+    $text-secondary: colors.$fuchsia-dark-shade,
+);
+
+@use "style.scss";
