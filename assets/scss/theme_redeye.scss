@@ -1,2 +1,15 @@
+@use "colors.scss";
+
 // redeye is default
-@use "style.scss"
+@use "theme.scss";
+
+@use "theme_light.scss" with (
+    $theme: colors.$redeye-red,
+    $background: colors.$redeye-light-yellow,
+    $background-secondary: colors.$redeye-yellow,
+    $text: colors.$black,
+    $text-emphasis: colors.$black,
+    $text-secondary: colors.$redeye-dark-red,
+);
+
+@use "style.scss";
