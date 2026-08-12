@@ -9,4 +9,13 @@
     $text-secondary: colors.$cream,
 );
 
+@use "theme_light.scss" with (
+    $theme: colors.$blue,
+    $background: colors.$grey-light,
+    $background-secondary: colors.$grey,
+    $text: colors.$black,
+    $text-emphasis: colors.$black,
+    $text-secondary: colors.$blackblue,
+);
+
 @use "style.scss"

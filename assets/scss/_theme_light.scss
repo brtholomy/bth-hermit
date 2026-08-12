@@ -1,9 +1,9 @@
 @use "colors.scss";
 
-// blueboy
-$theme: colors.$blue !default;
-$background: colors.$grey-light !default;
-$background-secondary: colors.$grey !default;
+// redeye
+$theme: colors.$redeye-red !default;
+$background: colors.$redeye-light-yellow !default;
+$background-secondary: colors.$redeye-yellow !default;
 $text: colors.$black !default;
-$text-emphasis: colors.$blackblue !default;
-$text-secondary: colors.$blackblue !default;
+$text-emphasis: colors.$black !default;
+$text-secondary: colors.$redeye-dark-red !default;
