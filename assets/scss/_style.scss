@@ -1,6 +1,7 @@
 // theme variables
 @use "colors.scss";
 @use "theme.scss";
+@use "theme_light.scss";
 
 // shared settings
 @use "fonts.scss";
@@ -25,15 +26,14 @@
     --theme-text-secondary: #{theme.$text-secondary};
 }
 
-// TODO: hardcoded theme_blueboy.scss for now. how to import here?
-// there's even the possibility of setting a light theme per dark theme.
+// ../../assets/js/theme-toggle.js
 .light {
-    --theme-theme: #{colors.$blue};
-    --theme-background: #{colors.$grey-light};
-    --theme-background-secondary: #{colors.$grey};
-    --theme-text: #{colors.$black};
-    --theme-text-emphasis: #{colors.$blackblue};
-    --theme-text-secondary: #{colors.$blackblue};
+    --theme-theme: #{theme_light.$theme};
+    --theme-background: #{theme_light.$background};
+    --theme-background-secondary: #{theme_light.$background-secondary};
+    --theme-text: #{theme_light.$text};
+    --theme-text-emphasis: #{theme_light.$text-emphasis};
+    --theme-text-secondary: #{theme_light.$text-secondary};
 }
 
 html {

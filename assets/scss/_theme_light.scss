@@ -1,0 +1,9 @@
+@use "colors.scss";
+
+// blueboy
+$theme: colors.$blue !default;
+$background: colors.$grey-light !default;
+$background-secondary: colors.$grey !default;
+$text: colors.$black !default;
+$text-emphasis: colors.$blackblue !default;
+$text-secondary: colors.$blackblue !default;
