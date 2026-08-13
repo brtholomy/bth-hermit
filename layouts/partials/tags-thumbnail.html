@@ -1,6 +1,14 @@
 <div class="{{- .class -}}">
 <p id="{{- .class -}}">
 
+  <!-- provides a fallback thumbnail for /posts/
+
+  priority:
+  1. glyph param in frontmatter
+  2. first tag if matches the hardcoded list below
+  3. first letter of the title
+    -- -->
+
 {{- $title_letter := lower (substr $.context.Title 0 1) -}}
 
 {{- if .context.Params.glyph -}}
@@ -15,11 +23,15 @@
         ϕ
         {{- else if (eq . "exclusion") -}}
         北
-        {{- else if (eq . "superorganic") -}}
+        {{- else if (eq . "apesick") -}}
+        北
+        {{- else if (eq . "sot") -}}
         ䷣
         {{- else if (eq . "medicine") -}}
         ☤
-        {{- else if (eq . "word") -}}
+        {{- else if (eq . "healing") -}}
+        ☤
+        {{- else if (eq . "words") -}}
         文
         {{- else if (eq . "morality") -}}
         皿
