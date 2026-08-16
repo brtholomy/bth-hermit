@@ -1,0 +1,19 @@
+{
+  "title": {{ .Title | jsonify }},
+  "url": {{ .Permalink | jsonify }},
+{{ $content := .Content -}}
+{{- $content = partial "strip-heading-anchor.html" (dict "content" $content) -}}
+{{- $content = partial "absolute-links.html" (dict "context" . "content" $content) -}}
+  "content": {{ $content | jsonify }},
+  "description": {{ if .Params.Description -}}
+                            {{- .Params.Description | html | jsonify -}}
+                        {{- else if .Params.Summary -}}
+                            {{- .Params.Summary | html | jsonify -}}
+                        {{- end -}},
+{{- with .Params.images -}}
+{{- range first 1 . -}}
+{{- $image := resources.Get . }}
+  "image": {{ $image.Permalink | jsonify }}
+{{ end }}
+{{ end -}}
+}
