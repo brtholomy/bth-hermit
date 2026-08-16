@@ -3,9 +3,9 @@ NOTE: this duplicates rss.xml quite a bit. but it's much neater.
 NOTE: we're assembling the variables, creating a dict and running jsonify once
 so that trailing commas the nastiness of JSON is handled.
 */}}
-{{- $content := .Content -}}
-{{- $content = partial "strip-heading-anchor.html" (dict "content" $content) -}}
-{{- $content = partial "absolute-links.html" (dict "context" . "content" $content) -}}
+{{- $html := .Content -}}
+{{- $html = partial "strip-heading-anchor.html" (dict "content" $html) -}}
+{{- $html = partial "absolute-links.html" (dict "context" . "content" $html) -}}
 
 {{- $desc := "" -}}
 {{- if .Params.Description -}}
@@ -30,7 +30,8 @@ so that trailing commas the nastiness of JSON is handled.
 {{- dict
   "title" .Title
   "url" .Permalink
-  "content" $content
+  "html" $html
+  "plaintext" .RawContent
   "description" $desc
   "image" $imageURL
 | jsonify (dict "indent" "  ") -}}
