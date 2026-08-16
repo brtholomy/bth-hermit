@@ -1,19 +1,36 @@
-{
-  "title": {{ .Title | jsonify }},
-  "url": {{ .Permalink | jsonify }},
-{{ $content := .Content -}}
+{{/*
+NOTE: this duplicates rss.xml quite a bit. but it's much neater.
+NOTE: we're assembling the variables, creating a dict and running jsonify once
+so that trailing commas the nastiness of JSON is handled.
+*/}}
+{{- $content := .Content -}}
 {{- $content = partial "strip-heading-anchor.html" (dict "content" $content) -}}
 {{- $content = partial "absolute-links.html" (dict "context" . "content" $content) -}}
-  "content": {{ $content | jsonify }},
-  "description": {{ if .Params.Description -}}
-                            {{- .Params.Description | html | jsonify -}}
-                        {{- else if .Params.Summary -}}
-                            {{- .Params.Summary | html | jsonify -}}
-                        {{- end -}},
+
+{{- $desc := "" -}}
+{{- if .Params.Description -}}
+  {{- $desc = .Params.Description -}}
+{{- else if .Params.Summary -}}
+  {{- $desc = .Params.Summary -}}
+{{- else -}}
+  {{- $desc = .Summary | plainify -}}
+{{- end -}}
+
+{{- $imageURL := "" -}}
 {{- with .Params.images -}}
-{{- range first 1 . -}}
-{{- $image := resources.Get . }}
-  "image": {{ $image.Permalink | jsonify }}
-{{ end }}
-{{ end -}}
-}
+  {{- range first 1 . -}}
+    {{- with resources.Get . -}}
+      {{- $imageURL = .Permalink -}}
+    {{- else -}}
+      {{- $imageURL = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- dict
+  "title" .Title
+  "url" .Permalink
+  "content" $content
+  "description" $desc
+  "image" $imageURL
+| jsonify (dict "indent" "  ") -}}
