@@ -1,9 +1,17 @@
 {{ .Title }}
 {{ strings.Repeat (len .Title) "=" }}
+{{ with .Params.Summary }}
+{{ . }}
+{{ strings.Repeat (len .) "-" }}
+{{- end }}
 
 {{ .RawContent | htmlUnescape | safeHTML }}
 
 ---
+
+{{ .Site.Params.Author.name }}
+
+{{ dateFormat .Site.Params.dateformNum .Date }}
 
 {{ .Permalink }}
 
