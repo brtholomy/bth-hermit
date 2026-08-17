@@ -7,15 +7,6 @@ so that trailing commas the nastiness of JSON is handled.
 {{- $html = partial "strip-heading-anchor.html" (dict "content" $html) -}}
 {{- $html = partial "absolute-links.html" (dict "context" . "content" $html) -}}
 
-{{- $desc := "" -}}
-{{- if .Params.Description -}}
-  {{- $desc = .Params.Description -}}
-{{- else if .Params.Summary -}}
-  {{- $desc = .Params.Summary -}}
-{{- else -}}
-  {{- $desc = .Summary | plainify -}}
-{{- end -}}
-
 {{- $imageURL := "" -}}
 {{- with .Params.images -}}
   {{- range first 1 . -}}
@@ -59,7 +50,7 @@ so that trailing commas the nastiness of JSON is handled.
   "slug" .Slug
   "html" $html
   "plaintext" .RawContent
-  "description" $desc
+  "subtitle" .Params.Summary
   "image" $imageURL
   "colors" $themeColors
 | jsonify (dict "indent" "  ") -}}
