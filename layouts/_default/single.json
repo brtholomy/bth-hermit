@@ -30,6 +30,8 @@ so that trailing commas the nastiness of JSON is handled.
 {{- dict
   "title" .Title
   "url" .Permalink
+  "relativeUrl" .RelPermalink
+  "slug" .Slug
   "html" $html
   "plaintext" .RawContent
   "description" $desc
