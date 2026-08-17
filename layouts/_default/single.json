@@ -27,6 +27,16 @@ so that trailing commas the nastiness of JSON is handled.
   {{- end -}}
 {{- end -}}
 
+{{- $theme := "" -}}
+{{- if (isset .Params "theme") }}
+    {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
+{{ else -}}
+    {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.default }}
+{{ end -}}
+
+{{ $opts := dict "transpiler" "dartsass"}}
+{{ $css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts }}
+
 {{- dict
   "title" .Title
   "url" .Permalink
@@ -36,4 +46,5 @@ so that trailing commas the nastiness of JSON is handled.
   "plaintext" .RawContent
   "description" $desc
   "image" $imageURL
+  "css" $css.Content
 | jsonify (dict "indent" "  ") -}}
