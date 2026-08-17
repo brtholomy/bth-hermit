@@ -29,11 +29,14 @@ so that trailing commas the nastiness of JSON is handled.
 {{/* dump vars into a commented out JSON expression */}}
 {{ $extractor := printf `
 @use "%s";
-@use "scss/theme.scss" as t;
+@use "scss/theme.scss" as theme;
 /*! {
-  "theme": "#{t.$theme}",
-  "background": "#{t.$background}",
-  "text": "#{t.$text}"
+    "theme": "#{theme.$theme}",
+    "background": "#{theme.$background}",
+    "backgroundSecondary": "#{theme.$background-secondary}",
+    "text": "#{theme.$text}",
+    "textEmphasis": "#{theme.$text-emphasis}",
+    "textSecondary": "#{theme.$text-secondary}"
 } */
 ` $theme }}
 
