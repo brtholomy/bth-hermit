@@ -23,23 +23,23 @@
                 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
         {{ end -}}
 
-        {{- $theme := "" -}}
-        {{- if (isset .Params "theme") }}
-          {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
-        {{- else if (eq .Page.Kind "section")  }}
-          {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.section }}
-        {{- else if (eq .Page.Kind "home")  }}
-          {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.home }}
-        {{ else -}}
-          {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.default }}
-        {{ end -}}
+        {{- $theme := .Site.Params.theme.default -}}
+        {{- if .Params.theme -}}
+            {{- $theme = .Params.theme -}}
+        {{- else if eq .Page.Kind "section" -}}
+            {{- $theme = .Site.Params.theme.section -}}
+        {{- else if eq .Page.Kind "home" -}}
+            {{- $theme = .Site.Params.theme.home -}}
+        {{- end -}}
 
         {{/* NOTE : the reason for this is to be able to extract colors for index.json */}}
         {{/* load $theme and _style.scss in fake stitched together file: */}}
-        {{ $fake := printf `@use "%s"; @use "scss/style.scss";` $theme }}
+        {{ $fake := printf `@use "scss/theme_%s.scss"; @use "scss/style.scss";` $theme }}
+        {{/* NOTE : must be a unique name per theme because Hugo caches the string: */}}
+        {{ $fakeName := printf "style_%s.scss" $theme }}
         {{ $opts := dict "transpiler" "dartsass" }}
         {{/* NOTE: resources.FromString transforms the string into a resource, which can be transpiled. */}}
-        {{ $compiled_css := $fake | resources.FromString "style.scss" | toCSS $opts | minify | fingerprint }}
+        {{ $compiled_css := $fake | resources.FromString $fakeName | toCSS $opts | minify | fingerprint }}
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
         <link id="theme-link"
               rel="stylesheet"
