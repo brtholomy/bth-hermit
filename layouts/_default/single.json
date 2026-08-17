@@ -27,6 +27,7 @@ so that trailing commas the nastiness of JSON is handled.
   {{- end -}}
 {{- end -}}
 
+{{/* extract SCSS theme colors into json */}}
 {{- $theme := "" -}}
 {{- if (isset .Params "theme") }}
     {{ $theme = printf "scss/theme_%s.scss" $.Params.theme }}
@@ -34,8 +35,22 @@ so that trailing commas the nastiness of JSON is handled.
     {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.default }}
 {{ end -}}
 
-{{ $opts := dict "transpiler" "dartsass"}}
-{{ $css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts }}
+{{/* dump vars into a commented out JSON expression */}}
+{{ $extractor := printf `
+@use "%s";
+@use "scss/theme.scss" as t;
+/*! {
+  "theme": "#{t.$theme}",
+  "background": "#{t.$background}",
+  "text": "#{t.$text}"
+} */
+` $theme }}
+
+{{/* NOTE: resources.FromString transforms the string into a resource, which can be transpiled. */}}
+{{ $raw := $extractor | resources.FromString "extract.scss" | toCSS (dict "transpiler" "dartsass" "outputStyle" "expanded") }}
+{{/* TODO: dislike. But to translate from SCSS vars to JSON, regex will be somewhere. */}}
+{{ $jsonString := index (findRE `\{[^}]+\}` $raw.Content) 0 }}
+{{ $themeColors := $jsonString | transform.Unmarshal }}
 
 {{- dict
   "title" .Title
@@ -46,5 +61,5 @@ so that trailing commas the nastiness of JSON is handled.
   "plaintext" .RawContent
   "description" $desc
   "image" $imageURL
-  "css" $css.Content
+  "colors" $themeColors
 | jsonify (dict "indent" "  ") -}}

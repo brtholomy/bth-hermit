@@ -34,8 +34,12 @@
           {{ $theme = printf "scss/theme_%s.scss" $.Site.Params.theme.default }}
         {{ end -}}
 
-        {{ $opts := dict "transpiler" "dartsass"}}
-        {{ $compiled_css := resources.Get $theme | resources.ExecuteAsTemplate "css/style.css" . | toCSS $opts | minify | fingerprint -}}
+        {{/* NOTE : the reason for this is to be able to extract colors for index.json */}}
+        {{/* load $theme and _style.scss in fake stitched together file: */}}
+        {{ $fake := printf `@use "%s"; @use "scss/style.scss";` $theme }}
+        {{ $opts := dict "transpiler" "dartsass" }}
+        {{/* NOTE: resources.FromString transforms the string into a resource, which can be transpiled. */}}
+        {{ $compiled_css := $fake | resources.FromString "style.scss" | toCSS $opts | minify | fingerprint }}
         {{ $set_integrity := $compiled_css.Data.Integrity | safeHTMLAttr }}
         <link id="theme-link"
               rel="stylesheet"
