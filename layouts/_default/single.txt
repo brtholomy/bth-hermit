@@ -1,4 +1,10 @@
 {{ .Title }}
 {{ strings.Repeat (len .Title) "=" }}
 
-{{ .RawContent }}  <!-- Raw markdown -->
+{{ .RawContent | htmlUnescape | safeHTML }}
+
+---
+
+{{ .Permalink }}
+
+© {{ now.Format "2006" }} {{ .Site.Copyright }}
