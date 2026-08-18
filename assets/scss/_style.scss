@@ -380,10 +380,11 @@ code {
 
 #footer-logo-wrapper {
     margin-top: 1em;
-}
 
-img#footer-logo {
-    width: 15%;
+    img#footer-logo {
+        max-width: 100px;
+        height: auto;
+    }
 }
 
 ////////////////////////////////////////
