@@ -3,7 +3,15 @@
   class="subscription-form"
   name="subscription-form"
   action="https://submit-form.com/2MkzSk45G"
+  method="POST"
   >
+ <input
+    type="hidden"
+    name="_redirect"
+    value="https://www.bartholomy.ooo/subscribe/confirm"
+  />
+ <!-- NOTE: don't append form values to the redirect URL: -->
+ <input type="hidden" name="_append" value="false" />
   <input type="email" id="email" name="email" placeholder="you@foo.com" required />
   <button type="submit">subscribe</button>
 </form>
