@@ -1,6 +1,6 @@
 {{- $themeFetch := resources.Get "js/theme-fetch.js" | minify | fingerprint "sha256" -}}
 /*
-Content-Security-Policy: default-src 'self'; script-src 'self' '{{ $themeFetch.Data.Integrity }}'; style-src 'self'; frame-src 'self' https://www.youtube.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://submit-form.com/2MkzSk45G; upgrade-insecure-requests;
+Content-Security-Policy: default-src 'self'; script-src 'self' '{{ $themeFetch.Data.Integrity }}'; style-src 'self'; frame-src 'self' https://www.youtube.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://submit-form.com/2MkzSk45G https://submit-form.com/XvlzuT2Rs; upgrade-insecure-requests;
 X-Content-Type-Options: nosniff
 Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: camera=(), microphone=(), geolocation=()
